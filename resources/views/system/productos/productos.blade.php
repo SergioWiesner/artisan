@@ -7,9 +7,6 @@
                 <a class="nav-link active" href="#">Productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Agregar</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#">Propiedades</a>
             </li>
         </ul>

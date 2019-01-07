@@ -1,8 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 /** Configuracion inicial**/
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .logo {
     width: 100%;
 }
 
 .titulos {
     text-align: center;
+}
+
+a {
+    color: #f18220;
+}
+
+.maincontainer {
+    min-height: 80vh;
+}
+
+.opcs a {
+    padding: 1%;
+    color: #f18220;
+    text-decoration: none;
+}
+
+.footer {
+    with: 100%;
+}
+
+.footer p {
+    text-align: center;
+    color: rgba(0, 0, 0, .5);
 }
