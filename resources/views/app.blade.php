@@ -56,7 +56,7 @@
     @yield('page')
 </div>
 <section class="footer">
-    <p>Desarrollado por comunidad <a href="codwelt.com">codwelt.com</a> - artisan v0.0 2019</p>
+    <p>Desarrollado por comunidad <a href="https://codwelt.com" target="_blank">codwelt.com</a> - artisan v0.0 2019</p>
 </section>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

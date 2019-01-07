@@ -4,7 +4,8 @@
     <hr>
     <ul class="nav justify-content-left">
         <li class="nav-item">
-            <a class="nav-link active" href="#"><i class="fas fa-plus"></i> Agregar producto</a>
+            <a class="nav-link active" href="#!" data-toggle="modal" data-target=".bd-example-modal-lg"><i
+                    class="fas fa-plus"></i> Agregar producto</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-file-excel"></i> Descargar excel</a>
@@ -68,4 +69,59 @@
             </li>
         </ul>
     </nav>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="container-fluid containermodals">
+                    <h3 class="titulos">Agregar nuevo producto</h3>
+                    <hr>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">Nombre</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Valor</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Valor">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Stock</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Stock">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputState">Categoria</label>
+                                <select id="inputState" class="form-control">
+                                    <option selected></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputState">producto padre</label>
+                                <select id="inputState" class="form-control">
+                                    <option selected></option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputState">imagen del producto</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                                    <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleFormControlTextarea1">Descripción</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                          style="width:100%;"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn botonsubmit">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

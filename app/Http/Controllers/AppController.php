@@ -15,6 +15,11 @@ class AppController extends Controller
 
     public function propiedades()
     {
+        return view('system.productos.propiedades.listar');
+    }
+
+    public function productos()
+    {
         return view('system.productos.listar');
     }
 }

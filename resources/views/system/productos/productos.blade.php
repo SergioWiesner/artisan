@@ -4,10 +4,10 @@
     <section>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Productos</a>
+                <a class="nav-link active" href="{{route('productos')}}">Productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Propiedades</a>
+                <a class="nav-link" href="{{route('propiedades')}}">Propiedades</a>
             </li>
         </ul>
     </section>

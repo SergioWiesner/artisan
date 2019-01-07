@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'AppController@home');
-Route::get('propiedades/', 'AppController@propiedades')->name('productos');
+Route::get('productos/', 'AppController@productos')->name('productos');
+Route::get('productos/propiedades/', 'AppController@propiedades')->name('propiedades');

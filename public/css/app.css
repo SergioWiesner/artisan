@@ -12,12 +12,21 @@ body {
     text-align: center;
 }
 
+.botonsubmit {
+    background-color: #f18220;
+    color: #fff;
+}
+
 a {
     color: #f18220;
 }
 
+.containermodals {
+    padding: 2%;
+}
+
 .maincontainer {
-    min-height: 80vh;
+    min-height: 84vh;
 }
 
 .opcs a {
