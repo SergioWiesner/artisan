@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AppController@home');
+Route::get('propiedades/', 'AppController@propiedades')->name('productos');
