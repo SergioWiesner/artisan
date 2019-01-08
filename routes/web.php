@@ -14,3 +14,7 @@
 Route::get('/', 'AppController@home');
 Route::get('productos/', 'AppController@productos')->name('productos');
 Route::get('productos/propiedades/', 'AppController@propiedades')->name('propiedades');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

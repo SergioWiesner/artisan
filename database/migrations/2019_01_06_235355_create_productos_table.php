@@ -21,7 +21,7 @@ class CreateProductosTable extends Migration
             $table->integer('stock')->nullable($value = true);
             $table->string('valor')->nullable($value = true);
             $table->integer('idcategoria');
-            $table->integer('idproductopadre');
+            $table->integer('idproductopadre')->nullable($value = true);
             $table->boolean('estado')->default(1);
             $table->timestamps();
             $table->softDeletes();
