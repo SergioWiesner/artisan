@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e55da4e4-f615-4af6-8e5a-8a1ddf55e7a5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/system/productos/listar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/system/productos/listar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="e55da4e4-f615-4af6-8e5a-8a1ddf55e7a5" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -380,16 +372,15 @@
       <option name="presentableId" value="Default" />
       <updated>1546707486167</updated>
       <workItem from="1546707488850" duration="25496000" />
-      <workItem from="1546817412827" duration="14280000" />
+      <workItem from="1546817412827" duration="14880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39776000" />
+    <option name="totallyTimeSpent" value="40376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
