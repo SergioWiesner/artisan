@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Propiedades;
+use App\Source\Productos\Propiedades\propiedades as pr;
 use Illuminate\Http\Request;
 
 class PropiedadesController extends Controller
@@ -30,7 +31,7 @@ class PropiedadesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,7 @@ class PropiedadesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Propiedades  $propiedades
+     * @param  \App\Propiedades $propiedades
      * @return \Illuminate\Http\Response
      */
     public function show(Propiedades $propiedades)
@@ -52,7 +53,7 @@ class PropiedadesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Propiedades  $propiedades
+     * @param  \App\Propiedades $propiedades
      * @return \Illuminate\Http\Response
      */
     public function edit(Propiedades $propiedades)
@@ -63,8 +64,8 @@ class PropiedadesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Propiedades  $propiedades
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Propiedades $propiedades
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Propiedades $propiedades)
@@ -75,11 +76,23 @@ class PropiedadesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Propiedades  $propiedades
+     * @param  \App\Propiedades $propiedades
      * @return \Illuminate\Http\Response
      */
     public function destroy(Propiedades $propiedades)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $propiedad = new pr();
+        return $propiedad->eliminarPropiedad($id);
+    }
+
+    public function toogle($id, $estado)
+    {
+        $propiedad = new pr();
+        return $propiedad->tooglearEstado($id, $estado);
     }
 }

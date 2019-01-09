@@ -53,6 +53,30 @@
     </div>
 </nav>
 <div class="containe-fluid maincontainer">
+    <div class="container">
+        @if(Session::has('success'))
+            @for($a = 0; $a < count(Session::get('success')); $a++)
+                <div class="alert alert-success" role="alert">
+                    {{Session::get('success')[$a]}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endfor
+            {{Session::forget('success')}}
+        @endif
+        @if(Session::has('error'))
+            @for($a = 0; $a < count(Session::get('error')); $a++)
+                <div class="alert alert-success" role="alert">
+                    {{Session::get('error')[$a]}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endfor
+            {{Session::forget('error')}}
+        @endif
+    </div>
     @yield('page')
 </div>
 <section class="footer">
@@ -67,5 +91,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script>
+    $(".alert").alert('show')
+    $(".close").alert('fade')
+</script>
 </body>
 </html>

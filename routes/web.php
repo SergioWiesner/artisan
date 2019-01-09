@@ -12,9 +12,15 @@
 */
 
 Route::get('/', 'AppController@home');
-Route::get('productos/', 'AppController@productos')->name('productos');
-Route::get('productos/propiedades/', 'AppController@propiedades')->name('propiedades');
+Route::get('/productos/', 'AppController@productos')->name('productos');
+Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/** ELIMINAR PROPIEDADES */
+
+Route::get('/productos/propiedades/eliminar/{id}', 'PropiedadesController@delete')->name('eliminarpropiedad');
+Route::get('/productos/propiedades/toogle/{id}/{estado}', 'PropiedadesController@toogle')->name('tooglepropiedad');

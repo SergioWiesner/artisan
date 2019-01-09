@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e55da4e4-f615-4af6-8e5a-8a1ddf55e7a5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artisan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artisan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_06_235355_create_productos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_06_235355_create_productos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_07_001413_create_clientes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_07_001413_create_clientes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Source/Productos/Modelo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Source/Productos/Productos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Source/Productos/Propiedades/Modelo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Source/Productos/Propiedades/Propiedades.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Source/Tools/Basics.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/CategoriaPropiedades.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CategoriaPropiedades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Propiedades.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Propiedades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,16 +30,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="2019_01_06_235355_create_productos_table.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_06_235355_create_productos_table.php">
+      <file leaf-file-name="Propiedades.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Propiedades.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="27" column="71" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="44" column="40" selection-end-line="111" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modelo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Source/Productos/Propiedades/Modelo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="23" column="71" selection-end-line="40" />
+              <caret line="23" column="76" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoriaPropiedades.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/CategoriaPropiedades.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>`</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>'</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,15 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174652_cliente.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174635_metodo_envio.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174615_metodo_pago.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174536_carrito.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174329_categoria_propiedades.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174241_categoria_productos.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174307_propiedades.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_01_05_174553_venta.php" />
-        <option value="$PROJECT_DIR$/database/seeds/categoriapropiedades.php" />
         <option value="$PROJECT_DIR$/../codwelt/database/seeds/AdminProfile.php" />
         <option value="$PROJECT_DIR$/resources/views/sistema/inicio.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
@@ -70,13 +104,8 @@
         <option value="$PROJECT_DIR$/resources/views/system/home.blade.php" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/system/productos/propiedades/agregar.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AppController.php" />
-        <option value="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/resources/views/system/productos/listar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/CategoriaPropiedades.php" />
         <option value="$PROJECT_DIR$/database/seeds/MetodosPago.php" />
         <option value="$PROJECT_DIR$/database/seeds/MetodosEnvio.php" />
@@ -90,6 +119,20 @@
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/Productos.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_06_235355_create_productos_table.php" />
+        <option value="$PROJECT_DIR$/app/Source/Productos/Modelo.php" />
+        <option value="$PROJECT_DIR$/app/Source/Productos/Propiedades/propiedades.php" />
+        <option value="$PROJECT_DIR$/app/Source/Tools/Basics.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AppController.php" />
+        <option value="$PROJECT_DIR$/app/CategoriaPropiedades.php" />
+        <option value="$PROJECT_DIR$/resources/views/system/productos/productos.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
+        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php" />
+        <option value="$PROJECT_DIR$/app/Source/Productos/Propiedades/Propiedades.php" />
+        <option value="$PROJECT_DIR$/app/Source/Productos/Propiedades/Modelo.php" />
+        <option value="$PROJECT_DIR$/app/Propiedades.php" />
+        <option value="$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php" />
       </list>
     </option>
   </component>
@@ -220,19 +263,68 @@
             <path>
               <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
               <item name="Artisan" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
               <item name="Artisan" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Source" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
               <item name="Artisan" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Source" type="462c0819:PsiDirectoryNode" />
+              <item name="Productos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Source" type="462c0819:PsiDirectoryNode" />
+              <item name="Productos" type="462c0819:PsiDirectoryNode" />
+              <item name="Propiedades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="productos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="productos" type="462c0819:PsiDirectoryNode" />
+              <item name="propiedades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Artisan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Artisan" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,12 +375,12 @@
       <updated>1546707486167</updated>
       <workItem from="1546707488850" duration="25496000" />
       <workItem from="1546817412827" duration="14880000" />
-      <workItem from="1546914631362" duration="2483000" />
+      <workItem from="1546914631362" duration="11800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42859000" />
+    <option name="totallyTimeSpent" value="52176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -322,27 +414,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../artisanl/database/migrations/2019_01_05_174329_categoria_propiedades.php" />
-    <entry file="file://$PROJECT_DIR$/../artisanl/database/migrations/2019_01_05_174307_propiedades.php" />
-    <entry file="file://$PROJECT_DIR$/../artisanl/database/migrations/2019_01_05_174241_categoria_productos.php" />
-    <entry file="file://$PROJECT_DIR$/../artisanl/database/migrations/2019_01_04_214114_productos.php" />
-    <entry file="file://$PROJECT_DIR$/../codwelt/database/seeds/AdminProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../codwelt/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../artisanl/database/seeds/categoriapropiedades.php" />
-    <entry file="file://$PROJECT_DIR$/../artisanl/resources/views/sistema/inicio.blade.php" />
-    <entry file="file://$PROJECT_DIR$/../artisanl/resources/views/sistema/productos/agregar.blade.php" />
     <entry file="file://$PROJECT_DIR$/../artisanl/app/Http/Controllers/HomeController.php" />
     <entry file="file://$PROJECT_DIR$/app/CategoriaProductos.php" />
     <entry file="file://$PROJECT_DIR$/../artisanl/database/migrations/2019_01_05_174733_ciudad.php" />
@@ -386,45 +457,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="103" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/system/productos/listar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="92" column="104" selection-end-line="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/system/productos/productos.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="84" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="56" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -565,8 +601,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_06_235355_create_productos_table.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Source/Tools/Basics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Source/Productos/Productos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Source/Productos/Modelo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" column="63" lean-forward="true" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="87" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="87" />
+          <folding>
+            <element signature="e#7#389#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Source/Productos/Propiedades/Propiedades.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/system/productos/productos.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PropiedadesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/CategoriaPropiedades.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Propiedades.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="71" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Source/Productos/Propiedades/Modelo.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="23" column="71" selection-end-line="40" />
+          <caret line="23" column="76" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/system/productos/propiedades/listar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="44" column="40" selection-end-line="111" />
         </state>
       </provider>
     </entry>

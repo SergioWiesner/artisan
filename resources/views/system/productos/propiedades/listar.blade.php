@@ -21,7 +21,6 @@
     <table class="table table-borderless">
         <thead>
         <tr>
-            <th scope="col"></th>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Estado</th>
@@ -30,42 +29,35 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>
-                <div class="opcs">
-                    <a href=""><i class="fas fa-pencil-alt"></i></a>
-                    <a href=""><i class="fas fa-trash"></i></a>
-                </div>
-            </td>
-        </tr>
+        @foreach ($propiedades as $propiedad)
+            <tr>
+                <td>{{$propiedad->id}}</td>
+                <td>{{$propiedad->nombre}}</td>
+                <td>@if($propiedad->estado)
+                        <a href="{{route('tooglepropiedad', ['id' => $propiedad->id, 'estado' => 0])}}"><i
+                                class="fas fa-check"></i> Activo</a>
+                    @else
+                        <a href="{{route('tooglepropiedad', ['id' => $propiedad->id, 'estado' => 1])}}"><i
+                                class="fas fa-exclamation"></i> Inactivo</a>
+                    @endif</td>
+                <td>
+                    @foreach($propiedad->categoriaPadre as $padre)
+                        {{$padre->nombre}}
+                    @endforeach
+                </td>
+                <td>{{$propiedad->categoriaPropiedad['nombre']}}</td>
+                <td>
+                    <div class="opcs">
+                        <a href=""><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{{route('eliminarpropiedad', ['id' => $propiedad->id])}}"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
+    {{$propiedades->links() }}
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -89,12 +81,24 @@
                                 <label for="inputState">Categoria</label>
                                 <select id="inputState" class="form-control">
                                     <option selected></option>
+                                    @if(count($categoriapropiedades) > 0)
+                                        @for($a = 0; $a < count($categoriapropiedades); $a++)
+                                            <option
+                                                value="{{$categoriapropiedades[$a]['id']}}">{{$categoriapropiedades[$a]['nombre']}} </option>
+                                        @endfor
+                                    @endif
                                 </select>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="inputState">Propiedad padre</label>
                                 <select id="inputState" class="form-control">
                                     <option selected></option>
+                                    @if(count($propiedades) > 0)
+                                        @for($a = 0; $a < count($propiedades); $a++)
+                                            <option
+                                                value="{{$propiedades[$a]['id']}}">{{$propiedades[$a]['nombre']}} </option>
+                                        @endfor
+                                    @endif
                                 </select>
                             </div>
                         </div>

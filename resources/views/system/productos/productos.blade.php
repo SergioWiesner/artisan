@@ -1,6 +1,5 @@
 @extends('app')
 @section('page')
-
     <section>
         <ul class="nav justify-content-center">
             <li class="nav-item">
