@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Source\Productos\Propiedades\Propiedades;
+use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
 {
@@ -14,7 +15,12 @@ class AppController extends Controller
 
     public function home()
     {
-        return view('system.home');
+        if (Auth::guest()) {
+            return view('page.home');
+
+        } else {
+            return view('system.home');
+        }
     }
 
     public function propiedades()

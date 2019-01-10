@@ -12,15 +12,20 @@
 */
 
 Route::get('/', 'AppController@home');
-Route::get('/productos/', 'AppController@productos')->name('productos');
-Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
+Route::get('/productos/', 'AppController@productos')->name('productos')->middleware('auth');
+Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
-/** ELIMINAR PROPIEDADES */
+/** RUTAS DE PRODUCTOS Y PROPIEDADES **/
 
-Route::get('/productos/propiedades/eliminar/{id}', 'PropiedadesController@delete')->name('eliminarpropiedad');
-Route::get('/productos/propiedades/toogle/{id}/{estado}', 'PropiedadesController@toogle')->name('tooglepropiedad');
+Route::get('/productos/propiedades/eliminar/{id}', 'PropiedadesController@delete')->name('eliminarpropiedad')->middleware('auth');
+Route::get('/productos/propiedades/toogle/{id}/{estado}', 'PropiedadesController@toogle')->name('tooglepropiedad')->middleware('auth');
+
+/** RUTAS DE PRODUCTOS Y PROPIEDADES **/
+
+/** RUTAS DE USUARIOS **/
+
