@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldsUsuarios extends Migration
+class AddFieldsCategoriaPermisos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddFieldsUsuarios extends Migration
      */
     public function up()
     {
-        Schema::create('perfiles', function (Blueprint $table) {
+        Schema::create('categoriaPermisos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class AddFieldsUsuarios extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfiles');
+        Schema::dropIfExists('categoriaPermisos');
     }
 }

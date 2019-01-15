@@ -2,9 +2,10 @@
 
 namespace App\Source\Productos\Propiedades;
 
-use App\Propiedades;
+use Illuminate\Support\Facades\DB;
 use App\CategoriaPropiedades;
 use App\Source\Tools\Basics;
+use App\Propiedades;
 
 class Modelo
 {
@@ -32,6 +33,16 @@ class Modelo
     public static function tooglePropiedad($id, $estado)
     {
         return Propiedades::where('id', $id)->update(['estado' => $estado]);
+    }
+
+    public static function crearPropiedad($datos)
+    {
+        return DB::table('propiedades')->insert([
+            'nombre',
+            'categoriapadre',
+            'categoriapropiedad',
+            'estado',
+        ]);
     }
 
 }

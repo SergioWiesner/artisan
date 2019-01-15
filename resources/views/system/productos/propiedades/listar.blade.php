@@ -65,21 +65,23 @@
                 <div class="container-fluid containermodals">
                     <h3 class="titulos">Agregar nueva propiedad</h3>
                     <hr>
-                    <form>
+                    <form action="{{route('agregarpropiedad')}}" method="post">
+                        {{csrf_field()}}
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Nombre</label>
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+                                <input type="text" class="form-control" name="nombre" id="inputEmail4"
+                                       placeholder="Nombre">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Valor</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Valor">
-                        </div>
+                        <!--------- <div class="form-group">
+                             <label for="inputAddress">Valor</label>
+                             <input type="text" class="form-control" id="inputAddress" name="valor" placeholder="Valor">
+                         </div> ------>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="inputState">Categoria</label>
-                                <select id="inputState" class="form-control">
+                                <select id="inputState" name="categoria" class="form-control">
                                     <option selected></option>
                                     @if(count($categoriapropiedades) > 0)
                                         @for($a = 0; $a < count($categoriapropiedades); $a++)
@@ -91,7 +93,7 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="inputState">Propiedad padre</label>
-                                <select id="inputState" class="form-control">
+                                <select id="inputState" name="propiedadpadre" class="form-control">
                                     <option selected></option>
                                     @if(count($propiedades) > 0)
                                         @for($a = 0; $a < count($propiedades); $a++)
@@ -102,7 +104,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn botonsubmit">Agregar</button>
+                        <input type="submit" class="btn botonsubmit" value="Agregar">
                     </form>
                 </div>
             </div>

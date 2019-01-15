@@ -21,9 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
-
-Route::get('/productos/propiedades/eliminar/{id}', 'PropiedadesController@delete')->name('eliminarpropiedad')->middleware('auth');
-Route::get('/productos/propiedades/toogle/{id}/{estado}', 'PropiedadesController@toogle')->name('tooglepropiedad')->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/productos/propiedades/eliminar/{id}', 'PropiedadesController@delete')->name('eliminarpropiedad');
+    Route::get('/productos/propiedades/toogle/{id}/{estado}', 'PropiedadesController@toogle')->name('tooglepropiedad');
+    Route::post('/productos/propiedades/agregar', 'PropiedadesController@store')->name('agregarpropiedad');
+});
 
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
 

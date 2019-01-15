@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Propiedades;
-use App\Source\Productos\Propiedades\propiedades as pr;
 use Illuminate\Http\Request;
+use App\Http\Requests\PropiedadesProductos;
+use App\Source\Productos\Propiedades\propiedades as pr;
 
 class PropiedadesController extends Controller
 {
@@ -34,9 +35,9 @@ class PropiedadesController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropiedadesProductos $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
