@@ -1,15 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: heros
- * Date: 8/01/2019
- * Time: 9:37 PM
- */
 
 namespace App\Source\Productos;
 
+use App\Source\Productos\Modelo;
+use App\Source\Tools\Basics;
 
 class productos
 {
+
+    public function listarProductosPaginados()
+    {
+        return Modelo::listarProductospaginados();
+    }
+
+
+    public function agregarCategoriaProductos($datos)
+    {
+        Modelo::agregarCategoriaProducto($datos);
+
+    }
 
 }

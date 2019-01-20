@@ -11,7 +11,7 @@
         </ul>
     </section>
     <section>
-        <div class="container">
+        <div class="container-fluid">
             @yield('contentproductos')
         </div>
     </section>

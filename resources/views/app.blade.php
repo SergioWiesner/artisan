@@ -26,7 +26,7 @@
         @else
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('productos')}}">Productos</a>
                 </li>
                 <li class="nav-item">
@@ -65,6 +65,15 @@
 </nav>
 <div class="containe-fluid maincontainer">
     <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-info" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if(Session::has('success'))
             @for($a = 0; $a < count(Session::get('success')); $a++)
                 <div class="alert alert-success" role="alert">
@@ -78,7 +87,7 @@
         @endif
         @if(Session::has('error'))
             @for($a = 0; $a < count(Session::get('error')); $a++)
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-danger" role="alert">
                     {{Session::get('error')[$a]}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -102,6 +111,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+<script src="{{asset('js/app.js')}}"></script>
 <script>
     $(".alert").alert('show')
     $(".close").alert('fade')

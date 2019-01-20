@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\CategoriaProductos;
 use Illuminate\Http\Request;
+use App\Source\Productos\productos;
+use App\Http\Requests\CategoriaProductos as categoriarequest;
 
 class CategoriaProductosController extends Controller
 {
+
+    public $productos;
+
+    public function __construct()
+    {
+        $this->productos = new productos();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,18 +40,19 @@ class CategoriaProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(categoriarequest $request)
     {
-        //
+        dd($request->all());
+        $this->productos->
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\CategoriaProductos  $categoriaProductos
+     * @param  \App\CategoriaProductos $categoriaProductos
      * @return \Illuminate\Http\Response
      */
     public function show(CategoriaProductos $categoriaProductos)
@@ -52,7 +63,7 @@ class CategoriaProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CategoriaProductos  $categoriaProductos
+     * @param  \App\CategoriaProductos $categoriaProductos
      * @return \Illuminate\Http\Response
      */
     public function edit(CategoriaProductos $categoriaProductos)
@@ -63,8 +74,8 @@ class CategoriaProductosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CategoriaProductos  $categoriaProductos
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\CategoriaProductos $categoriaProductos
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, CategoriaProductos $categoriaProductos)
@@ -75,7 +86,7 @@ class CategoriaProductosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CategoriaProductos  $categoriaProductos
+     * @param  \App\CategoriaProductos $categoriaProductos
      * @return \Illuminate\Http\Response
      */
     public function destroy(CategoriaProductos $categoriaProductos)

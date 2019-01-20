@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
+Route::resource('ApiPropiedades', 'PropiedadesController');
+/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/

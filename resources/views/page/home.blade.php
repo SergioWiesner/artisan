@@ -3,15 +3,14 @@
     <!--=====================================
 =            Homepage Banner            =
 ======================================-->
-
     <section class="banner bg-1" id="home">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 align-self-center">
                     <!-- Contents -->
                     <div class="content-block">
-                        <h1>Amazing App Best for business</h1>
-                        <h5>Let you track everything in your life with a simple way</h5>
+                        <h1>Lo mejor para artesanos</h1>
+                        <h5>Mejora el rendimiento de tu negocio con un camino simple</h5>
                         <!-- App Badge -->
                         <div class="app-badge">
                             <ul class="list-inline">
@@ -39,7 +38,6 @@
             </div>
         </div>
     </section>
-
     <!--====  End of Homepage Banner  ====-->
 
     <!--===========================

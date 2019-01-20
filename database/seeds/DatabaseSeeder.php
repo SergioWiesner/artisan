@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(propiedades::class);
         $this->call(TipoDocumento::class);
         $this->call(Firstuser::class);
+        $this->call(CategoriaProducto::class);
     }
 }

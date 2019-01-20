@@ -13,4 +13,9 @@ class Basics
         }
         return [];
     }
+
+    public function Subirimagenes($imagen)
+    {
+        $path = $request->photo->store($imagen);
+    }
 }
