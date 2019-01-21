@@ -13,7 +13,7 @@ class AddFieldValorTablaPivotProductosPropiedades extends Migration
      */
     public function up()
     {
-        Schema::table('productos_propiedades', function (Blueprint $table) {
+        Schema::table('Productos_Propiedades', function (Blueprint $table) {
             $table->string('valor');
             $table->softDeletes();
         });
@@ -26,7 +26,7 @@ class AddFieldValorTablaPivotProductosPropiedades extends Migration
      */
     public function down()
     {
-        Schema::table('productos_propiedades', function (Blueprint $table) {
+        Schema::table('Productos_Propiedades', function (Blueprint $table) {
             //
         });
     }
