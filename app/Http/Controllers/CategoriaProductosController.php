@@ -45,8 +45,7 @@ class CategoriaProductosController extends Controller
      */
     public function store(categoriarequest $request)
     {
-        dd($request->all());
-        $this->productos->
+        return $this->productos->agregarCategoriaProductos($request->all());
     }
 
     /**
@@ -80,7 +79,7 @@ class CategoriaProductosController extends Controller
      */
     public function update(Request $request, CategoriaProductos $categoriaProductos)
     {
-        //
+        return $this->productos->actualizarCategoria($request->all(), $request['id']);
     }
 
     /**
@@ -92,5 +91,10 @@ class CategoriaProductosController extends Controller
     public function destroy(CategoriaProductos $categoriaProductos)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        return $this->productos->eliminarCategoriaProducto($id);
     }
 }

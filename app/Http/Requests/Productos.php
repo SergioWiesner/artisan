@@ -26,11 +26,11 @@ class Productos extends FormRequest
         return [
             'nombre' => 'required|string',
             'descripcion' => 'required|string',
-            'imagenproducto' => 'mimes:jpeg,bmp,png',
+            'imagenproducto' => '',
             'stock' => 'numeric',
             'valor' => 'required|numeric',
             'categoria' => 'required|numeric',
-            'productopadre' => 'numeric',
+            'productopadre' => '',
         ];
     }
 }

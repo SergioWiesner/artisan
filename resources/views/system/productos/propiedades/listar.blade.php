@@ -21,18 +21,16 @@
     <table class="table table-borderless">
         <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Estado</th>
-            <th scope="col">propiedad padre</th>
-            <th scope="col">categoria</th>
+            <th scope="col">Padre</th>
+            <th scope="col">Categoria</th>
         </tr>
         </thead>
         <tbody>
 
         @foreach ($propiedades as $propiedad)
             <tr>
-                <td>{{$propiedad->id}}</td>
                 <td>{{$propiedad->nombre}}</td>
                 <td>@if($propiedad->estado)
                         <a href="{{route('tooglepropiedad', ['id' => $propiedad->id, 'estado' => 0])}}"><i

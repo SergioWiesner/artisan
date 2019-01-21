@@ -33,9 +33,9 @@ class propiedades
     {
         if (Modelo::eliminarPropiedad($id)) {
             Session::put('success', ["propiedad eliminada"]);
-            return redirect()->back();
+        } else {
+            Session::put('error', ["Error al eliminar la propiedad"]);
         }
-        Session::put('error', ["Error al eliminar la propiedad"]);
         return redirect()->back();
     }
 
@@ -43,9 +43,9 @@ class propiedades
     {
         if (Modelo::tooglePropiedad($id, $estado)) {
             Session::put('success', ["estado cambiado"]);
-            return redirect()->back();
+        } else {
+            Session::put('error', ["Error al cambiar estado de la propiedad"]);
         }
-        Session::put('error', ["Error al cambiar estado de la propiedad"]);
         return redirect()->back();
     }
 
@@ -53,9 +53,9 @@ class propiedades
     {
         if (Modelo::crearPropiedad($request)) {
             Session::put('success', ["Propiedad creada " . $request['nombre']]);
-            return redirect()->back();
+        } else {
+            Session::put('error', ["Error, no se puedo crear propiedad"]);
         }
-        Session::put('error', ["Error, no se puedo crear propiedad"]);
         return redirect()->back();
     }
 
@@ -64,9 +64,9 @@ class propiedades
     {
         if (Modelo::actualizarPropiedad($request)) {
             Session::put('success', ["Propiedad creada actualizada"]);
-            return redirect()->back();
+        } else {
+            Session::put('error', ["Error, no se puedo actualizar propiedad"]);
         }
-        Session::put('error', ["Error, no se puedo actualizar propiedad"]);
         return redirect()->back();
     }
 }

@@ -36,6 +36,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Ventas</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Configuración</a>
+                </li>
             </ul>
             <div class="my-2  my-lg-0">
                 <ul class="navbar-nav mr-auto">

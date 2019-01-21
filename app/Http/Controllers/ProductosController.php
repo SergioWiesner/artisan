@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Productos;
 use App\Http\Requests\Productos as Productosrequest;
+use App\Source\Productos\productos as productosmanager;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
+    public $producto;
+
     public function __construct()
     {
+        $this->producto = new productosmanager();
     }
 
     /**
@@ -40,7 +44,7 @@ class ProductosController extends Controller
      */
     public function store(Productosrequest $request)
     {
-        dd($request->all());
+        return $this->producto->agregarProducto($request->all());
     }
 
     /**

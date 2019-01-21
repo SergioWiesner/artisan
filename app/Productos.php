@@ -10,11 +10,11 @@ class Productos extends Model
     use SoftDeletes;
 
     protected $table = "productos";
-    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'stock', 'valor', '', 'idproductopadre', 'estado'];
+    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'rutaimagen', 'stock', 'valor', 'idcategoria', 'idproductopadre', 'estado', 'created_at', 'updated_at', 'deleted_at'];
 
     public function catgorias()
     {
-        return $this->belongsTo('App\Post', 'idcategoria', 'id');
+        return $this->belongsTo('App\CategoriaProductos', 'idcategoria', 'id');
     }
 
     public function propiedades()

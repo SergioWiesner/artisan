@@ -24,8 +24,8 @@ class CategoriaProductos extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|string',
-            'descripcion' => 'required|string',
+            'nombre' => 'required|string|max:20',
+            'descripcion' => 'required|string|max:100',
             'rutaimg' => '',
             'catgoriapadre' => 'integer'
         ];
