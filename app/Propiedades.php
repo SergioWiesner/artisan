@@ -32,4 +32,9 @@ class Propiedades extends Model
     {
         return $this->belongsToMany('App\Productos', 'productos_propiedades', 'productos_id', 'propiedades_id');
     }
+
+    public function valorPropiedad()
+    {
+        return $this->hasMany('App\ProductosPropiedades', 'propiedades_id', 'id');
+    }
 }

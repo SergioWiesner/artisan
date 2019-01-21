@@ -23,7 +23,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -55,7 +55,7 @@ class ProductosController extends Controller
      */
     public function show(Productos $productos)
     {
-        //
+
     }
 
     /**
@@ -90,5 +90,10 @@ class ProductosController extends Controller
     public function destroy(Productos $productos)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        return $this->producto->eliminarproducto($id);
     }
 }
