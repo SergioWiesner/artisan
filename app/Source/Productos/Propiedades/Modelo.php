@@ -5,10 +5,15 @@ namespace App\Source\Productos\Propiedades;
 use Illuminate\Support\Facades\DB;
 use App\CategoriaPropiedades;
 use App\Source\Tools\Basics;
+use App\CategoriaProductos;
 use App\Propiedades;
 
 class Modelo
 {
+    public static function listarCatgoriasProductos()
+    {
+        return Basics::collectionToArray(CategoriaProductos::all());
+    }
 
     public static function listarCategoriasPropiedades()
     {
@@ -38,11 +43,22 @@ class Modelo
     public static function crearPropiedad($datos)
     {
         return DB::table('propiedades')->insert([
-            'nombre',
-            'categoriapadre',
-            'categoriapropiedad',
-            'estado',
+            'nombre' => $datos['nombre'],
+            'categoriapadre' => $datos['propiedadpadre'],
+            'categoriapropiedad' => $datos['categoria'],
         ]);
     }
+
+    public static function actualizarPropiedad($datos)
+    {
+        return DB::table('propiedades')
+            ->where('id', $datos['id'])
+            ->update([
+                'nombre' => $datos['nombre'],
+                'categoriapadre' => $datos['propiedadpadre'],
+                'categoriapropiedad' => $datos['categoria']
+            ]);
+    }
+
 
 }

@@ -27,4 +27,9 @@ class Propiedades extends Model
     {
         return $this->hasMany('App\Propiedades', 'id', 'categoriapadre');
     }
+
+    public function productos()
+    {
+        return $this->belongsToMany('App\Productos', 'productos_propiedades', 'productos_id', 'propiedades_id');
+    }
 }

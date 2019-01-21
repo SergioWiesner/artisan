@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Source\Productos\Propiedades\Propiedades;
+use App\Source\Productos\productos;
 use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
@@ -27,12 +28,17 @@ class AppController extends Controller
     {
         $propiedades = new propiedades();
         return view('system.productos.propiedades.listar')
-            ->with('categoriapropiedades', $propiedades->listarCategoriaPropiedades())
-            ->with('propiedades', $propiedades->listarPropiedades());
+            ->with('propiedades', $propiedades->listarPropiedades())
+            ->with('categoriapropiedades', $propiedades->listarCategoriaPropiedades());
     }
 
     public function productos()
     {
-        return view('system.productos.listar');
+        $propiedades = new propiedades();
+        $productos = new productos();
+        return view('system.productos.listar')
+            ->with('productos', $productos->listarProductosPaginados())
+            ->with('propiedades', $propiedades->listarPropiedades())
+            ->with('categoria', $propiedades->listarCategoriaProductos());
     }
 }

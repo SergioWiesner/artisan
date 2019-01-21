@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Productos;
+use App\Http\Requests\Productos as Productosrequest;
+use App\Source\Productos\productos as productosmanager;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
+    public $producto;
+
+    public function __construct()
+    {
+        $this->producto = new productosmanager();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,18 +39,18 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Productosrequest $request)
     {
-        //
+        return $this->producto->agregarProducto($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function show(Productos $productos)
@@ -52,7 +61,7 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function edit(Productos $productos)
@@ -63,8 +72,8 @@ class ProductosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Productos  $productos
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Productos $productos)
@@ -75,7 +84,7 @@ class ProductosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Productos  $productos
+     * @param  \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function destroy(Productos $productos)

@@ -21,17 +21,16 @@
     <table class="table table-borderless">
         <thead>
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Estado</th>
-            <th scope="col">propiedad padre</th>
-            <th scope="col">categoria</th>
+            <th scope="col">Padre</th>
+            <th scope="col">Categoria</th>
         </tr>
         </thead>
         <tbody>
+
         @foreach ($propiedades as $propiedad)
             <tr>
-                <td>{{$propiedad->id}}</td>
                 <td>{{$propiedad->nombre}}</td>
                 <td>@if($propiedad->estado)
                         <a href="{{route('tooglepropiedad', ['id' => $propiedad->id, 'estado' => 0])}}"><i
@@ -48,12 +47,68 @@
                 <td>{{$propiedad->categoriaPropiedad['nombre']}}</td>
                 <td>
                     <div class="opcs">
-                        <a href=""><i class="fas fa-pencil-alt"></i></a>
+                        <a href="#!" data-toggle="modal" data-target=".bd-example-modal-lg{{$propiedad->id}}"><i
+                                class="fas fa-pencil-alt"></i></a>
                         <a href="{{route('eliminarpropiedad', ['id' => $propiedad->id])}}"><i
                                 class="fas fa-trash"></i></a>
                     </div>
                 </td>
             </tr>
+            <div class="modal fade bd-example-modal-lg{{$propiedad->id}}" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="container-fluid containermodals">
+                            <h3 class="titulos">Agregar nueva propiedad</h3>
+                            <hr>
+                            <form action="{{route('agregarpropiedad', ['id' => $propiedad->id])}}" method="post">
+                                {{csrf_field()}}
+                                @method('patch')
+                                <input type="hidden" name="id">
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputEmail4">Nombre</label>
+                                        <input type="text" class="form-control" name="nombre" id="inputEmail4"
+                                               placeholder="Nombre" value="{{$propiedad->nombre}}" required>
+                                    </div>
+                                </div>
+                                <!--------- <div class="form-group">
+                                     <label for="inputAddress">Valor</label>
+                                     <input type="text" class="form-control" id="inputAddress" name="valor" placeholder="Valor">
+                                 </div> ------>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="inputState">Categoria</label>
+                                        <select id="inputState" name="categoria" class="form-control" required>
+                                            <option selected></option>
+                                            @if(count($categoriapropiedades) > 0)
+                                                @for($a = 0; $a < count($categoriapropiedades); $a++)
+                                                    <option
+                                                        value="{{$categoriapropiedades[$a]['id']}}">{{$categoriapropiedades[$a]['nombre']}} </option>
+                                                @endfor
+                                            @endif
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="inputState">Propiedad padre</label>
+                                        <select id="inputState" name="propiedadpadre" class="form-control">
+                                            <option selected></option>
+                                            @if(count($propiedades) > 0)
+                                                @for($a = 0; $a < count($propiedades); $a++)
+                                                    <option
+                                                        value="{{$propiedades[$a]['id']}}">{{$propiedades[$a]['nombre']}} </option>
+                                                @endfor
+                                            @endif
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn botonsubmit" value="Agregar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
         </tbody>
     </table>

@@ -9,6 +9,13 @@ use App\Source\Productos\Propiedades\propiedades as pr;
 
 class PropiedadesController extends Controller
 {
+    public $pr;
+
+    public function __construct()
+    {
+        $this->pr = new pr();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,7 @@ class PropiedadesController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json($this->pr->listarPropiedadesSinPaginar());
     }
 
     /**
@@ -37,7 +44,8 @@ class PropiedadesController extends Controller
      */
     public function store(PropiedadesProductos $request)
     {
-        dd($request->all());
+
+        return $this->pr->crearpropiedad($request->all());
     }
 
     /**
@@ -71,7 +79,7 @@ class PropiedadesController extends Controller
      */
     public function update(Request $request, Propiedades $propiedades)
     {
-        //
+        return $this->pr->actualizarPropiedad($request->all());
     }
 
     /**
