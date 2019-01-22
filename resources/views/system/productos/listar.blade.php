@@ -13,7 +13,7 @@
             </ul>
             @for($b = 0; $b < count($categoria); $b++)
                 <div class="media" style="padding: 1%;">
-                    <img class="mr-3 imagencategoriasproductos" src="{{$categoria[$b]['rutaimg']}}"
+                    <img class="mr-3 imagenlateral" src="{{$categoria[$b]['rutaimg']}}"
                          alt="{{$categoria[$b]['nombre']}}">
                     <div class="media-body">
                         <h5 class="mt-0"><strong>{{$categoria[$b]['nombre']}}</strong></h5>
@@ -174,6 +174,9 @@
                                 <label for="inputState">producto padre</label>
                                 <select id="inputState" class="form-control" name="productopadre">
                                     <option selected></option>
+                                    @foreach($productos as $produc)
+                                        <option value="{{$produc->id}}">{{$produc->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

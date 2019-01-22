@@ -10,11 +10,16 @@ use Carbon\Carbon;
 
 class productos
 {
-    const ubicacion = "public/productos";
+    const ubicacion = "/public/productos/";
 
     public function listarProductosPaginados()
     {
         return Modelo::listarProductospaginados();
+    }
+
+    public function listarProductos()
+    {
+        return Basics::collectionToArray(Modelo::listarProductos());
     }
 
 
@@ -46,7 +51,7 @@ class productos
     public function actualizarCategoria($datos, $id)
     {
         if (isset($datos['rutaimg'])) {
-            $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria/');
+            $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
             $datos['rutaimg'] = $ruta;
         } else {
             $datos['rutaimg'] = $datos['rutaimagenold'];
@@ -64,7 +69,7 @@ class productos
     public function agregarProducto($request)
     {
         //try {
-        $ruta = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos/');
+        $ruta = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos');
         $request['rutaimg'] = $ruta;
         $request['referencia'] = Basics::obtenerReferencia($request);
         $producto = Modelo::agregarProducto($request);
@@ -77,5 +82,26 @@ class productos
         //}
 
         return redirect()->back();
+    }
+
+
+    public function eliminarproducto($id)
+    {
+        if (Modelo::eliminarProdcuto($id)) {
+            Session::put('success', ["Producto eliminado correctamente"]);
+        } else {
+            Session::put('error', ["Error, no se puedo eliminar el producto"]);
+        }
+        return redirect()->back();
+    }
+
+    public function verProducto($id)
+    {
+        return Modelo::traerDetallesProducto($id);
+    }
+
+    public function productosPorCategoria($datos)
+    {
+        return Modelo::traerProductosPorCategoria($datos);
     }
 }

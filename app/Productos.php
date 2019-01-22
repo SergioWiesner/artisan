@@ -15,6 +15,7 @@ class Productos extends Model
     public function catgorias()
     {
         return $this->belongsTo('App\CategoriaProductos', 'idcategoria', 'id');
+
     }
 
     public function propiedades()
@@ -22,4 +23,13 @@ class Productos extends Model
         return $this->belongsToMany('App\Propiedades', 'productos_propiedades', 'productos_id', 'propiedades_id');
     }
 
+    public function propiedadesvalor()
+    {
+        return $this->hasMany('App\ProductosPropiedades', 'productos_id', 'id');
+    }
+
+    public function apply(Builder $builder, Model $model)
+    {
+        $builder->where('age', '>', 200);
+    }
 }

@@ -21,7 +21,7 @@ a {
     color: #8074d3;
 }
 
-.imagencategoriasproductos {
+.imagenlateral {
     width: 70px;
 }
 
@@ -31,6 +31,15 @@ a {
 
 .maincontainer {
     min-height: 84vh;
+}
+
+.spaninformativo {
+    text-align: center;
+    color: rgba(0, 0, 0, .4);
+}
+
+.opcproductos .nav-item {
+    padding: 1%;
 }
 
 .opcs a {
@@ -46,4 +55,27 @@ a {
 .footer p {
     text-align: center;
     color: rgba(0, 0, 0, .5);
+}
+
+.linkslaterales {
+    color: #333;
+    text-align: justify;
+    text-decoration: none;
+}
+
+.linkslaterales:hover {
+    text-decoration: none;
+}
+
+/** detalle de los productos **/
+.detallesproductos p {
+    text-align: justify;
+}
+
+.detallesproductos img {
+    width: 100%;
+}
+
+.detallesproductos .categoria {
+    width: 10%;
 }

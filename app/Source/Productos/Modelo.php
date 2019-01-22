@@ -3,6 +3,7 @@
 
 namespace App\Source\Productos;
 
+use App\Source\Tools\Basics;
 use Illuminate\Support\Facades\DB;
 use App\CategoriaProductos;
 use App\Productos;
@@ -24,6 +25,11 @@ class Modelo
     public static function listarProductospaginados()
     {
         return Productos::with('propiedades')->with('catgorias')->paginate(15);
+    }
+
+    public static function listarProductos()
+    {
+        return Productos::with('propiedades')->with('catgorias')->get();
     }
 
     public static function eliminarCategoriaProducto($id)
@@ -68,5 +74,19 @@ class Modelo
         ]);
     }
 
+    public static function eliminarProdcuto($id)
+    {
+        return DB::table('productos')->where('id', $id)->delete();
+    }
+
+    public static function traerDetallesProducto($id)
+    {
+        return Basics::collectionToArray(Productos::where('id', $id)->with('propiedades')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
+    }
+
+    public static function traerProductosPorCategoria($datos)
+    {
+        return Basics::collectionToArray(Productos::where([['idcategoria', $datos[0]['idcategoria']], ['id', '<>', $datos[0]['id']]])->with('propiedades')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->inRandomOrder()->limit(10)->get());
+    }
 
 }
