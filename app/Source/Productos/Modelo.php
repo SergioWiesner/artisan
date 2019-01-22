@@ -27,6 +27,11 @@ class Modelo
         return Productos::with('propiedades')->with('catgorias')->paginate(15);
     }
 
+    public static function listarProductospaginadosRamdon()
+    {
+        return Productos::with('propiedades')->with('catgorias')->inRandomOrder()->paginate(15);
+    }
+
     public static function listarProductos()
     {
         return Productos::with('propiedades')->with('catgorias')->get();

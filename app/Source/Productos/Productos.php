@@ -17,6 +17,11 @@ class productos
         return Modelo::listarProductospaginados();
     }
 
+    public function listarProductosPaginadosRandom()
+    {
+        return Modelo::listarProductospaginadosRamdon();
+    }
+
     public function listarProductos()
     {
         return Basics::collectionToArray(Modelo::listarProductos());

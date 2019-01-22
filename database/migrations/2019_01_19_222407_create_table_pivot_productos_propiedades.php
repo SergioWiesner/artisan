@@ -13,7 +13,7 @@ class CreateTablePivotProductosPropiedades extends Migration
      */
     public function up()
     {
-        Schema::create('Productos_Propiedades', function (Blueprint $table) {
+        Schema::create('productos_propiedades', function (Blueprint $table) {
             $table->integer('productos_id');
             $table->integer('propiedades_id');
         });
@@ -26,6 +26,6 @@ class CreateTablePivotProductosPropiedades extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Productos_Propiedades');
+        Schema::dropIfExists('productos_propiedades');
     }
 }

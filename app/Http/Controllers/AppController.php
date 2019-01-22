@@ -2,25 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Source\Productos\Propiedades\Propiedades;
 use App\Source\Productos\productos;
 use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
 {
-    public function __construct()
-    {
-
-    }
-
     public function home()
     {
         if (Auth::guest()) {
             return view('page.home');
 
         } else {
-            return view('system.home');
+            $productos = new productos();
+            return view('system.home')
+                ->with('productos', $productos->listarProductosPaginadosRandom());
         }
     }
 

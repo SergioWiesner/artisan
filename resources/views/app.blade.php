@@ -108,6 +108,7 @@
 </div>
 <section class="footer">
     <p>Desarrollado por comunidad <a href="https://codwelt.com" target="_blank">codwelt.com</a> - artisan v0.0 2019</p>
+    <p>{{\Carbon\Carbon::now(new DateTimeZone('America/Bogota'))->format('l jS \\of F Y h:i:s A')}}</p>
 </section>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
