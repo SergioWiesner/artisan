@@ -87,11 +87,13 @@ class Modelo
 
     public static function agregarRelacionPropiedadProducto($datos, $id)
     {
-        return DB::table('productos_propiedades')->insert([
-            'productos_id' => $id,
-            'propiedades_id' => $datos['propiedad'],
-            'valor' => $datos['valorpropiedad'],
-        ]);
+        if (!is_null($datos['valorpropiedad'])) {
+            return DB::table('productos_propiedades')->insert([
+                'productos_id' => $id,
+                'propiedades_id' => $datos['propiedad'],
+                'valor' => $datos['valorpropiedad'],
+            ]);
+        }
     }
 
     public static function actualizarRelacionPropiedadProducto($datos, $id)

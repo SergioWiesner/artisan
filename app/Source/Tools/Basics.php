@@ -20,7 +20,7 @@ class Basics
     public static function Subirimagenes($contenido, $nombre)
     {
         $ruta = Storage::disk('local')->put($nombre, $contenido);
-        return str_replace("/public", "/storage", $ruta);
+        return str_replace("public", "/storage", $ruta);
     }
 
     public static function determinarRutaimg($datos)

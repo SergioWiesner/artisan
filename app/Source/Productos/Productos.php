@@ -31,7 +31,7 @@ class productos
 
     public function agregarCategoriaProductos($datos)
     {
-        $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria/');
+        $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
         $datos['rutaimg'] = $ruta;
         if (Modelo::agregarCategoriaProducto($datos)) {
             Session::put('success', ["Categoria '" . $datos['nombre'] . "' creada"]);
