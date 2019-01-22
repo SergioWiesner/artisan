@@ -51,6 +51,7 @@ class AppController extends Controller
             return view('system.productos.observar')->with('detalles', $datos)
                 ->with('relacionados', $productos->productosPorCategoria($datos))
                 ->with('productos', $productos->listarProductos())
+                ->with('propiedades', $propiedades->listarPropiedadesSinPaginar())
                 ->with('categorias', $propiedades->listarCategoriaProductos());
         } else {
             return redirect()->route('productos');

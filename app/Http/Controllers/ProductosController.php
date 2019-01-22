@@ -78,7 +78,7 @@ class ProductosController extends Controller
      */
     public function update(Request $request, Productos $productos)
     {
-        //
+        return $this->producto->actualizarProducto($request->all());
     }
 
     /**

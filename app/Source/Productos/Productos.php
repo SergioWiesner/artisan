@@ -2,6 +2,7 @@
 
 namespace App\Source\Productos;
 
+use App\Source\Usuarios\Model;
 use Illuminate\Support\Facades\Session;
 use App\Source\Productos\Modelo;
 use App\Source\Tools\Basics;
@@ -50,19 +51,12 @@ class productos
 
     public function actualizarCategoria($datos, $id)
     {
-        if (isset($datos['rutaimg'])) {
-            $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
-            $datos['rutaimg'] = $ruta;
-        } else {
-            $datos['rutaimg'] = $datos['rutaimagenold'];
-        }
-
+        $datos = Basics::determinarRutaimg($datos);
         if (Modelo::ActualizarCategoriaProductos($datos, $id)) {
             Session::put('success', ["Categoria actualizada"]);
         } else {
             Session::put('error', ["Error, no se puedo actualizar la categoria"]);
         }
-
         return redirect()->back();
     }
 
@@ -84,6 +78,20 @@ class productos
         return redirect()->back();
     }
 
+    public function actualizarProducto($datos)
+    {
+        try {
+            $datos = Basics::determinarRutaimg($datos);
+            Modelo::actualizarProductos($datos);
+            for ($a = 0; $a < count($datos['propiedadanterior']); $a++) {
+                Modelo::actualizarRelacionPropiedadProducto($datos['propiedadanterior'][$a], $datos['id']);
+            }
+            Session::put('success', ["Producto acturalizado correctamente"]);
+        } catch (\Exception $e) {
+            Session::put('error', ["Error, no se puedo eliminar el producto " . $e->getMessage()]);
+        }
+        return redirect()->back();
+    }
 
     public function eliminarproducto($id)
     {

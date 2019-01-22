@@ -49,6 +49,21 @@ class Modelo
             ]);
     }
 
+    public static function actualizarProductos($datos)
+    {
+        return DB::table('productos')
+            ->where('id', $datos['id'])
+            ->update([
+                'nombre' => $datos['nombre'],
+                'descripcion' => $datos['descripcion'],
+                'stock' => $datos['stock'],
+                'valor' => $datos['valor'],
+                'idcategoria' => $datos['categoria'],
+                'rutaimagen' => $datos['rutaimg'],
+                'idproductopadre' => $datos['productopadre']
+            ]);
+    }
+
     public static function agregarProducto($datos)
     {
         $dat = Productos::create([
@@ -70,6 +85,13 @@ class Modelo
         return DB::table('productos_propiedades')->insert([
             'productos_id' => $id,
             'propiedades_id' => $datos['propiedad'],
+            'valor' => $datos['valorpropiedad'],
+        ]);
+    }
+
+    public static function actualizarRelacionPropiedadProducto($datos, $id)
+    {
+        return DB::table('productos_propiedades')->where([['productos_id', $id], ['propiedades_id', $datos['propiedad']]])->update([
             'valor' => $datos['valorpropiedad'],
         ]);
     }

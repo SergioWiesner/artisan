@@ -114,6 +114,7 @@
                         <th scope="col">Stock</th>
                         <th scope="col">Valor</th>
                         <th scope="col"></th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -123,9 +124,8 @@
                             <td>{{$produc->nombre}}</td>
                             <td>{{$produc->stock}}</td>
                             <td>${{number_format($produc->valor)}}</td>
-                            <td><a href=""><i class="fas fa-eye"></i></a>
-                                <a href=""><i class="fas fa-edit"></i></a>
-                                <a href="{{route('eliminarcategoria', ['id' => 1])}}"><i
+                            <td><a href="{{route('verproducto', ['id' => $produc->id])}}"><i class="fas fa-eye"></i></a>
+                                <a href="{{route('eliminarproducto', ['id' => $produc->id])}}"><i
                                         class="fas fa-trash"></i></a></td>
                         </tr>
                     @endforeach

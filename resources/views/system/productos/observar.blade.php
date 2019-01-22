@@ -81,12 +81,10 @@
                                             <h4><strong>Propiedades</strong></h4>
                                             <div class="row">
                                                 @for($c = 0; $c < count($detalles[$a]['propiedadesvalor']); $c++)
-                                                    <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">{{$detalles[$a]['propiedadesvalor'][$c]['propiedades_padre']['nombre']}}</h5>
-                                                                <p class="card-text">{{$detalles[$a]['propiedadesvalor'][$c]['valor']}}</p>
-                                                            </div>
+                                                    <div class="col-sm">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{$detalles[$a]['propiedadesvalor'][$c]['propiedades_padre']['nombre']}}</h5>
+                                                            <p class="card-text">{{$detalles[$a]['propiedadesvalor'][$c]['valor']}}</p>
                                                         </div>
                                                     </div>
                                                 @endfor
@@ -117,9 +115,11 @@
                                         <div class="container-fluid containermodals">
                                             <h3 class="titulos">Actualizar producto {{$detalles[$a]['nombre']}}</h3>
                                             <hr>
-                                            <form action="{{route('agregarproducto')}}" method="post"
+                                            <form action="{{route('editarproducto', ['id' => $detalles[$a]['id']])}}"
+                                                  method="post"
                                                   enctype="multipart/form-data">
                                                 {{csrf_field()}}
+                                                @method('patch')
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                         <label for="inputEmail4">Nombre</label>
@@ -170,14 +170,35 @@
                                                 <a href="#!" onclick="agregarNuevaPropiedad()"><i
                                                         class="fas fa-plus"></i> Agregar nueva
                                                     propiedad</a> <br><br>
+                                                @for($y = 0; $y < count($detalles[$a]['propiedadesvalor']); $y++)
+                                                    <div class="form-group">
+                                                        <label for="inputState">Propiedades</label>
+                                                        <select id="inputState" class="form-control"
+                                                                name="propiedadanterior[{{$y}}][propiedad]">
+                                                            <option selected></option>
+                                                            @for($h = 0; $h < count($propiedades); $h++)
+                                                                <option
+                                                                    value="{{$propiedades[$h]['id']}}">{{$propiedades[$h]['nombre']}}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputAddress">Valor</label>
+                                                        <input type="text" class="form-control" id="inputAddress"
+                                                               placeholder="Stock"
+                                                               name="propiedadanterior[{{$y}}][valorpropiedad]"
+                                                               value="{{$detalles[$a]['propiedadesvalor'][$y]['valor']}}"
+                                                               required>
+                                                    </div>
+                                                @endfor
                                                 <div id="anexopropiedades" class="form-row">
 
                                                 </div>
                                                 <hr>
                                                 <div class="form-row">
-                                                    <input type="hidden" name=""
+                                                    <input type="hidden" name="rutaimagenold"
                                                            value="{{$detalles[$a]['rutaimagen']}}">
-                                                    <input type="hidden" name="" value="{{$detalles[$a]['id']}}">
+                                                    <input type="hidden" name="id" value="{{$detalles[$a]['id']}}">
                                                     <div class="form-group col-md-12">
                                                         <label for="inputState">imagen del producto</label>
                                                         <div class="custom-file">
@@ -192,8 +213,7 @@
                                                         <label for="exampleFormControlTextarea1">Descripción</label>
                                                         <textarea class="form-control" id="exampleFormControlTextarea1"
                                                                   style="width:100%;" name="descripcion"
-                                                                  value="{{$detalles[$a]['descripcion']}}"
-                                                                  required></textarea>
+                                                                  required>{{$detalles[$a]['descripcion']}}</textarea>
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn botonsubmit">Agregar</button>
