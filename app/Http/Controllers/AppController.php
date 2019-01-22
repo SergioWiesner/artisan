@@ -52,6 +52,15 @@ class AppController extends Controller
         } else {
             return redirect()->route('productos');
         }
+    }
 
+    public function usuarios()
+    {
+        return view('system.usuarios.listar');
+    }
+
+    public function configuracion()
+    {
+        return view('system.configuracion.configuracion');
     }
 }

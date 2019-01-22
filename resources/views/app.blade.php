@@ -41,10 +41,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Usuarios</a>
+                    <a class="nav-link" href="{{route('listarusuarios')}}">Usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Configuración</a>
+                    <a class="nav-link" href="{{route('configuracion')}}">Configuración</a>
                 </li>
             </ul>
             <div class="my-2  my-lg-0">
@@ -75,14 +75,16 @@
 </nav>
 <div class="containe-fluid maincontainer">
     <div class="container">
-        @if ($errors->any())
-            <div class="alert alert-info" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        @if(isset($errors))
+            @if ($errors->any())
+                <div class="alert alert-info" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         @endif
         @if(Session::has('success'))
             @for($a = 0; $a < count(Session::get('success')); $a++)

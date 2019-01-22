@@ -23,14 +23,15 @@ class Basics
         return str_replace("public", "/storage", $ruta);
     }
 
-    public static function determinarRutaimg($datos)
+    public static function determinarRutaimg($datos, $ubicacion)
     {
         if (isset($datos['rutaimg'])) {
-            $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
+            $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion . 'categoria');
             $datos['rutaimg'] = $ruta;
         } else {
             $datos['rutaimg'] = $datos['rutaimagenold'];
         }
+
         return $datos;
     }
 

@@ -56,7 +56,7 @@ class productos
 
     public function actualizarCategoria($datos, $id)
     {
-        $datos = Basics::determinarRutaimg($datos);
+        $datos = Basics::determinarRutaimg($datos, self::ubicacion);
         if (Modelo::ActualizarCategoriaProductos($datos, $id)) {
             Session::put('success', ["Categoria actualizada"]);
         } else {
@@ -86,7 +86,7 @@ class productos
     public function actualizarProducto($datos)
     {
         try {
-            $datos = Basics::determinarRutaimg($datos);
+            $datos = Basics::determinarRutaimg($datos, self::ubicacion);
             Modelo::actualizarProductos($datos);
             for ($a = 0; $a < count($datos['propiedadanterior']); $a++) {
                 Modelo::actualizarRelacionPropiedadProducto($datos['propiedadanterior'][$a], $datos['id']);

@@ -3,6 +3,8 @@
 Route::get('/', 'AppController@home');
 Route::get('/productos/', 'AppController@productos')->name('productos')->middleware('auth');
 Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades')->middleware('auth');
+Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios')->middleware('auth');
+Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion')->middleware('auth');
 /** RUTAS DE LA PAGINA **/
 Auth::routes();
 
