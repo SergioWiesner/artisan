@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
+<div class="loading" id="loadingdiv">
+    <img src="{{asset('img/loading.gif')}}" alt="loading" class="loadimg ">
+</div>
 <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="/" style="width: 50px;"><img src="{{asset('img/logo.png')}}" alt="logo" class="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

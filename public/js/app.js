@@ -1,3 +1,11 @@
+window.onload = function () {
+    let load = document.getElementById('loadingdiv');
+    load.className += " loadingnone";
+}
+window.onbeforeunload = function () {
+    let load = document.getElementById('loadingdiv');
+    load.element.classList.remove("loadingnone");
+}
 let contadoragregarcategoria = 0;
 
 function agregarNuevaPropiedad() {

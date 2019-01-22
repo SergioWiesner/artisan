@@ -69,6 +69,7 @@
                                                 <label for="inputState">categoria padre</label>
                                                 <select id="inputState" class="form-control" name="catgoriapadre">
                                                     <option selected value="0"> selecione una categoria</option>
+
                                                     @for($c = 0; $c < count($categoria); $c++)
                                                         <option
                                                             value="{{$categoria[$c]['id']}}">{{$categoria[$c]['nombre']}}</option>
@@ -104,31 +105,34 @@
                         <button class="btn btn-outline-secondary" type="button">Buscar</button>
                     </div>
             </form>
-            <table class="table table-borderless">
-                <thead>
-                <tr>
-                    <th scope="col">Referencia</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($productos as $produc)
+            @if(isset($productos))
+                <table class="table table-borderless">
+                    <thead>
                     <tr>
-                        <td>{{$produc->referencia}}</td>
-                        <td>{{$produc->nombre}}</td>
-                        <td>{{$produc->stock}}</td>
-                        <td>${{number_format($produc->valor)}}</td>
-                        <td><a href="{{route('verproducto', ['id' => $produc->id])}}"><i class="fas fa-eye"></i></a>
-                            <a href="{{route('eliminarproducto', ['id' => $produc->id])}}"><i
-                                    class="fas fa-trash"></i></a></td>
+                        <th scope="col">Referencia</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col"></th>
+
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
-            {{$productos->links() }}
+                    </thead>
+                    <tbody>
+                    @foreach($productos as $produc)
+                        <tr>
+                            <td>{{$produc->referencia}}</td>
+                            <td>{{$produc->nombre}}</td>
+                            <td>{{$produc->stock}}</td>
+                            <td>${{number_format($produc->valor)}}</td>
+                            <td><a href="{{route('verproducto', ['id' => $produc->id])}}"><i class="fas fa-eye"></i></a>
+                                <a href="{{route('eliminarproducto', ['id' => $produc->id])}}"><i
+                                        class="fas fa-trash"></i></a></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                {{$productos->links() }}
+            @endif
         </div>
     </div>
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"

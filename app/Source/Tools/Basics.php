@@ -20,7 +20,18 @@ class Basics
     public static function Subirimagenes($contenido, $nombre)
     {
         $ruta = Storage::disk('local')->put($nombre, $contenido);
-        return str_replace("public", "storage", $ruta);
+        return str_replace("/public", "/storage", $ruta);
+    }
+
+    public static function determinarRutaimg($datos)
+    {
+        if (isset($datos['rutaimg'])) {
+            $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
+            $datos['rutaimg'] = $ruta;
+        } else {
+            $datos['rutaimg'] = $datos['rutaimagenold'];
+        }
+        return $datos;
     }
 
     public static function obtenerReferencia($dato)
@@ -35,7 +46,8 @@ class Basics
         return $rf;
     }
 
-    public static function sanear_string($string)
+    public
+    static function sanear_string($string)
     {
 
         $string = trim($string);

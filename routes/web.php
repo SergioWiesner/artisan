@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 /** RUTA DE PRODUCTOS **/
 Route::middleware(['auth'])->group(function () {
     Route::post('/productos/agregar', 'ProductosController@store')->name('agregarproducto');
-    Route::put('/productos/editar/{id}', 'ProductosController@update')->name('editarproducto');
+    Route::patch('/productos/editar/{id}', 'ProductosController@update')->name('editarproducto');
     Route::get('/productos/eliminar/{id}', 'ProductosController@delete')->name('eliminarproducto');
     Route::get('/productos/ver/{id}', 'AppController@verproductodetalles')->name('verproducto');
 
