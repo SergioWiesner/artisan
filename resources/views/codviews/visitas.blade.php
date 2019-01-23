@@ -1,12 +1,16 @@
 @extends('system.configuracion.configuracion')
 @section('configuracionpagina')
     <form action="{{route('CodviewInicio')}}" method="get">
-        <input type="text" placeholder="Busqueda ...." name="consulta" class="">
-        <input type="submit" value="Buscar">
-    </form>
-    <form action="{{route('CodviewInicio')}}" method="get">
-        <input type="text" placeholder="Busqueda ...." name="consulta" class="">
-        <input type="submit" value="Buscar">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-8">
+                    <input type="text" placeholder="Busqueda ...." name="consulta" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" value="Buscar" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
     </form>
 
     @if(isset($visitas))

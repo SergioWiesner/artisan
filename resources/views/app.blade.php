@@ -24,11 +24,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        @guest
-
-        @else
+        @auth
             <ul class="navbar-nav mr-auto">
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('productos')}}">Productos</a>
                 </li>
@@ -69,8 +66,9 @@
                     </li>
                 </ul>
             </div>
-
-        @endguest
+        @else
+            
+        @endauth
     </div>
 </nav>
 <div class="containe-fluid maincontainer">

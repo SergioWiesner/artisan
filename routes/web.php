@@ -1,12 +1,14 @@
 <?php
 /** RUTAS DE LA PAGINA **/
-Route::get('/', 'AppController@home');
-Route::get('/productos/', 'AppController@productos')->name('productos')->middleware('auth');
-Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades')->middleware('auth');
-Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios')->middleware('auth');
-Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion')->middleware('auth');
-/** RUTAS DE LA PAGINA **/
-Auth::routes();
+Route::middleware(['Rastreador'])->group(function () {
+    Route::get('/', 'AppController@home');
+    Route::get('/productos/', 'AppController@productos')->name('productos');
+    Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
+    Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
+    Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
+    /** RUTAS DE LA PAGINA **/
+    Auth::routes();
+});
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
