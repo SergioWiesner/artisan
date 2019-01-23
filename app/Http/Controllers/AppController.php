@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Source\Productos\Propiedades\Propiedades;
 use App\Source\Productos\productos;
+use App\Source\Usuarios\Usuarios;
 use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
@@ -11,12 +12,14 @@ class AppController extends Controller
     public function home()
     {
         if (Auth::guest()) {
-            return view('page.home');
+            return view('page.itsy.home');
 
         } else {
+            $usuarios = new Usuarios();
             $productos = new productos();
             return view('system.home')
                 ->with('productos', $productos->listarProductosPaginadosRandom());
+//                ->with('usuarios', $usuarios->listarUsuariosPaginados());
         }
     }
 

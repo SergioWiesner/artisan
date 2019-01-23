@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-6 mr-auto">
                 <div class="footer-logo">
-                    <img src="{{asset('page/images/logo.png')}}" class="footerlogo" alt="footer-logo">
+                    <img src="{{asset('page/v1/images/logo.png')}}" class="footerlogo" alt="footer-logo">
                 </div>
                 <div class="copyright">
                     <p>@2019 Todos los derechos reservados | Diseñado por: <a href="https://codwelt.com/"
@@ -53,13 +53,13 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA" async defer></script>
 
-<script src="{{asset('page/plugins/jquery/jquery.js')}}"></script>
-<script src="{{asset('page/plugins/popper/popper.min.js')}}"></script>
-<script src="{{asset('page/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('page/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('page/plugins/slick/slick.min.js')}}"></script>
-<script src="{{asset('page/plugins/smoothscroll/SmoothScroll.min.js')}}"></script>
-<script src="{{asset('page/js/custom.js')}}"></script>
+<script src="{{asset('page/v1/plugins/jquery/jquery.js')}}"></script>
+<script src="{{asset('page/v1/plugins/popper/popper.min.js')}}"></script>
+<script src="{{asset('page/v1/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('page/v1/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('page/v1/plugins/slick/slick.min.js')}}"></script>
+<script src="{{asset('page/v1/plugins/smoothscroll/SmoothScroll.min.js')}}"></script>
+<script src="{{asset('page/v1/js/custom.js')}}"></script>
 
 </body>
 

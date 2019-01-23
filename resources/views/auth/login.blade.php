@@ -1,4 +1,4 @@
-@extends('page.index')
+@extends('page.v1.index')
 @section('pagina')
     <section class="banner " id="home" style="min-height: 80vh;">
         <div class="container">

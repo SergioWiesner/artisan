@@ -12,7 +12,6 @@
             </div>
         </div>
     </form>
-
     @if(isset($visitas))
         <div class="contenedortablas">
             <table class="table">

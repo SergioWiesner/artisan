@@ -1,4 +1,4 @@
-@extends('page.index')
+@extends('page.v1.index')
 @section('pagina')
     <!--=====================================
 =            Homepage Banner            =
