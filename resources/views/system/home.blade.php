@@ -3,7 +3,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                {{dd($usuarios)}}
                 <table class="table">
                     <thead>
                     <tr>
@@ -14,14 +13,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach()
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
