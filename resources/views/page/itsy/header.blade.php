@@ -13,6 +13,7 @@
     <!--[if (lt IE 9) & (!IEMobile)]>
     <link rel="stylesheet" id="lt-ie9-css" href="{{asset('/page/itsy/css/ie.css')}}" type="text/css" media="screen"/>
     <![endif]-->
+    <script src='{{asset('universal.js')}}'></script>
     <script src='{{asset('/page/itsy/js/jquery-3.0.0.min.js')}}'></script>
     <script src='{{asset('/page/itsy/js/jquery-migrate-3.0.1.min.js')}}'></script>
     <!--[if lt IE 9]>

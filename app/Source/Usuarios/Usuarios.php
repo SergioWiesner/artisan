@@ -10,6 +10,6 @@ class Usuarios
 
     public function listarUsuariosPaginados()
     {
-        //return Model::listarUsuariospaginados();
+        return Model::listarUsuariospaginados();
     }
 }

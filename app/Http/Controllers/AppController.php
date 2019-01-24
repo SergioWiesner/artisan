@@ -18,8 +18,8 @@ class AppController extends Controller
             $usuarios = new Usuarios();
             $productos = new productos();
             return view('system.home')
-                ->with('productos', $productos->listarProductosPaginadosRandom());
-//                ->with('usuarios', $usuarios->listarUsuariosPaginados());
+                ->with('productos', $productos->listarProductosPaginadosRandom())
+                ->with('usuarios', $usuarios->listarUsuariosPaginados());
         }
     }
 
@@ -59,7 +59,9 @@ class AppController extends Controller
 
     public function usuarios()
     {
-        return view('system.usuarios.listar');
+        $usuarios = new Usuarios();
+        return view('system.usuarios.listar')
+            ->with('usuarios', $usuarios->listarUsuariosPaginados());
     }
 
     public function configuracion()

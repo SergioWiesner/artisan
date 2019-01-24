@@ -9,6 +9,6 @@ class Model
 
     public static function listarUsuariospaginados()
     {
-        //return User::paginate(25);
+        return User::paginate(25);
     }
 }

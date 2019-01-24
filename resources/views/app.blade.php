@@ -67,7 +67,7 @@
                 </ul>
             </div>
         @else
-            
+
         @endauth
     </div>
 </nav>

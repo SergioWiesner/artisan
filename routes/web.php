@@ -1,6 +1,6 @@
 <?php
 /** RUTAS DE LA PAGINA **/
-Route::middleware(['Rastreador'])->group(function () {
+Route::middleware([])->group(function () {
     Route::get('/', 'AppController@home');
     Route::get('/productos/', 'AppController@productos')->name('productos');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');

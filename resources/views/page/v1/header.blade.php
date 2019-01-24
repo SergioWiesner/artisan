@@ -18,6 +18,7 @@
     <!-- CUSTOM CSS -->
     <link href="{{asset('page/v1/css/style.css')}}" rel="stylesheet">
     <!-- FAVICON -->
+    <script src='{{asset('universal.js')}}'></script>
     <link href="/favicon.ico" rel="shortcut icon">
 </head>
 <body class="body-wrapper">

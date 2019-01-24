@@ -2,8 +2,9 @@
 @section('page')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                {{dd($usuarios)}}
+            <div class="col-md-3">
+                <h4>Ranking de ventas hoy</h4>
+                <hr>
                 <table class="table">
                     <thead>
                     <tr>
@@ -14,18 +15,23 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach()
+                    @php
+                        $a = 0;
+                    @endphp
+                    @foreach($usuarios as $us)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">{{$a++}}</th>
+                            <td>{{$us->name}}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-9">
+                <h4>Productos</h4>
+                <hr>
                 <div class="card-columns">
                     @foreach($productos as $product)
                         @if(!is_null($product->rutaimagen))
