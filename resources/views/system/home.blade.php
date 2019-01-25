@@ -5,6 +5,7 @@
             <div class="col-md-3">
                 <h4>Ranking de ventas hoy</h4>
                 <hr>
+
                 <table class="table">
                     <thead>
                     <tr>
