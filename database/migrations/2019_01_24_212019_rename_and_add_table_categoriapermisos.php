@@ -13,12 +13,12 @@ class RenameAndAddTableCategoriapermisos extends Migration
      */
     public function up()
     {
-        Schema::table('categoriapermisos', function (Blueprint $table) {
+        Schema::table('categoriaPermisos', function (Blueprint $table) {
             $table->string('nombre');
             $table->boolean('estado');
             $table->softDeletes();
         });
-        Schema::rename('categoriapermisos', 'categoria_permisos');
+        Schema::rename('categoriaPermisos', 'categoria_permisos');
     }
 
     /**
@@ -28,7 +28,7 @@ class RenameAndAddTableCategoriapermisos extends Migration
      */
     public function down()
     {
-        Schema::table('categoriapermisos', function (Blueprint $table) {
+        Schema::table('categoriaPermisos', function (Blueprint $table) {
             //
         });
     }
