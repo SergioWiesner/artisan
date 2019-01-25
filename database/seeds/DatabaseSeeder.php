@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TipoDocumento::class);
         $this->call(Firstuser::class);
         $this->call(CategoriaProducto::class);
+        $this->call(bodegaseed::class);
     }
 }

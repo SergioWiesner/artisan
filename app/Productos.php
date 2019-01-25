@@ -10,7 +10,7 @@ class Productos extends Model
     use SoftDeletes;
 
     protected $table = "productos";
-    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'rutaimagen', 'stock', 'valor', 'idcategoria', 'idproductopadre', 'estado', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'rutaimagen', 'stock', 'valor', 'idcategoria', 'idproductopadre', 'bodega', 'estado'];
 
     public function catgorias()
     {
@@ -28,8 +28,9 @@ class Productos extends Model
         return $this->hasMany('App\ProductosPropiedades', 'productos_id', 'id');
     }
 
-    public function apply(Builder $builder, Model $model)
+
+    public function bodegas()
     {
-        $builder->where('age', '>', 200);
+        return $this->belongsTo('App\bodegas', 'bodega', 'id');
     }
 }
