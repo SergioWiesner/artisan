@@ -5,6 +5,7 @@ Route::middleware([])->group(function () {
     Route::get('/productos/', 'AppController@productos')->name('productos');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
     Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
+    Route::get('/usuarios/{id}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
     /** RUTAS DE LA PAGINA **/
     Auth::routes();

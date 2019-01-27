@@ -14,11 +14,11 @@ class Perfiles extends Model
 
     public function permisos()
     {
-        return $this->belongsToMany('App\Permisos', 'role_user', 'permisos_id', 'id');
+        return $this->belongsToMany('App\Permisos', 'perfiles_permisos', 'permisos_id', 'id');
     }
 
     public function usuarios()
     {
-        return $this->belongsToMany('App\User', 'perfiles_users', 'users_id', 'id');
+        return $this->belongsToMany('App\User', 'perfiles_users', 'perfiles_id', 'users_id');
     }
 }

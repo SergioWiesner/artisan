@@ -139,9 +139,13 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="container-fluid containermodals">
-                    <h3 class="titulos">Agregar nuevo producto</h3>
-                    <hr>
                     <form action="{{route('agregarproducto')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-row">
@@ -213,9 +217,13 @@
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar nueva categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="container-fluid containermodals">
-                    <h3 class="titulos">Agregar categoria</h3>
-                    <hr>
                     <form action="{{route('agregarcategoria')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-row">

@@ -2,7 +2,7 @@
 @section('page')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4>Ranking de ventas hoy</h4>
                 <hr>
 
@@ -30,7 +30,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <h4>Productos</h4>
                 <hr>
                 <div class="card-columns">

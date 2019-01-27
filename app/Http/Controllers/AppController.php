@@ -59,9 +59,18 @@ class AppController extends Controller
 
     public function usuarios()
     {
+
         $usuarios = new Usuarios();
         return view('system.usuarios.listar')
-            ->with('usuarios', $usuarios->listarUsuariosPaginados());
+            ->with('usuarios', $usuarios->listaUsuariosTodasLasRelacionesPaginados())
+            ->with('documentos', $usuarios->listarTipoDocumentos());
+    }
+
+    public function verUsuarios($id)
+    {
+        $usuarios = new Usuarios();
+        return view('system.usuarios.observar')
+            ->with('detalles', $usuarios->buscarUsuario($id));
     }
 
     public function configuracion()

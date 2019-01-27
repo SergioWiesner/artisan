@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function perfiles()
     {
-        return $this->belongsToMany('App\Perfiles', 'perfiles_users', 'perfiles_id', 'id');
+        return $this->belongsToMany('App\Perfiles', 'perfiles_users', 'users_id', 'perfiles_id');
     }
 
     public function tipodocumento()
