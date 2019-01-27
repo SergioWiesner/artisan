@@ -1,13 +1,19 @@
 @extends('system.usuarios.usuarios')
 @section('contentusuarios')
-    <div class="row">
+    <div class="row detallesusuario">
         <div class="col-md-4">
 
         </div>
         <div class="col-md-8">
-            <a href="#!" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-user"></i> Agregar
-                usuario</a>
-            <br>
+            <h3 class="titulos">Lista de usuarios</h3>
+            <hr>
+            <ul class="nav justify-content-left">
+                <li class="nav-item">
+                    <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-lg"><i
+                            class="fas fa-user"></i> Agregar
+                        usuario</a>
+                </li>
+            </ul>
             <table class="table">
                 <thead>
                 <tr>

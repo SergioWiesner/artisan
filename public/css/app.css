@@ -100,3 +100,12 @@ a {
 .detallesproductos .categoria {
     width: 10%;
 }
+
+/** Información de usuarios **/
+.detallesusuario {
+    min-height: 90vh;
+}
+
+.infousuario div {
+    padding: 1%;
+}
