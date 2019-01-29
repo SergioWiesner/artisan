@@ -1,8 +1,8 @@
 @extends('system.usuarios.usuarios')
 @section('contentusuarios')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            {{dd($detalles)}}
+
             @for($a = 0; $a < count($detalles); $a++)
                 @if(!is_null($detalles[$a]['rutaimg']))
                     <div class="col-md-3">
@@ -64,31 +64,29 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Valor</th>
+                                                <th scope="col"></th>
+                                                <th scope="col">Fecha compra</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+
+                                            @if(count($detalles[$a]['compras']) > 0)
+                                                @for($d = 0; $d < count($detalles[$a]['compras']); $d++)
+                                                    <tr>
+                                                        <td>{{$detalles[$a]['compras'][$d]['cantidad']}}</td>
+                                                        <td>{{$detalles[$a]['compras'][$d]['productos']['nombre']}}</td>
+                                                        <td>{{number_format($detalles[$a]['compras'][$d]['productos']['valor'])}}</td>
+                                                        <td>
+                                                            <a href="{{route('verproducto', ['id' => $detalles[$a]['compras'][$d]['id']])}}"><i
+                                                                    class="fas fa-eye"></i></a>
+                                                        </td>
+                                                        <td>{{$detalles[$a]['compras'][$d]['created_at']}}</td>
+                                                    </tr>
+                                                @endfor
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -98,31 +96,29 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Metodo de pago</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Items</th>
+                                                <th scope="col">Fecha venta</th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+
+                                            @if(count($detalles[$a]['ventas']) > 0)
+                                                @for($e = 0; $e < count($detalles[$a]['ventas']); $e++)
+                                                    <tr>
+                                                        <td>{{$detalles[$a]['ventas'][$e]['metododepago']['nombre']}}</td>
+                                                        <td>{{number_format($detalles[$a]['ventas'][$e]['total'])}}</td>
+                                                        <td>{{count($detalles[$a]['ventas'][$e]['carrito'])}}</td>
+                                                        <td>{{$detalles[$a]['ventas'][$e]['created_at']}}</td>
+                                                        <td>
+                                                            <a href=""><i
+                                                                    class="fas fa-eye"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                @endfor
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>

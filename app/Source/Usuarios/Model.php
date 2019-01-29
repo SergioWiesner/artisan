@@ -9,7 +9,7 @@ class Model
 
     public static function listarUsuariospaginados()
     {
-        return User::paginate(25);
+        return User::with('bodegas')->with('ventas')->paginate(25);
     }
 
     public static function todasLasPropiedades()
@@ -24,6 +24,6 @@ class Model
 
     public static function observarDetalles($id)
     {
-        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('compras.productos')->with('ventas.carrito.productos')->get();
+        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
     }
 }

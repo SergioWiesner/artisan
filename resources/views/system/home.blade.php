@@ -16,15 +16,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @php
-                        $a = 0;
-                    @endphp
-                    @foreach($usuarios as $us)
+                    @foreach($usuarios as $a => $us)
                         <tr>
-                            <th scope="row">{{$a++}}</th>
+                            <th scope="row">{{$a+1}}</th>
                             <td>{{$us->name}}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$us->bodegas[0]->nombre}}</td>
+                            @if(count($us->ventas) > 0)
+                                <td>{{count($us->ventas)}}</td>
+                            @else
+                                <td>0</td>
+                            @endif
                         </tr>
                     @endforeach
                     </tbody>
