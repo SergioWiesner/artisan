@@ -24,6 +24,6 @@ class Model
 
     public static function observarDetalles($id)
     {
-        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('compras')->with('ventas')->get();
+        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('compras.productos')->with('ventas.carrito.productos')->get();
     }
 }

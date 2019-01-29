@@ -15,7 +15,6 @@ class Productos extends Model
     public function catgorias()
     {
         return $this->belongsTo('App\CategoriaProductos', 'idcategoria', 'id');
-
     }
 
     public function propiedades()
@@ -28,9 +27,13 @@ class Productos extends Model
         return $this->hasMany('App\ProductosPropiedades', 'productos_id', 'id');
     }
 
-
     public function bodegas()
     {
         return $this->belongsTo('App\bodegas', 'bodega', 'id');
+    }
+
+    public function carrito()
+    {
+        return $this->hasMany('App\Carrito', 'idproducto', 'id');
     }
 }
