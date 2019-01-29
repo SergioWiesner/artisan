@@ -2,6 +2,7 @@
 @section('contentusuarios')
     <div class="container">
         <div class="row">
+            {{dd($detalles)}}
             @for($a = 0; $a < count($detalles); $a++)
                 @if(!is_null($detalles[$a]['rutaimg']))
                     <div class="col-md-3">

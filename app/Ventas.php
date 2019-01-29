@@ -32,4 +32,9 @@ class Ventas extends Model
     {
         return $this->belongsTo('App\MetodoPago', 'metodopago', 'id');
     }
+
+    public function carrito()
+    {
+        return $this->hasMany('App\Carrito', 'venta_id', 'id');
+    }
 }

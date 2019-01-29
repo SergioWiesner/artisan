@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Productos::class);
         $this->call(propiedades::class);
         $this->call(TipoDocumento::class);
+        $this->call(carritoseed::class);
     }
 }
