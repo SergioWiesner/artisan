@@ -2,10 +2,9 @@
 @section('page')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h4>Ranking de ventas hoy</h4>
                 <hr>
-
                 <table class="table">
                     <thead>
                     <tr>
@@ -13,6 +12,7 @@
                         <th scope="col">Numero</th>
                         <th scope="col">Bodega</th>
                         <th scope="col">Ventas</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,12 +26,14 @@
                             @else
                                 <td>0</td>
                             @endif
+                            <th><a href="{{route('detallesusuarios', ['id' => $us->id])}}"><i
+                                        class="fas fa-eye"></i></a></th>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <h4>Productos</h4>
                 <hr>
                 <div class="card-columns">

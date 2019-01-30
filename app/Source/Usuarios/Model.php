@@ -3,13 +3,17 @@
 namespace App\Source\Usuarios;
 
 use App\User;
+use Carbon\Carbon;
 
 class Model
 {
 
     public static function listarUsuariospaginados()
     {
-        return User::with('bodegas')->with('ventas')->paginate(25);
+        return User::with('bodegas')->with(['ventas' => function ($query) {
+            $date = Carbon::now();
+            $query->where('created_at', 'like', '%' . $date->toDateString() . '%');
+        }])->paginate(25);
     }
 
     public static function todasLasPropiedades()
