@@ -12,7 +12,7 @@ class Usuarios
 
     public function listarUsuariosPaginados()
     {
-        dd(Model::listarUsuariospaginados());
+        return Model::listarUsuariospaginados();
     }
 
     public function listarTipoDocumentos()

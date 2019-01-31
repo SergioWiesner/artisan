@@ -11,9 +11,8 @@ class Model
     public static function listarUsuariospaginados()
     {
         return User::with('bodegas')->with(['ventas' => function ($query) {
-            $date = Carbon::now();
-            $query->where('created_at', 'like', '%' . $date->toDateString() . '%');
-        }])->paginate(25);
+            $query->whereRaw('date(created_at) = "' . Carbon::now()->toDateString() . '"');
+        }])->paginate(10);
     }
 
     public static function todasLasPropiedades()
