@@ -8,11 +8,13 @@
             <h3 class="titulos">Lista de usuarios</h3>
             <hr>
             <ul class="nav justify-content-left">
-                <li class="nav-item">
-                    <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-lg"><i
-                            class="fas fa-user"></i> Agregar
-                        usuario</a>
-                </li>
+                @if(\Illuminate\Support\Facades\Auth::user()->nivelaccesso  == 10)
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-xl"><i
+                                class="fas fa-user"></i> Agregar
+                            usuario</a>
+                    </li>
+                @endif
             </ul>
             <table class="table">
                 <thead>
@@ -50,9 +52,9 @@
             @endsection
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo usuario</h5>
@@ -116,6 +118,8 @@
                                 <option value="10">10</option>
                             </select>
                         </div>
+                        <input type="submit" class="btn btn-primary btn-block"
+                               value="Actualizar">
                     </form>
                 </div>
             </div>
