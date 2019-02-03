@@ -24,9 +24,9 @@
                                             </li>
                                             @if(\Illuminate\Support\Facades\Auth::user()->nivelaccesso  == 10)
                                                 <li class="nav-item">
-                                                    <a href="#!" class="nav-link active" data-toggle="modal"
-                                                       data-target=".bd-example-modal-lg"><i
-                                                            class="fas fa-user"></i> Desactivar</a>
+                                                    <a href="{{route('usuarioeliminar', ['id' => $detalles[$a]['id']])}}"
+                                                       class="nav-link active"><i
+                                                            class="fas fa-trash"></i> Desactivar</a>
                                                 </li>
                                             @endif
                                         </ul>
@@ -138,50 +138,71 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form action="{{route('usuarioeditar', ['id' => $detalles[$a]['id']])}}"
+                                                  method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('patch')
                                                 <div class="form-group">
                                                     <label for="exampleFormControlInput1">Nombres</label>
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" class="form-control" name="nombre"
                                                            value="{{$detalles[$a]['name']}}"
                                                            required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1">Correos</label>
-                                                    <input type="email" class="form-control"
+                                                    <input type="email" class="form-control" name="email"
                                                            value="{{$detalles[$a]['email']}}"
                                                            required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleFormControlTextarea1">Teléfono</label>
-                                                    <input type="text" class="form-control"
+                                                    <input type="text" class="form-control" name="telefono"
                                                            value="{{$detalles[$a]['telefono']}}" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleFormControlTextarea1">Documento</label>
-                                                    <input type="text" class="form-control"
-                                                           value="{{$detalles[$a]['documento']}}" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlTextarea1">Dirección</label>
-                                                    <input type="text" class="form-control"
-                                                           value="{{$detalles[$a]['direccion']}}" required>
+                                                    <input type="hidden" name="rutaimagenold"
+                                                           value="{{$detalles[$a]['rutaimg']}}">
+                                                    <input type="hidden" name="id" value="{{$detalles[$a]['id']}}">
+                                                    <label for="inputState">Foto</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input"
+                                                               id="customFileLang" lang="es"
+                                                               name="rutaimg">
+                                                        <label class="custom-file-label" for="customFileLang">Seleccionar
+                                                            Archivo</label>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1">Tipo documento</label>
                                                     <select class="form-control" id="exampleFormControlSelect1"
+                                                            name="tipodocumento"
                                                             required>
                                                         <option selected></option>
-                                                        @for($a = 0; $a < count($documentos); $a++)
+                                                        @for($b = 0; $b < count($documentos); $b++)
                                                             <option
-                                                                value="{{$documentos[$a]['id']}}">{{$documentos[$a]['nombre']}}</option>
+                                                                value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
                                                         @endfor
                                                     </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">Documento</label>
+                                                    <input type="text" class="form-control"
+                                                           value="{{$detalles[$a]['documento']}}" name="documento"
+                                                           required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea1">Dirección</label>
+                                                    <input type="text" class="form-control"
+                                                           value="{{$detalles[$a]['direccion']}}" name="direccion"
+                                                           required>
                                                 </div>
                                                 @if(\Illuminate\Support\Facades\Auth::user()->nivelaccesso  == 10)
                                                     <div class="form-group">
                                                         <label for="exampleFormControlSelect1">Nivel de acceso</label>
                                                         <select class="form-control" id="exampleFormControlSelect1"
+                                                                name="nivelacceso"
                                                                 required>
+                                                            <option value="{{$detalles[$a]['nivelaccesso']}}"></option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -194,6 +215,9 @@
                                                             <option value="10">10</option>
                                                         </select>
                                                     </div>
+                                                @else
+                                                    <input type="hidden" name="nivelacceso"
+                                                           value="{{$detalles[$a]['nivelaccesso']}}">
                                                 @endif
                                                 <input type="submit" class="btn btn-primary btn-block"
                                                        value="Actualizar">

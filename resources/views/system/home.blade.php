@@ -20,7 +20,7 @@
                         <tr>
                             <th scope="row">{{$a+1}}</th>
                             <td>{{$us->name}}</td>
-                            <td>{{$us->bodegas[0]->nombre}}</td>
+                            <td>@for($a = 0; $a < count($us->bodegas); $a++) {{$us->bodegas[$a]->nombre}} @endfor</td>
                             @if(count($us->ventas) > 0)
                                 <td>{{count($us->ventas)}}</td>
                             @else

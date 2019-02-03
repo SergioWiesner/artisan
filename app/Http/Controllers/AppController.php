@@ -61,7 +61,9 @@ class AppController extends Controller
     {
 
         $usuarios = new Usuarios();
+
         return view('system.usuarios.listar')
+            ->with('bodegas', \App\Bodegas::all()->toArray())
             ->with('usuarios', $usuarios->listaUsuariosTodasLasRelacionesPaginados())
             ->with('documentos', $usuarios->listarTipoDocumentos());
     }
