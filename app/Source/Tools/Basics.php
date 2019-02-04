@@ -25,11 +25,15 @@ class Basics
 
     public static function determinarRutaimg($datos, $ubicacion)
     {
-        if (isset($datos['rutaimg'])) {
-            $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion . 'categoria');
-            $datos['rutaimg'] = $ruta;
+        if (isset($datos['rutaimg']) || isset($datos['rutaimagenold'])) {
+            if (isset($datos['rutaimg'])) {
+                $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion . 'categoria');
+                $datos['rutaimg'] = $ruta;
+            } else {
+                $datos['rutaimg'] = $datos['rutaimagenold'];
+            }
         } else {
-            $datos['rutaimg'] = $datos['rutaimagenold'];
+            $datos['rutaimg'] = " ";
         }
 
         return $datos;
@@ -47,8 +51,7 @@ class Basics
         return $rf;
     }
 
-    public
-    static function sanear_string($string)
+    public static function sanear_string($string)
     {
 
         $string = trim($string);

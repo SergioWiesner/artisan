@@ -8,11 +8,13 @@
             <h3 class="titulos">Lista de usuarios</h3>
             <hr>
             <ul class="nav justify-content-left">
-                <li class="nav-item">
-                    <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-lg"><i
-                            class="fas fa-user"></i> Agregar
-                        usuario</a>
-                </li>
+                @if(Auth::user()->nivelaccesso  == 10)
+                    <li class="nav-item">
+                        <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-xl"><i
+                                class="fas fa-user"></i> Agregar
+                            usuario</a>
+                    </li>
+                @endif
             </ul>
             <table class="table">
                 <thead>
@@ -36,7 +38,7 @@
                             @endfor
                         </td>
                         <td>
-                            @for($c = 0; $c < count($us->bodegas); $c++)
+                            @for($c = 0; $c < count($us->perfiles); $c++)
                                 - {{$us->perfiles[$c]->nombre}}
                             @endfor
                         </td>
@@ -50,9 +52,9 @@
             @endsection
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo usuario</h5>
@@ -61,49 +63,86 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{route('usuarioscrear')}}"
+                          method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nombres</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
+                            <input type="text" class="form-control" name="nombre"
+                                   value=""
+                                   required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Correos</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
+                            <input type="email" class="form-control" name="email"
+                                   value=""
+                                   required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Contraseña</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
+                            <label for="exampleFormControlSelect1">Contraseña</label>
+                            <input type="password" class="form-control" name="password"
+                                   value=""
+                                   required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Teléfono</label>
-                            <input type="teléfono" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
+                            <input type="text" class="form-control" name="telefono"
+                                   value="" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Documento</label>
-                            <input type="teléfono" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Dirección</label>
-                            <input type="teléfono" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
+                            <label for="inputState">Foto</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input"
+                                       id="customFileLang" lang="es"
+                                       name="rutaimg">
+                                <label class="custom-file-label" for="customFileLang">Seleccionar
+                                    Archivo</label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Tipo documento</label>
-                            <select class="form-control" id="exampleFormControlSelect1" required>
+                            <select class="form-control" id="exampleFormControlSelect1"
+                                    name="tipodocumento"
+                                    required>
+
                                 <option selected></option>
-                                @for($a = 0; $a < count($documentos); $a++)
-                                    <option value="{{$documentos[$a]['id']}}">{{$documentos[$a]['nombre']}}</option>
+                                @for($b = 0; $b < count($documentos); $b++)
+                                    <option
+                                        value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
                                 @endfor
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Documento</label>
+                            <input type="text" class="form-control"
+                                   value="" name="documento"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Bodega</label>
+                            <select class="form-control" id="exampleFormControlSelect1"
+                                    name="bodegasId"
+                                    required>
+
+                                <option selected></option>
+                                @for($c = 0; $c < count($bodegas); $c++)
+                                    <option
+                                        value="{{$bodegas[$c]['id']}}">{{$bodegas[$c]['nombre']}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Dirección</label>
+                            <input type="text" class="form-control"
+                                   value="" name="direccion"
+                                   required>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlSelect1">Nivel de acceso</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1"
+                                    name="nivelacceso"
+                                    required>
+                                <option value=""></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -116,6 +155,8 @@
                                 <option value="10">10</option>
                             </select>
                         </div>
+                        <input type="submit" class="btn btn-primary btn-block"
+                               value="Actualizar">
                     </form>
                 </div>
             </div>

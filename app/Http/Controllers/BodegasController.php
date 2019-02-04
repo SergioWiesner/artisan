@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Usuarios as UsuariosRequet;
-use App\Source\Usuarios\Usuarios;
+use App\Http\Requests\Bodegas;
+use App\Source\Bodegas\Bodegas as bodegasmanager;
 
-class UsuariosController extends Controller
+class BodegasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,10 +34,11 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsuariosRequet $request)
+    public function store(Bodegas $request)
     {
-        $usuar = new Usuarios();
-        return $usuar->crearUsuario($request->all());
+        dd($request->all());
+        $bo = new bodegasmanager();
+        return $bo->AgregarBodega($request->all());
     }
 
     /**
@@ -71,8 +72,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuar = new Usuarios();
-        return $usuar->editarUsuarios($id, $request->all());
+        //
     }
 
     /**
@@ -83,7 +83,6 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        $usuar = new Usuarios();
-        return $usuar->eliminarUsuario($id);
+        //
     }
 }

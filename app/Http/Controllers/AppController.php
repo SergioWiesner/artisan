@@ -61,7 +61,9 @@ class AppController extends Controller
     {
 
         $usuarios = new Usuarios();
+
         return view('system.usuarios.listar')
+            ->with('bodegas', \App\Bodegas::all()->toArray())
             ->with('usuarios', $usuarios->listaUsuariosTodasLasRelacionesPaginados())
             ->with('documentos', $usuarios->listarTipoDocumentos());
     }
@@ -70,7 +72,8 @@ class AppController extends Controller
     {
         $usuarios = new Usuarios();
         return view('system.usuarios.observar')
-            ->with('detalles', $usuarios->buscarUsuario($id));
+            ->with('detalles', $usuarios->buscarUsuario($id))
+            ->with('documentos', $usuarios->listarTipoDocumentos());
     }
 
     public function configuracion()

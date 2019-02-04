@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function bodegas()
     {
-        return $this->belongsToMany('App\bodegas', 'bodegas_user', 'user_id', 'bodegas_id');
+        return $this->belongsToMany('App\Bodegas', 'bodegas_user', 'user_id', 'bodegas_id');
     }
 
     public function compras()
