@@ -69,7 +69,7 @@ class UsuariosController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsuariosRequet $request, $id)
+    public function update(Request $request, $id)
     {
         $usuar = new Usuarios();
         return $usuar->editarUsuarios($id, $request->all());
