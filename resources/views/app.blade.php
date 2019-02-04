@@ -26,23 +26,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         @auth
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('productos')}}">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Clientes</a>
-                </li>
+                @for($a = 0; $a < count(Session::get('menu')); $a++)
+                    {!!  Session::get('menu')[$a] !!}
+                @endfor
+                {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="{{route('productos')}}"></a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Clientes</a>--}}
+                {{--</li>--}}
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ventas</a>
-                </li>
+                {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Ventas</a>--}}
+                {{--</li>--}}
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('listarusuarios')}}">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('configuracion')}}">Configuración</a>
-                </li>
+                {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="{{route('listarusuarios')}}"></a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="{{route('configuracion')}}"></a>--}}
+                {{--</li>--}}
             </ul>
             <div class="my-2  my-lg-0">
                 <ul class="navbar-nav mr-auto">

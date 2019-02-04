@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Source\Productos\Propiedades\Propiedades;
 use App\Source\Productos\productos;
+use App\Source\Tools\Permisos;
 use App\Source\Usuarios\Usuarios;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AppController extends Controller
 {
@@ -15,6 +17,10 @@ class AppController extends Controller
             return view('page.itsy.home');
 
         } else {
+            if (!Session::has('menu')) {
+                Permisos::generarMenu();
+            }
+
             $usuarios = new Usuarios();
             $productos = new productos();
             return view('system.home')

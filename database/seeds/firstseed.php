@@ -23,6 +23,16 @@ class firstseed extends Seeder
             'permisos_id' => 1
         ]);
 
+        DB::table('perfiles_permisos')->insert([
+            'perfiles_id' => 1,
+            'permisos_id' => 2
+        ]);
+
+        DB::table('perfiles_permisos')->insert([
+            'perfiles_id' => 1,
+            'permisos_id' => 3
+        ]);
+
         DB::table('perfiles_users')->insert([
             'users_id' => 1,
             'perfiles_id' => 1

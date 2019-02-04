@@ -36,7 +36,6 @@ class BodegasController extends Controller
      */
     public function store(Bodegas $request)
     {
-        dd($request->all());
         $bo = new bodegasmanager();
         return $bo->AgregarBodega($request->all());
     }

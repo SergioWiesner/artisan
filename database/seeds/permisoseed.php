@@ -12,8 +12,24 @@ class permisoseed extends Seeder
     public function run()
     {
         DB::table('permisos')->insert([
-            'nombre' => 'configuracion',
+            'nombre' => 'Configuracion',
             'url' => '/configuracion',
+            'nivelacceso' => 10,
+            'estado' => 1,
+            'categoria' => 1
+        ]);
+
+        DB::table('permisos')->insert([
+            'nombre' => 'Productos',
+            'url' => '/productos',
+            'nivelacceso' => 10,
+            'estado' => 1,
+            'categoria' => 1
+        ]);
+
+        DB::table('permisos')->insert([
+            'nombre' => 'Usuarios',
+            'url' => '/usuarios',
             'nivelacceso' => 10,
             'estado' => 1,
             'categoria' => 1

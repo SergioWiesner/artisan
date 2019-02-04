@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: heros
- * Date: 3/02/2019
- * Time: 2:08 PM
- */
-
 namespace App\Source\Bodegas;
 
+use Illuminate\Support\Facades\DB;
 
 class Modelo
 {

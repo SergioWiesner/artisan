@@ -14,7 +14,7 @@ class Perfiles extends Model
 
     public function permisos()
     {
-        return $this->belongsToMany('App\Permisos', 'perfiles_permisos', 'permisos_id', 'id');
+        return $this->belongsToMany('App\Permisos', 'perfiles_permisos', 'perfiles_id', 'permisos_id');
     }
 
     public function usuarios()
