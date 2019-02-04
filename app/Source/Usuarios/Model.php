@@ -48,7 +48,7 @@ class Model
                 'telefono' => $data['telefono'],
                 'documento' => $data['documento'],
                 'tipodocumento' => $data['tipodocumento'],
-                'direccion' => $data['dirccion'],
+                'direccion' => $data['direccion'],
                 'nivelaccesso' => $data['nivelacceso']
             ]);
     }
