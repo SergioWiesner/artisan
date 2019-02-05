@@ -69,6 +69,40 @@ class Model
         ]);
     }
 
+    public static function crearCliente($data)
+    {
+        return User::create([
+            'name' => $data['nombre'],
+            'email' => $data['email'],
+            'rutaimg' => $data['rutaimg'],
+            'telefono' => $data['telefono'],
+            'password' => Hash::make($data['password']),
+            'documento' => $data['documento'],
+            'tipodocumento' => $data['tipodocumento'],
+            'direccion' => $data['direccion'],
+            'ciudad' => 1,
+            'nivelaccesso' => 1
+        ]);
+    }
+
+
+    public static function editarCliente($id, $data)
+    {
+        return DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $data['nombre'],
+                'email' => $data['email'],
+                'rutaimg' => $data['rutaimg'],
+                'telefono' => $data['telefono'],
+                'documento' => $data['documento'],
+                'tipodocumento' => $data['tipodocumento'],
+                'direccion' => $data['direccion'],
+                'nivelaccesso' => 1
+            ]);
+    }
+
+
     public static function relacionBodegas($idbodega, $idusuario)
     {
         return DB::table('bodegas_user')->insert([
