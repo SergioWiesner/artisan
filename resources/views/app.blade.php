@@ -113,8 +113,22 @@
     @yield('page')
 </div>
 <section class="footer">
-    <p>Desarrollado por comunidad <a href="https://codwelt.com" target="_blank">codwelt.com</a> - artisan v0.0 2019</p>
-    <p>{{\Carbon\Carbon::now(new DateTimeZone('America/Bogota'))->format('l jS \\of F Y h:i:s A')}}</p>
+    <p class="copywrite">
+        Copyright © artisan v0.1
+        <script>document.write(new Date().getFullYear());</script>
+        - Desarrollado por <a href="https://codwelt.com" target="_blank">
+            <img src="https://codwelt.com/creditos/creditos.png" class="logofootercredit" alt="codwelt.com">
+        </a></p>
+    {{--<p>--}}
+    {{--Sigue todo el proyecto en nuestras redes sociales--}}
+    {{--<ul class="redessocialesfootercredits">--}}
+        {{--<li><a href=""><i class="fab fa-instagram"></i></a></li>--}}
+        {{--<li><a href=""><i class="fab fa-github"></i></a></li>--}}
+        {{--<li><a href=""><i class="fab fa-facebook-f"></i></a></li>--}}
+        {{--<li><a href=""><i class="fab fa-twitter"></i></a></li>--}}
+    {{--</ul>--}}
+    {{--</p>--}}
+    {{--<p>{{\Carbon\Carbon::now(new DateTimeZone('America/Bogota'))->format('l jS \\of F Y h:i:s A')}}</p>--}}
 </section>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
