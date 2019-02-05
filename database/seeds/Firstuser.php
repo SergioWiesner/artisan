@@ -23,5 +23,17 @@ class Firstuser extends Seeder
             'ciudad' => 1,
             'nivelaccesso' => 10
         ]);
+
+        DB::table('users')->insert([
+            'name' => "cliente prueba",
+            'email' => "cliente@codwelt.com",
+            'password' => Hash::make("clientecodwelt"),
+            'telefono' => "3203368199",
+            'documento' => "10337843763",
+            'tipodocumento' => 1,
+            'direccion' => "Colombia",
+            'ciudad' => 1,
+            'nivelaccesso' => 1
+        ]);
     }
 }
