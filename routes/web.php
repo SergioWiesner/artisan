@@ -8,8 +8,16 @@ Route::middleware([])->group(function () {
     Route::get('/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
     /** RUTAS DE LA PAGINA **/
+
+
+    /** RUTAS DE CONFIGURACIÓN DE CLIENTES API **/
+    Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creaciondeclientesviews')->middleware('auth');
+    /** RUTAS DE CONFIGURACIÓN DE CLIENTES API**/
+
+
     Auth::routes();
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
@@ -43,7 +51,6 @@ Route::middleware(['auth'])->group(function () {
 });
 /** RUTA DE PRODUCTOS **/
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
-
 
 
 /** RUTAS DE USUARIOS **/

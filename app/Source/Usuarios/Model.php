@@ -61,19 +61,19 @@ class Model
 
     public static function relacionaUsuarioPadre($datos)
     {
-        for
-        DB::table('users')
-            ->where('id', $id)
-            ->update([
-                'name' => $data['nombre'],
-                'email' => $data['email'],
-                'rutaimg' => $data['rutaimg'],
-                'telefono' => $data['telefono'],
-                'documento' => $data['documento'],
-                'tipodocumento' => $data['tipodocumento'],
-                'direccion' => $data['direccion'],
-                'nivelaccesso' => $data['nivelacceso']
-            ]);
+//        for
+//        DB::table('users')
+//            ->where('id', $id)
+//            ->update([
+//                'name' => $data['nombre'],
+//                'email' => $data['email'],
+//                'rutaimg' => $data['rutaimg'],
+//                'telefono' => $data['telefono'],
+//                'documento' => $data['documento'],
+//                'tipodocumento' => $data['tipodocumento'],
+//                'direccion' => $data['direccion'],
+//                'nivelaccesso' => $data['nivelacceso']
+//            ]);
     }
 
     public static function crearUsuario($data)

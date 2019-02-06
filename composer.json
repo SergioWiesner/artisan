@@ -9,11 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "barryvdh/laravel-cors": "^0.11.2",
         "codwelt/codliveditor": "dev-master",
         "codwelt/codviews": "^0.1.2",
         "fideloper/proxy": "^4.0",
         "jenssegers/date": "^3.4",
         "laravel/framework": "5.7.*",
+        "laravel/passport": "^7.1",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {

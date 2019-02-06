@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ClienteApi;
 use App\Source\Configuracion\Configuracion;
 use App\Source\Productos\Propiedades\Propiedades;
 use App\Source\Productos\productos;
+use App\Source\Tools\Basics;
 use App\Source\Tools\Permisos;
 use App\Source\Usuarios\Usuarios;
 use Illuminate\Support\Facades\Auth;
@@ -87,5 +89,17 @@ class AppController extends Controller
     public function configuracion()
     {
         return view('system.configuracion.configuracion');
+    }
+
+
+    public function crearClienteVista()
+    {
+        if (Auth::user()->nivelaccesso >= 10) {
+            $clientes = Basics::collectionToArray(ClienteApi::all());
+        } else {
+            $clientes = Basics::collectionToArray(ClienteApi::where('user_id', Auth::user()->id)->get());
+        }
+        return view('system.configuracion.Api.ClienteApi.registrar')
+            ->with('clientes', $clientes);
     }
 }
