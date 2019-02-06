@@ -109,7 +109,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Permisos</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Bodega</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -154,7 +154,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('bodegacrear')}}" method="post">
+                    <form action="{{route('permisocrear')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nombre</label>
@@ -165,7 +165,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Rutas disponibles para permisos</label>
                             <select class="form-control" id="exampleFormControlSelect1"
-                                    name="nivelacceso"
+                                    name="url"
                                     required>
                                 <option value=""></option>
                                 <option value="{{route('bodegacrear')}}">Pestaña de usuarios</option>

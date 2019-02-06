@@ -5,15 +5,14 @@ Route::middleware([])->group(function () {
     Route::get('/productos/', 'AppController@productos')->name('productos');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
     Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
-
     Route::get('/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
-
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
     /** RUTAS DE LA PAGINA **/
     Auth::routes();
 });
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
 
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
 /** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS **/
@@ -45,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
 /** RUTA DE PRODUCTOS **/
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
 
+
+
 /** RUTAS DE USUARIOS **/
 Route::get('/usuarios/eliminar/{id}', 'UsuariosController@destroy')->name('usuarioeliminar');
 Route::post('/usuarios/crear/', 'UsuariosController@store')->name('usuarioscrear');
@@ -54,3 +55,8 @@ Route::patch('/usuarios/editar/{id}', 'UsuariosController@update')->name('usuari
 /** RUTAS DE BODEGAS **/
 Route::post('/bodega/crear/', 'BodegasController@store')->name('bodegacrear');
 /** RUTAS DE BODEGAS **/
+
+
+/** RUTAS DE CONFIGURACIÓN **/
+Route::post('/permiso/crear/', 'ConfiguracionController@store')->name('permisocrear');
+/** RUTAS DE CONFIGURACIÓN **/

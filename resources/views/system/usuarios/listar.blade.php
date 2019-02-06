@@ -10,7 +10,7 @@
             <ul class="nav justify-content-left">
                 @if(Auth::user()->nivelaccesso  == 10)
                     <li class="nav-item">
-                        <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-xl"><i
+                        <a href="#!" class="nav-link active" data-toggle="modal" data-target=".bd-example-modal-xxl"><i
                                 class="fas fa-user"></i> Agregar
                             usuario</a>
                     </li>
@@ -52,9 +52,9 @@
             @endsection
         </div>
     </div>
-    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    <div class="modal fade bd-example-modal-xxl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xxl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo usuario</h5>
@@ -137,6 +137,21 @@
                                    value="" name="direccion"
                                    required>
                         </div>
+                        @if(count($perfiles) > 0)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <h4>Perfiles</h4>
+                                </div>
+                                @for($a = 0; $a < count($perfiles); $a++)
+                                    <div class="col-md">
+                                        <input type="checkbox" id="{{$perfiles[$a]['nombre']}}"
+                                               name="perfiles[{{$perfiles[$a]['id']}}]">
+                                        <label for="{{$perfiles[$a]['nombre']}}">{{$perfiles[$a]['nombre']}}</label>
+                                    </div>
+                                @endfor
+                            </div>
+                        @endif
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Nivel de acceso</label>
                             <select class="form-control" id="exampleFormControlSelect1"

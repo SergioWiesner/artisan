@@ -2,6 +2,7 @@
 
 namespace App\Source\Usuarios;
 
+use App\Source\Configuracion\Configuracion;
 use App\Source\Usuarios\Model;
 use App\Source\Tools\Basics;
 use App\TipoDocumento;
@@ -14,6 +15,11 @@ class Usuarios
     public function listarUsuariosPaginados()
     {
         return Model::listarUsuariospaginados();
+    }
+
+    public function listarUsuarios()
+    {
+        return Basics::collectionToArray(Model::listarUsuarios());
     }
 
     public function listarTipoDocumentos()
@@ -44,6 +50,7 @@ class Usuarios
 
     public function editarUsuarios($id, $data)
     {
+        dd($data);
         $data = Basics::determinarRutaimg($data, self::ubicacion);
         Model::editarUsuario($id, $data);
         return redirect()->back();
@@ -51,9 +58,11 @@ class Usuarios
 
     public function crearUsuario($data)
     {
+
         $data = Basics::determinarRutaimg($data, self::ubicacion);
         $insercion = Model::crearUsuario($data);
         Model::relacionBodegas($data['bodegasId'], $insercion->id);
+        Model::relacionUsuarioPerfil($data['perfiles'], $insercion->id);
         return redirect()->back();
     }
 }

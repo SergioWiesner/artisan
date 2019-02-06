@@ -3,6 +3,8 @@
 namespace App\Source\Configuracion;
 
 use App\ConfiguracionSystem;
+use App\Perfiles;
+use App\Permisos;
 use App\Source\Tools\Basics;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +28,28 @@ class Modelo
             ]);
     }
 
-    public static function traerConfiguracion(){
+    public static function traerConfiguracion()
+    {
         return Basics::collectionToArray(ConfiguracionSystem::all()->get());
+    }
+
+    public static function agregarPermiso($data)
+    {
+        return DB::table('permisos')->insert([
+            'nombre' => $data['nombre'],
+            'url' => $data['url'],
+            'categoria' => 1,
+            'nivelacceso' => $data['nivelacceso'],
+        ]);
+    }
+
+    public static function listarPermisos()
+    {
+        return Permisos::all();
+    }
+
+    public static function listarPerfiles()
+    {
+        return Perfiles::all();
     }
 }

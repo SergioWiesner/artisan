@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Source\Configuracion\Configuracion;
 use App\Source\Productos\Propiedades\Propiedades;
 use App\Source\Productos\productos;
 use App\Source\Tools\Permisos;
@@ -65,13 +66,13 @@ class AppController extends Controller
 
     public function usuarios()
     {
-
         $usuarios = new Usuarios();
-
+        $configuracion = new Configuracion();
         return view('system.usuarios.listar')
             ->with('bodegas', \App\Bodegas::all()->toArray())
             ->with('usuarios', $usuarios->listaUsuariosTodasLasRelacionesPaginados())
-            ->with('documentos', $usuarios->listarTipoDocumentos());
+            ->with('documentos', $usuarios->listarTipoDocumentos())
+            ->with('perfiles', $configuracion->traerPerfiles());
     }
 
     public function verUsuarios($id)
@@ -79,7 +80,8 @@ class AppController extends Controller
         $usuarios = new Usuarios();
         return view('system.usuarios.observar')
             ->with('detalles', $usuarios->buscarUsuario($id))
-            ->with('documentos', $usuarios->listarTipoDocumentos());
+            ->with('documentos', $usuarios->listarTipoDocumentos())
+            ->with('usuarios', $usuarios->listarUsuarios());
     }
 
     public function configuracion()

@@ -6,6 +6,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class Model
 {
@@ -15,6 +16,11 @@ class Model
         return User::with('bodegas')->with(['ventas' => function ($query) {
             $query->whereRaw('date(created_at) = "' . Carbon::now()->toDateString() . '"');
         }])->paginate(10);
+    }
+
+    public static function listarUsuarios()
+    {
+        return User::all();
     }
 
     public static function todasLasPropiedades()
@@ -40,6 +46,23 @@ class Model
     public static function editarUsuario($id, $data)
     {
         return DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $data['nombre'],
+                'email' => $data['email'],
+                'rutaimg' => $data['rutaimg'],
+                'telefono' => $data['telefono'],
+                'documento' => $data['documento'],
+                'tipodocumento' => $data['tipodocumento'],
+                'direccion' => $data['direccion'],
+                'nivelaccesso' => $data['nivelacceso']
+            ]);
+    }
+
+    public static function relacionaUsuarioPadre($datos)
+    {
+        for
+        DB::table('users')
             ->where('id', $id)
             ->update([
                 'name' => $data['nombre'],
@@ -109,5 +132,23 @@ class Model
             'bodegas_id' => $idbodega,
             'user_id' => $idusuario
         ]);
+    }
+
+    public static function relacionUsuarioPerfil($perfil, $idusuario)
+    {
+        try {
+            for ($a = 1; $a < count($perfil) + 1; $a++) {
+
+                if ($perfil[$a] == "on") {
+                    DB::table('perfiles_users')->insert([
+                        'perfiles_id' => $a,
+                        'users_id' => $idusuario
+                    ]);
+                }
+            }
+        } catch (\Exception $e) {
+            Session::put('error', ["Error, no se puedo relacionar el uuario con el perfil"]);
+            return redirect()->back();
+        }
     }
 }
