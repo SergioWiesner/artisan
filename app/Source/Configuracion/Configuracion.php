@@ -4,6 +4,7 @@ namespace App\Source\Configuracion;
 
 use App\Source\Configuracion\Modelo;
 use App\Source\Tools\Basics;
+use App\Source\Tools\formateo;
 
 class Configuracion
 {
@@ -36,5 +37,11 @@ class Configuracion
     public function traerPerfiles()
     {
         return Basics::collectionToArray(Modelo::listarPerfiles());
+    }
+
+    public function traerDatosDispositivos()
+    {
+        $data = Basics::collectionToArray(Modelo::datosDispositivosConfiguracion());
+        return formateo::formateoDatosDispositivos($data);
     }
 }

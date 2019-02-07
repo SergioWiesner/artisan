@@ -92,7 +92,8 @@
                         <li><a href="#!" data-toggle="modal" data-target=".bd-example-modal-sm-pernisos"><i
                                     class="fas fa-person-booth"></i> Agregar
                                 permiso</a></li>
-                        <li><a href="{{route('creaciondeclientesviews')}}">Crear cliente api</a></li>
+                        <li><a href="{{route('creaciondeclientesviews')}}"><i class="fas fa-fire"></i> Crear cliente api</a>
+                        </li>
                     </ul>
                 </div>
             </div>

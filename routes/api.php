@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
 Route::resource('ApiPropiedades', 'PropiedadesController');
 /** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
+
+Route::get('/inicio', 'ApiController@index');

@@ -52,4 +52,9 @@ class Modelo
     {
         return Perfiles::all();
     }
+
+    public static function datosDispositivosConfiguracion()
+    {
+        return ConfiguracionSystem::all();
+    }
 }
