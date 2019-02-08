@@ -171,7 +171,7 @@
                             </select>
                         </div>
                         <input type="submit" class="btn btn-primary btn-block"
-                               value="Actualizar">
+                               value="Agregar">
                     </form>
                 </div>
             </div>

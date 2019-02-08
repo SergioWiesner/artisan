@@ -220,25 +220,16 @@
                                                                    name="direccion"
                                                                    required>
                                                         </div>
-                                                        @if(count($usuarios) > 0)
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <hr>
-                                                                    <h4>Ayudantes</h4>
-                                                                </div>
-                                                                @for($m = 0; $m < count($usuarios); $m++)
-                                                                    @if(Auth::user()->nivelaccesso > $usuarios[$m]['nivelaccesso'] && $usuarios[$m]['id'] != Auth::user()->id)
-                                                                        <div class="col-md">
-                                                                            <input type="checkbox"
-                                                                                   id="{{$usuarios[$m]['name']}}"
-                                                                                   name="ayudante[{{$usuarios[$m]['id']}}]">
-                                                                            <label
-                                                                                for="{{$usuarios[$m]['name']}}">{{$usuarios[$m]['name']}}</label>
-                                                                        </div>
-                                                                    @endif
-                                                                @endfor
-                                                            </div>
-                                                        @endif
+                                                        <h4>Propiedades</h4>
+                                                        <hr>
+                                                        <a href="#!" onclick="agregarUsuarioEmpleado()"><i
+                                                                class="fas fa-plus"></i> Relacionar ayudante</a>
+                                                        <br><br>
+                                                        <div id="anexoayudanteusuario" class="form-row">
+
+                                                        </div>
+                                                        <hr>
+
 
                                                         @if(Auth::user()->nivelaccesso  == 10)
                                                             <div class="form-group">
