@@ -27,7 +27,7 @@ class Basics
     {
         if (isset($datos['rutaimg']) || isset($datos['rutaimagenold'])) {
             if (isset($datos['rutaimg'])) {
-                $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion . 'categoria');
+                $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion);
                 $datos['rutaimg'] = $ruta;
             } else {
                 $datos['rutaimg'] = $datos['rutaimagenold'];

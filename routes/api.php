@@ -12,13 +12,16 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
+Route::middleware(['auth:api', 'auth'])->group(function () {
+    Route::resource('ApiPropiedades', 'PropiedadesController');
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::resource('ApiUsuarios', 'UsuariosController');
 });
 
-/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
-Route::resource('ApiPropiedades', 'PropiedadesController');
-/** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS**/
 
 Route::get('/inicio', 'ApiController@index');

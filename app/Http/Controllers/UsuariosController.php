@@ -15,7 +15,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
+        $usuar = new Usuarios();
+        return $usuar->listarUsuarios();
     }
 
     /**
