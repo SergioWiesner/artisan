@@ -2,35 +2,39 @@
 @section('page')
     <section>
         <div class="container-fluid">
-            <form>
+            <form action="{{route('configuracioncear')}}" enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <h3 class="titulos">Datos de correo de envio</h3>
                         <hr>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputEmail4">Host</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Host">
+                        <label for="Host">Host</label>
+                        <input type="text" class="form-control" id="Host" name="hostmail" placeholder="Host">
                     </div>
                     <div class="form-group col-md-1">
-                        <label for="inputEmail4">Puerto</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Puerto">
+                        <label for="Puerto">Puerto</label>
+                        <input type="text" class="form-control" id="Puerto" name="mailpuerto" placeholder="Puerto">
                     </div>
                     <div class="form-group col-md-1">
-                        <label for="inputEmail4">Encriptación</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Encriptacion">
+                        <label for="Encriptacion">Encriptación</label>
+                        <input type="text" class="form-control" id="Encriptacion" name="mailencryption"
+                               placeholder="Encriptacion">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputEmail4">Correo</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Correo">
+                        <label for="Correo">Correo</label>
+                        <input type="email" class="form-control" id="Correo" name="usuariomail" placeholder="Correo">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputPassword4">Contraseña</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
+                        <label for="Contraseña">Contraseña</label>
+                        <input type="password" class="form-control" id="Contraseña" name="clavemail"
+                               placeholder="Contraseña">
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputPassword4">A nombre de</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
+                        <label for="Destinatario">A nombre de</label>
+                        <input type="text" class="form-control" id="Destinatario" name="clavemail"
+                               placeholder="Destinatario">
                     </div>
                 </div>
                 <div class="form-row">
@@ -44,24 +48,23 @@
                     </div>
 
                     <div class="form-group col-md-3">
-                        <label for="inputAddress">Dirección del negocio</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        <label for="Dirección">Dirección del negocio</label>
+                        <input type="text" class="form-control" id="Dirección" name="nombresistema"
+                               placeholder="1234 Main St">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputAddress">Teléfono del negocio</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="3203368199">
+                        <label for="Teléfono">Teléfono del negocio</label>
+                        <input type="text" class="form-control" id="Teléfono" name="telefono" placeholder="3203368199">
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
+                    <div class="form-group col-md-3">
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Logo sistema</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Configurar</button>
             </form>
 
             <div class="row">

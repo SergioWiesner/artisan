@@ -35,10 +35,14 @@ class ConfiguracionController extends Controller
      */
     public function store(Request $request)
     {
+
+    }
+
+
+    public function permisosStore(Request $request){
         $configuracion = new Configuracion();
         return $configuracion->agregarPermiso($request->all());
     }
-
     /**
      * Display the specified resource.
      *

@@ -55,20 +55,22 @@ Route::middleware(['auth'])->group(function () {
 
 /** RUTAS DE USUARIOS **/
 Route::middleware(['auth'])->group(function () {
-Route::get('/usuarios/listar/json', 'UsuariosController@index')->name('usuario');
-Route::get('/usuarios/eliminar/{id}', 'UsuariosController@destroy')->name('usuarioeliminar');
-Route::post('/usuarios/crear/', 'UsuariosController@store')->name('usuarioscrear');
-Route::patch('/usuarios/editar/{id}', 'UsuariosController@update')->name('usuarioeditar');
+    Route::get('/usuarios/listar/json', 'UsuariosController@index')->name('usuario');
+    Route::get('/usuarios/eliminar/{id}', 'UsuariosController@destroy')->name('usuarioeliminar');
+    Route::post('/usuarios/crear/', 'UsuariosController@store')->name('usuarioscrear');
+    Route::patch('/usuarios/editar/{id}', 'UsuariosController@update')->name('usuarioeditar');
 });
 /** RUTAS DE USUARIOS **/
 
 /** RUTAS DE BODEGAS **/
 Route::middleware(['auth'])->group(function () {
-Route::post('/bodega/crear/', 'BodegasController@store')->name('bodegacrear');
+    Route::post('/bodega/crear/', 'BodegasController@store')->name('bodegacrear');
 });
 /** RUTAS DE BODEGAS **/
 
 
 /** RUTAS DE CONFIGURACIÓN **/
-Route::post('/permiso/crear/', 'ConfiguracionController@store')->name('permisocrear');
+Route::post('/permiso/crear/', 'ConfiguracionController@permisosStore')->name('permisocrear');
+Route::post('/configuracion/crear/', 'ConfiguracionController@store')->name('configuracioncear');
+
 /** RUTAS DE CONFIGURACIÓN **/
