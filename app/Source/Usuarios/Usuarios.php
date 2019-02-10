@@ -50,9 +50,9 @@ class Usuarios
 
     public function editarUsuarios($id, $data)
     {
-        dd($data);
         $data = Basics::determinarRutaimg($data, self::ubicacion);
         Model::editarUsuario($id, $data);
+        Model::relacionaUsuarioJefe($id, $data['ayudante']);
         return redirect()->back();
     }
 

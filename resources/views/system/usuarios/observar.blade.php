@@ -1,25 +1,23 @@
 @extends('system.usuarios.usuarios')
 @section('contentusuarios')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <h3 class="titulos">Relacionados</h3>
-                <hr>
-                <ul class="nav flex-column">
-                    @for($a = 0; $a < count($usuarios); $a++)
-                        @if(Auth::user()->id == $usuarios[$a]['idpadre'])
-                            <li class="nav-item">
-                                <a class="nav-link active"
-                                   href="{{route('detallesusuarios', ['id' => $usuarios[$a]['id']])}}">{{$usuarios[$a]['name']}}</a>
+        @for($a = 0; $a < count($detalles); $a++)
+            <div class="row">
+                <div class="col-md-2">
+                    <h3 class="titulos">Personal a cargo</h3>
+                    <ul class="list-group">
+                        @for($b = 0; $b < count($detalles[$a]['ayudantes']); $b++)
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{$detalles[$a]['ayudantes'][$b]['name']}}
+                                <span class="badge badge-pill"><a
+                                        href="{{route('detallesusuarios', ['id' => $detalles[$a]['ayudantes'][$b]['id']])}}">
+                                            <i class="fas fa-eye"></i></a></span>
                             </li>
-                        @endif
-                    @endfor
-                </ul>
-            </div>
-
-            <div class="col-md-10">
-                <div class="row">
-                    @for($a = 0; $a < count($detalles); $a++)
+                        @endfor
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
                         @if(!is_null($detalles[$a]['rutaimg']))
                             <div class="col-md-3">
                                 <img src="{{$detalles[$a]['rutaimg']}}" alt="{{$detalles[$a]['name']}}"
@@ -162,6 +160,8 @@
                                                         method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('patch')
+                                                        <input type="hidden" id="usuarioid"
+                                                               value="{{$detalles[$a]['id']}}">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlInput1">Nombres</label>
                                                             <input type="text" class="form-control" name="nombre"
@@ -220,7 +220,7 @@
                                                                    name="direccion"
                                                                    required>
                                                         </div>
-                                                        <h4>Propiedades</h4>
+                                                        <h4>Ayudantes</h4>
                                                         <hr>
                                                         <a href="#!" onclick="agregarUsuarioEmpleado()"><i
                                                                 class="fas fa-plus"></i> Relacionar ayudante</a>
@@ -265,11 +265,9 @@
                                         </div>
                                     </div>
                             </div>
-                            @endfor
+                    </div>
                 </div>
             </div>
-        </div>
+        @endfor
     </div>
-
-
 @endsection

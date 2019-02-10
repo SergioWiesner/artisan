@@ -28,21 +28,23 @@ function agregarNuevaPropiedad() {
 }
 
 function agregarUsuarioEmpleado() {
-    fetch('/usuarios', {mode: 'cors'})
+    fetch('/usuarios/listar/json', {mode: 'cors'})
         .then(function (response) {
             return response.json();
         })
         .then(function (json) {
+                console.log(json);
                 let complemt = "";
+                let idusr = document.getElementById('usuarioid').value;
+
                 for (let a = 0; a < json.length; a++) {
-                    complemt += "<option value='" + json[a]['id'] + "'>" + json[a]['name'] + "</option>";
+                    if (idusr != json[a]['id']) {
+                        complemt += "<option value='" + json[a]['id'] + "'>" + json[a]['name'] + "</option>";
+                    }
                 }
                 let espacio = document.getElementById("anexoayudanteusuario");
                 espacio.innerHTML += '<div class="form-group col"><select id="inputState" class="form-control" name="ayudante[' + contadoragregarayudante + ']"><option selected> selecciona cualquier ayudante</option>' + complemt + '</select></div>';
                 contadoragregarayudante++;
             }
-        )
-        .catch(function (error) {
-            console.log('Request failed', error)
-        });
+        );
 }

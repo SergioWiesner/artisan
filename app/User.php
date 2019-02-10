@@ -19,8 +19,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'email_verified_at', 'password', 'telefono', 'documento', 'tipodocumento', 'direccion',
-        'ciudad', 'nivelaccesso', 'estado', 'remember_token', 'tipousuario'
+        'id', 'name', 'email', 'rutaimg', 'email_verified_at', 'password', 'telefono', 'documento', 'tipodocumento',
+        'direccion', 'ciudad', 'nivelaccesso', 'estado', 'idpadre', 'remember_token'
     ];
 
     /**
@@ -55,5 +55,15 @@ class User extends Authenticatable
     public function ventas()
     {
         return $this->hasMany('App\Ventas', 'idvendedor', 'id');
+    }
+
+    public function ayudantes()
+    {
+        return $this->hasMany('App\User', 'idpadre', 'id');
+    }
+
+    public function jefes()
+    {
+        return $this->belongsTo('App\User', 'idpadre', 'id');
     }
 }

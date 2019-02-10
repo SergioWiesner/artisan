@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/productos/agregar/categoria', 'CategoriaProductosController@store')->name('agregarcategoria');
     Route::patch('/productos/actualizar/categoria/{id}', 'CategoriaProductosController@update')->name('actualizarcategoria');
     Route::get('/productos/eliminar/categoria/{id}', 'CategoriaProductosController@delete')->name('eliminarcategoria');
-    //   Route::put('/productos/propiedades/editar/{id}', 'PropiedadesController@update')->name('editarpropiedad');
+    //Route::put('/productos/propiedades/editar/{id}', 'PropiedadesController@update')->name('editarpropiedad');
 });
 /** RUTA DE CATEGORIA DE PRODUCTOS **/
 
@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
 
 /** RUTAS DE USUARIOS **/
 Route::middleware(['auth'])->group(function () {
-Route::get('/usuarios/', 'UsuariosController@index')->name('usuario');
+Route::get('/usuarios/listar/json', 'UsuariosController@index')->name('usuario');
 Route::get('/usuarios/eliminar/{id}', 'UsuariosController@destroy')->name('usuarioeliminar');
 Route::post('/usuarios/crear/', 'UsuariosController@store')->name('usuarioscrear');
 Route::patch('/usuarios/editar/{id}', 'UsuariosController@update')->name('usuarioeditar');

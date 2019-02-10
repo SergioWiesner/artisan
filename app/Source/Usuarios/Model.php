@@ -35,7 +35,7 @@ class Model
 
     public static function observarDetalles($id)
     {
-        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
+        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
     }
 
     public static function eliminarUsuario($id)
@@ -59,21 +59,15 @@ class Model
             ]);
     }
 
-    public static function relacionaUsuarioPadre($datos)
+    public static function relacionaUsuarioJefe($idjefe, $datos)
     {
-//        for
-//        DB::table('users')
-//            ->where('id', $id)
-//            ->update([
-//                'name' => $data['nombre'],
-//                'email' => $data['email'],
-//                'rutaimg' => $data['rutaimg'],
-//                'telefono' => $data['telefono'],
-//                'documento' => $data['documento'],
-//                'tipodocumento' => $data['tipodocumento'],
-//                'direccion' => $data['direccion'],
-//                'nivelaccesso' => $data['nivelacceso']
-//            ]);
+        for ($a = 0; $a < count($datos); $a++) {
+            DB::table('users')
+                ->where('id', $datos[$a])
+                ->update([
+                    'idpadre' => $idjefe
+                ]);
+        }
     }
 
     public static function crearUsuario($data)
