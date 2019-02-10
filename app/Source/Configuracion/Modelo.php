@@ -10,27 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 class Modelo
 {
-
-    public static function actualizarConfiguracion($datos)
-    {
-        return DB::table('configuracionsystem')
-            ->where('id', 1)
-            ->update([
-                'nombresistema' => $datos['nombresistema'],
-                'logosistema' => $datos['logosistema'],
-                'hostmail' => $datos['hostmail'],
-                'usuariomail' => $datos['usuariomail'],
-                'mailpuerto' => $datos['mailpuerto'],
-                'mailencryption' => $datos['mailencryption'],
-                'clavemail' => $datos['clavemail'],
-                'desde' => $datos['desde'],
-                'nombredesde' => $datos['nombredesde']
-            ]);
-    }
-
     public static function traerConfiguracion()
     {
-        return Basics::collectionToArray(ConfiguracionSystem::all()->get());
+        return Basics::collectionToArray(ConfiguracionSystem::first()->get());
     }
 
     public static function agregarPermiso($data)
@@ -56,5 +38,51 @@ class Modelo
     public static function datosDispositivosConfiguracion()
     {
         return ConfiguracionSystem::all();
+    }
+
+    public static function crearConfiguracion($data)
+    {
+        return DB::table('configuracionsystem')->insert([
+            'nombresistema' => $data['nombresistema'],
+            'logosistema' => $data['rutaimg'],
+            'direccionsistema' => $data['direccionsistema'],
+            'telefono' => $data['telefono'],
+            'ciudad' => 1,
+            'hostmail' => $data['hostmail'],
+            'usuariomail' => $data['usuariomail'],
+            'mailpuerto' => $data['mailpuerto'],
+            'mailencryption' => $data['mailencryption'],
+            'clavemail' => $data['clavemail'],
+            'desde' => $data['desde'],
+            'nombredesde' => $data['desde']
+        ]);
+    }
+
+    public static function validacionConfiguracion()
+    {
+        if (count(ConfiguracionSystem::all()) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function actualizarConfiguracion($data)
+    {
+        return DB::table('configuracionsystem')
+            ->where('id', 1)
+            ->update([
+                'nombresistema' => $data['nombresistema'],
+                'logosistema' => $data['rutaimg'],
+                'direccionsistema' => $data['direccionsistema'],
+                'telefono' => $data['telefono'],
+                'ciudad' => 1,
+                'hostmail' => $data['hostmail'],
+                'usuariomail' => $data['usuariomail'],
+                'mailpuerto' => $data['mailpuerto'],
+                'mailencryption' => $data['mailencryption'],
+                'clavemail' => $data['clavemail'],
+                'desde' => $data['desde'],
+                'nombredesde' => $data['desde']
+            ]);
     }
 }

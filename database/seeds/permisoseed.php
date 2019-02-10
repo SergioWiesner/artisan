@@ -12,7 +12,7 @@ class permisoseed extends Seeder
     public function run()
     {
         DB::table('permisos')->insert([
-            'nombre' => 'Configuracion',
+            'nombre' => 'ConfiguracionInit',
             'url' => '/configuracion',
             'nivelacceso' => 10,
             'estado' => 1,

@@ -1,6 +1,6 @@
 <?php
 /** RUTAS DE LA PAGINA **/
-Route::middleware([])->group(function () {
+Route::middleware(['configinit'])->group(function () {
     Route::get('/', 'AppController@home');
     Route::get('/productos/', 'AppController@productos')->name('productos');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
@@ -13,12 +13,9 @@ Route::middleware([])->group(function () {
     /** RUTAS DE CONFIGURACIÓN DE CLIENTES API **/
     Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creaciondeclientesviews')->middleware('auth');
     /** RUTAS DE CONFIGURACIÓN DE CLIENTES API**/
-
-
-    Auth::routes();
 });
 
-
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
@@ -33,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 /** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS **/
 
 /** RUTA DE CATEGORIA DE PRODUCTOS **/
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'configinit'])->group(function () {
     Route::post('/productos/agregar/categoria', 'CategoriaProductosController@store')->name('agregarcategoria');
     Route::patch('/productos/actualizar/categoria/{id}', 'CategoriaProductosController@update')->name('actualizarcategoria');
     Route::get('/productos/eliminar/categoria/{id}', 'CategoriaProductosController@delete')->name('eliminarcategoria');

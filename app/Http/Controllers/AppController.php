@@ -20,10 +20,6 @@ class AppController extends Controller
             return view('page.itsy.home');
 
         } else {
-            if (!Session::has('menu')) {
-                Permisos::generarMenu();
-            }
-
             $usuarios = new Usuarios();
             $productos = new productos();
             return view('system.home')
@@ -87,7 +83,9 @@ class AppController extends Controller
 
     public function configuracion()
     {
-        return view('system.configuracion.configuracion');
+        $configuracion = new Configuracion();
+        return view('system.configuracion.configuracion')
+            ->with('configuracion', $configuracion->configuracion());
     }
 
 

@@ -44,4 +44,23 @@ class Configuracion
         $data = Basics::collectionToArray(Modelo::datosDispositivosConfiguracion());
         return formateo::formateoDatosDispositivos($data);
     }
+
+    public function agregregarConfiguracion($datos)
+    {
+        $data = Basics::determinarRutaimg($datos, self::ubicacion);
+        Modelo::crearConfiguracion($data);
+        return redirect()->back();
+    }
+
+    public function validacionConfiguracion()
+    {
+        return Modelo::validacionConfiguracion();
+    }
+
+    public function actualizarConfiguracion($data)
+    {
+        $data = Basics::determinarRutaimg($data, self::ubicacion);
+        Modelo::actualizarConfiguracion($data);
+        return redirect()->back();
+    }
 }

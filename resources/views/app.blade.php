@@ -26,9 +26,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         @auth
             <ul class="navbar-nav mr-auto">
-                @for($a = 0; $a < count(Session::get('menu')); $a++)
-                    {!!  Session::get('menu')[$a] !!}
-                @endfor
+                @if(Session::has('menu'))
+                    @for($a = 0; $a < count(Session::get('menu')); $a++)
+                        {!!  Session::get('menu')[$a] !!}
+                    @endfor
+                @endif
                 {{--<li class="nav-item">--}}
                 {{--<a class="nav-link" href="{{route('productos')}}"></a>--}}
                 {{--</li>--}}
@@ -122,10 +124,10 @@
     {{--<p>--}}
     {{--Sigue todo el proyecto en nuestras redes sociales--}}
     {{--<ul class="redessocialesfootercredits">--}}
-        {{--<li><a href=""><i class="fab fa-instagram"></i></a></li>--}}
-        {{--<li><a href=""><i class="fab fa-github"></i></a></li>--}}
-        {{--<li><a href=""><i class="fab fa-facebook-f"></i></a></li>--}}
-        {{--<li><a href=""><i class="fab fa-twitter"></i></a></li>--}}
+    {{--<li><a href=""><i class="fab fa-instagram"></i></a></li>--}}
+    {{--<li><a href=""><i class="fab fa-github"></i></a></li>--}}
+    {{--<li><a href=""><i class="fab fa-facebook-f"></i></a></li>--}}
+    {{--<li><a href=""><i class="fab fa-twitter"></i></a></li>--}}
     {{--</ul>--}}
     {{--</p>--}}
     {{--<p>{{\Carbon\Carbon::now(new DateTimeZone('America/Bogota'))->format('l jS \\of F Y h:i:s A')}}</p>--}}

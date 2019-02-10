@@ -2,19 +2,21 @@
 
 namespace App\Source\Tools;
 
-use App\Source\Usuarios\Usuarios;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Source\Usuarios\Usuarios;
 use App\Permisos as prmisosdb;
+use App\Source\Configuracion;
 use App\Perfiles;
 use App\User;
 
-class Permisos
+class ConfiguracionInit
 {
 
 
     public static function generarMenu()
     {
+        dd("hola");
         $perfiles = User::find(Auth::user()->id)->with(['perfiles.permisos' => function ($query) {
             $query->orderBy('permisos.ordenmenu', 'asc');
         }])->get()->toArray();
@@ -26,5 +28,11 @@ class Permisos
             }
         }
         Session::put('menu', $dat);
+    }
+
+    public static function sistemaConfig()
+    {
+        $config = new Configuracion();
+        dd($config->configuracion());
     }
 }

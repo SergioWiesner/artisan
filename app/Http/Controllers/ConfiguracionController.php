@@ -35,14 +35,21 @@ class ConfiguracionController extends Controller
      */
     public function store(Request $request)
     {
-
+        $configuracion = new Configuracion();
+        if ($configuracion->validacionConfiguracion()) {
+            return $configuracion->actualizarConfiguracion($request->all());
+        } else {
+            return $configuracion->agregregarConfiguracion($request->all());
+        }
     }
 
 
-    public function permisosStore(Request $request){
+    public function permisosStore(Request $request)
+    {
         $configuracion = new Configuracion();
         return $configuracion->agregarPermiso($request->all());
     }
+
     /**
      * Display the specified resource.
      *
