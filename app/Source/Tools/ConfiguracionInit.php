@@ -16,7 +16,6 @@ class ConfiguracionInit
 
     public static function generarMenu()
     {
-        dd("hola");
         $perfiles = User::find(Auth::user()->id)->with(['perfiles.permisos' => function ($query) {
             $query->orderBy('permisos.ordenmenu', 'asc');
         }])->get()->toArray();
@@ -32,7 +31,8 @@ class ConfiguracionInit
 
     public static function sistemaConfig()
     {
-        $config = new Configuracion();
-        dd($config->configuracion());
+        $config = new Configuracion\Configuracion();
+        $dat = $config->configuracion()[0];
+        Session::put('configinit', $dat);
     }
 }

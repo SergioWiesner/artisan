@@ -7,6 +7,8 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
     Route::get('/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
+    Route::get('/clientes/', 'AppController@clientes')->name('clientes');
+    Route::get('/informes/', 'AppController@informes')->name('informes');
     /** RUTAS DE LA PAGINA **/
 
 
@@ -69,5 +71,8 @@ Route::middleware(['auth'])->group(function () {
 /** RUTAS DE CONFIGURACIÓN **/
 Route::post('/permiso/crear/', 'ConfiguracionController@permisosStore')->name('permisocrear');
 Route::post('/configuracion/crear/', 'ConfiguracionController@store')->name('configuracioncear');
-
 /** RUTAS DE CONFIGURACIÓN **/
+
+/** RUTA DE CLIENTES **/
+
+/** RUTA DE CLIENTES **/

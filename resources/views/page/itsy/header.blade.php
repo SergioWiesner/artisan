@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="home blog no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>{{ config('app.name') }}</title>
+    <title>{{asset(Session::get('configinit')['nombresistema'])}}</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           type="text/css" media="all"/>
@@ -26,7 +26,11 @@
 
         <div class="logo plain logo-left">
             <div class="site-title">
-                <a href="index.html" title="Go to Home">{{ config('app.name') }}</a>
+                <a href="" title="Go to Home">
+                    @if(Session::has('configinit'))
+                        {{Session::get('configinit')['nombresistema']}}
+                    @endif
+                </a>
             </div>
         </div><!-- /logo -->
         <nav id="nav" role="navigation">

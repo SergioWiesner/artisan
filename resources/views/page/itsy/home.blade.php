@@ -3,9 +3,12 @@
     <div class="hero" style="background-image: url({{asset('/page/itsy/img/images/lead.jpg')}}); text-align:right;">
         <div class="hero-inner">
             <div class="inner">
-                <h1><span class="border border-top border-bottom">{{ config('app.name') }}</span></h1>
+                <h1><span class="border border-top border-bottom">
+                        @if(Session::has('configinit'))
+                            {{Session::get('configinit')['nombresistema']}}
+                        @endif</span></h1>
                 <div class="hero-line-one"></div>
-                
+
             </div>
 
             <a class="more-arrow" href="#content"><i class="fa fa-chevron-down"></i><span>Scroll Down</span></a>

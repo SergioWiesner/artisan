@@ -99,4 +99,9 @@ class AppController extends Controller
         return view('system.configuracion.Api.ClienteApi.registrar')
             ->with('clientes', $clientes);
     }
+
+    public function clientes()
+    {
+        
+    }
 }

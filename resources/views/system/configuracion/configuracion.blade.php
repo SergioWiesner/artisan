@@ -60,7 +60,6 @@
                                     <input type="text" class="form-control" name="nombresistema"
                                            value="{{$configuracion[0]['nombresistema']}}" id="inputCity">
                                 </div>
-
                                 <div class="form-group col-md-3">
                                     <label for="Dirección">Dirección del negocio</label>
                                     <input type="text" class="form-control" id="Dirección" name="direccionsistema"
@@ -274,12 +273,11 @@
                                     name="url"
                                     required>
                                 <option value=""></option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de usuarios</option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de configuracion</option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de clientes</option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de iroductos</option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de dispositivos</option>
-                                <option value="{{route('bodegacrear')}}">Pestaña de informes</option>
+                                <option value="{{route('listarusuarios')}}">Pestaña de usuarios</option>
+                                <option value="{{route('configuracion')}}">Pestaña de configuracion</option>
+                                <option value="{{route('clientes')}}">Pestaña de clientes</option>
+                                <option value="{{route('productos')}}">Pestaña de Productos</option>
+                                <option value="{{route('informes')}}">Pestaña de informes</option>
                             </select>
                         </div>
                         <div class="form-group">

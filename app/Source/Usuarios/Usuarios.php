@@ -52,7 +52,9 @@ class Usuarios
     {
         $data = Basics::determinarRutaimg($data, self::ubicacion);
         Model::editarUsuario($id, $data);
-        Model::relacionaUsuarioJefe($id, $data['ayudante']);
+        if (isset($data['ayudante'])) {
+            Model::relacionaUsuarioJefe($id, $data['ayudante']);
+        }
         return redirect()->back();
     }
 

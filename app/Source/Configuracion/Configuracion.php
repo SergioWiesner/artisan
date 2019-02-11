@@ -9,7 +9,7 @@ use App\Source\Tools\formateo;
 class Configuracion
 {
 
-    const ubicacion = "/public/configuracion/";
+    const ubicacion = "/public/configuracion";
 
     public function configuracion()
     {

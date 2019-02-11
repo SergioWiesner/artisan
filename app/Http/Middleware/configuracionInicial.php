@@ -22,11 +22,10 @@ class configuracionInicial
             if (!Session::has('menu')) {
                 ConfiguracionInit::generarMenu();
             }
-            if (!Session::has('configinit')) {
-                ConfiguracionInit::sistemaConfig();
-            }
         }
-
+        if (!Session::has('configinit')) {
+            ConfiguracionInit::sistemaConfig();
+        }
         return $next($request);
     }
 }
