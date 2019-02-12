@@ -36,9 +36,9 @@
     <br>
     <form action="" method="post">
         <div class="row">
-            <div class="col-md-4">@include('Codliveditor/Pinturas/CssCodliveditor')</div>
-            <div class="col-md-4">@include('Codliveditor/Pinturas/HtmlCodliveditor')</div>
-            <div class="col-md-4">@include('Codliveditor/Pinturas/JsCodliveditor')</div>
+            <div class="col-md-4">@include('codliveditor/Pinturas/CssCodliveditor')</div>
+            <div class="col-md-4">@include('codliveditor/Pinturas/HtmlCodliveditor')</div>
+            <div class="col-md-4">@include('codliveditor/Pinturas/JsCodliveditor')</div>
         </div>
     </form>
     <iframe id="preview" style="width: 100%; height: 80vh;"></iframe>
