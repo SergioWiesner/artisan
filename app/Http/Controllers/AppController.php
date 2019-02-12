@@ -84,7 +84,7 @@ class AppController extends Controller
     public function configuracion()
     {
         $configuracion = new Configuracion();
-        return view('system.configuracion.configuracion')
+        return view('system.configuracion.config')
             ->with('configuracion', $configuracion->configuracion());
     }
 
@@ -102,6 +102,6 @@ class AppController extends Controller
 
     public function clientes()
     {
-        
+        return view('system.clientes.listar');
     }
 }

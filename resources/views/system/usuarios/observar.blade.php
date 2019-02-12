@@ -19,9 +19,9 @@
                 <div class="col-md-10">
                     <div class="row">
                         @if(!is_null($detalles[$a]['rutaimg']))
-                            <div class="col-md-3">
+                            <div class="col-md-3 imagenusuariomain">
                                 <img src="{{$detalles[$a]['rutaimg']}}" alt="{{$detalles[$a]['name']}}"
-                                     style="width:100%;">
+                                     class="imagenusuario">
                             </div>
                             <div class="col-md-9">
                                 @else

@@ -29,17 +29,20 @@ body {
     width: 100%;
 }
 
-.logofootercredit{
- width: 3%;
+.logofootercredit {
+    width: 3%;
     margin-top: -14px;
 }
-.redessocialesfootercredits{
+
+.redessocialesfootercredits {
     display: block;
     margin: auto;
 }
-.redessocialesfootercredits li{
+
+.redessocialesfootercredits li {
     display: inline-block;
 }
+
 .titulos {
     text-align: center;
 }
@@ -51,6 +54,18 @@ body {
 
 a {
     color: #8074d3;
+}
+
+.imagenusuariomain {
+    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.imagenusuario {
+    width: 100%;
 }
 
 .imagenlateral {
