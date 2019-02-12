@@ -44,5 +44,5 @@
     <iframe id="preview" style="width: 100%; height: 80vh;"></iframe>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     {!! $js !!}
-    @include('Codliveditor/conf/addon');
+    @include('codliveditor/conf/addon');
 @endsection
