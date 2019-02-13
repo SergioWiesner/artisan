@@ -104,4 +104,18 @@ class AppController extends Controller
     {
         return view('system.clientes.listar');
     }
+
+    public function perfilespermisos($id = null)
+    {
+        $relacion = null;
+        $conf = new Configuracion();
+        if (!is_null($id)) {
+            $relacion = $conf->traerRelacionPerfilesPermisos($id);
+        }
+
+        return view('system.configuracion.perfilespermisos')
+            ->with('permiso', $conf->traerPermisos())
+            ->with('perfiles', $conf->traerPerfiles())
+            ->with('relacion', $relacion);
+    }
 }

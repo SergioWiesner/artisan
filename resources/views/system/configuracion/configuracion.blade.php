@@ -33,6 +33,10 @@
                             <a class="nav-link" href="{{route('creaciondeclientesviews')}}"> <i class="fas fa-fire"></i>
                                 Crear cliente api</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('permisosperfiles')}}"> <i class="fas fa-code-branch"></i>
+                                relacion perfiles y permisos</a>
+                        </li>
                     </ul>
                     <h3 class="titulos">Paquetes</h3>
                     <ul class="nav flex-column">

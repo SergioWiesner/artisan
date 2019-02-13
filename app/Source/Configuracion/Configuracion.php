@@ -52,6 +52,11 @@ class Configuracion
         return redirect()->back();
     }
 
+    public function traerRelacionPerfilesPermisos($id)
+    {
+        return Basics::collectionToArray(Modelo::buscarRelacionPerfilesPermisos($id));
+    }
+
     public function validacionConfiguracion()
     {
         return Modelo::validacionConfiguracion();

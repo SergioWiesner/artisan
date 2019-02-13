@@ -85,4 +85,9 @@ class Modelo
                 'nombredesde' => $data['desde']
             ]);
     }
+
+    public static function buscarRelacionPerfilesPermisos($id)
+    {
+        return Perfiles::where('id', $id)->with('permisos')->get();
+    }
 }

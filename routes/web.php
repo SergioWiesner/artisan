@@ -9,12 +9,15 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
     Route::get('/clientes/', 'AppController@clientes')->name('clientes');
     Route::get('/informes/', 'AppController@informes')->name('informes');
+    Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
     /** RUTAS DE LA PAGINA **/
 
 
     /** RUTAS DE CONFIGURACIÓN DE CLIENTES API **/
     Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creaciondeclientesviews')->middleware('auth');
     /** RUTAS DE CONFIGURACIÓN DE CLIENTES API**/
+
+    Route::get('/propiedades/lista/', 'PropiedadesController@index')->name('clientespropiedades')->middleware('auth');
 });
 
 Auth::routes();
