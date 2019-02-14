@@ -66,6 +66,21 @@ class Modelo
         return false;
     }
 
+    public static function eliminarRelacionPerfil($idperfil)
+    {
+        return DB::table('perfiles_permisos')->where('perfiles_id', $idperfil)->delete();
+    }
+
+    public static function relacionPerfilesPermisos($idperfil, $idpermiso)
+    {
+        for ($d = 0; $d < count($idpermiso); $d++) {
+            DB::table('perfiles_permisos')->insert([
+                'perfiles_id' => $idperfil,
+                'permisos_id' => $idpermiso[$d]
+            ]);
+        }
+    }
+
     public static function actualizarConfiguracion($data)
     {
         return DB::table('configuracionsystem')

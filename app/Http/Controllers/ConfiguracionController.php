@@ -43,6 +43,12 @@ class ConfiguracionController extends Controller
         }
     }
 
+    public function permisoRelacion(Request $request)
+    {
+        $configuracion = new Configuracion();
+        return $configuracion->relacionPerfilesPermisos($request->all());
+    }
+
 
     public function permisosStore(Request $request)
     {

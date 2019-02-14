@@ -74,6 +74,11 @@ Route::middleware(['auth'])->group(function () {
 /** RUTAS DE CONFIGURACIÓN **/
 Route::post('/permiso/crear/', 'ConfiguracionController@permisosStore')->name('permisocrear');
 Route::post('/configuracion/crear/', 'ConfiguracionController@store')->name('configuracioncear');
+
+/** RUTA DE PERMISOS **/
+Route::post('/relacionar/permios/perfiles/', 'ConfiguracionController@permisoRelacion')->name('perfilespermisos');
+/** RUTA DE PERMISOS **/
+
 /** RUTAS DE CONFIGURACIÓN **/
 
 /** RUTA DE CLIENTES **/

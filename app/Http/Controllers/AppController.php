@@ -116,6 +116,7 @@ class AppController extends Controller
         return view('system.configuracion.perfilespermisos')
             ->with('permiso', $conf->traerPermisos())
             ->with('perfiles', $conf->traerPerfiles())
-            ->with('relacion', $relacion);
+            ->with('relacion', $relacion)
+            ->with('perfilactual', $id);
     }
 }

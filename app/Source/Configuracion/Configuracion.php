@@ -62,6 +62,17 @@ class Configuracion
         return Modelo::validacionConfiguracion();
     }
 
+    public function relacionPerfilesPermisos($request)
+    {
+
+        Modelo::eliminarRelacionPerfil($request['perfil']);
+        if (isset($request['permiso'])) {
+            Modelo::relacionPerfilesPermisos($request['perfil'], $request['permiso']);
+        }
+        return redirect()->back();
+    }
+
+
     public function actualizarConfiguracion($data)
     {
         $data = Basics::determinarRutaimg($data, self::ubicacion);
