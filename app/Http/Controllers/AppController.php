@@ -102,7 +102,9 @@ class AppController extends Controller
 
     public function clientes()
     {
-        return view('system.clientes.listar');
+        $usuarios = new Usuarios();
+        return view('system.clientes.listar')
+            ->with('documentos', $usuarios->listarTipoDocumentos());
     }
 
     public function perfilespermisos($id = null)
@@ -118,5 +120,10 @@ class AppController extends Controller
             ->with('perfiles', $conf->traerPerfiles())
             ->with('relacion', $relacion)
             ->with('perfilactual', $id);
+    }
+
+    public function ventas()
+    {
+        return view('system.ventas.listar');
     }
 }

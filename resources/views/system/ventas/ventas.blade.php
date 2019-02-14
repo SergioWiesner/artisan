@@ -2,7 +2,7 @@
 @section('page')
     <section>
         <div class="container-fluid">
-            @yield('contentclientes')
+            @yield('contentventas')
         </div>
     </section>
 @endsection
