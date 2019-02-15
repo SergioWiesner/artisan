@@ -124,6 +124,14 @@ class AppController extends Controller
 
     public function ventas()
     {
-        return view('system.ventas.listar');
+
+        return view('system.ventas.lista');
+    }
+
+    public function ventaAgregada()
+    {
+        $usuarios = new Usuarios();
+        return view('system.ventas.agregar')
+            ->with('documentos', $usuarios->listarTipoDocumentos());
     }
 }

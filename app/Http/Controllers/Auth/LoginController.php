@@ -35,6 +35,12 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        if (Session::has('menu')) {
+            Session::forget('menu')
+        }
+        if (Session::has('configinit')) {
+            Session::forget('configinit')
+        }
         $this->middleware('guest')->except('logout');
     }
 }

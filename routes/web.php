@@ -11,6 +11,8 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/informes/', 'AppController@informes')->name('informes');
     Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
     Route::get('/ventas/', 'AppController@ventas')->name('ventas');
+    Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
+
     /** RUTAS DE LA PAGINA **/
 
 

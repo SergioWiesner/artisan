@@ -9,7 +9,7 @@
                 <ul class="nav justify-content-left">
                     @if(Auth::user()->nivelaccesso  == 10)
                         <li class="nav-item">
-                            <a href="#!"><i class="fas fa-shopping-bag"></i> Agregar
+                            <a href="{{route('nuevaventa')}}"><i class="fas fa-shopping-bag"></i> Agregar
                                 venta</a>
                         </li>
                     @endif
