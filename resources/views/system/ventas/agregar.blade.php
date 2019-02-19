@@ -70,7 +70,6 @@
                     <div id="curponuevoproducto">
 
                     </div>
-                    <a href="#!">Agregar nuevo producto</a>
                 </div>
             </div>
         </form>
@@ -96,7 +95,7 @@
                     .then(response => {
                         log.innerHTML = "";
                         for (let a = 0; a < response.length; a++) {
-                            log.innerHTML += "<a class='agregarproducto' href='#!' onclick='agregarProducto(" + response[a]['id'] + ")'>" + response[a]['nombre'] + "</a><br>";
+                            log.innerHTML += "<a class='agregarproducto' href='#!' onclick='agregarProducto(" + response[a]['id'] + ")'><i class='fas fa-plus'></i>" + response[a]['nombre'] + "</a><br>";
                         }
                     });
             } else {
