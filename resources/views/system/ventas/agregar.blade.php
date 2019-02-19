@@ -95,7 +95,7 @@
                     .then(response => {
                         log.innerHTML = "";
                         for (let a = 0; a < response.length; a++) {
-                            log.innerHTML += "<a class='agregarproducto' href='#!' onclick='agregarProducto(" + response[a]['id'] + ")'><i class='fas fa-plus'></i>" + response[a]['nombre'] + "</a><br>";
+                            log.innerHTML += "<a class='agregarproducto agregarproductoestilo' href='#!' onclick='agregarProducto(" + response[a]['id'] + ")'><i class='fas fa-plus'></i> " + response[a]['nombre'] + "</a><br>";
                         }
                     });
             } else {

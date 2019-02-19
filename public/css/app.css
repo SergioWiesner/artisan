@@ -114,6 +114,20 @@ a {
     text-decoration: none;
 }
 
+.agregarproductoestilo {
+    margin-top: 1%;
+    padding: 1%;
+    width: 100%;
+    display: block;
+
+}
+
+.agregarproductoestilo:hover {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
 /** detalle de los productos **/
 .detallesproductos p {
     text-align: justify;
