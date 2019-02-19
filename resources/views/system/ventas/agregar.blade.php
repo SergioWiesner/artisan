@@ -84,7 +84,6 @@
 
         function logKey(e) {
             if (buscador.value !== "") {
-                console.log(buscador.value);
                 var data = {valor: buscador.value};
                 fetch('/buscar/productos', {
                     method: 'POST', // or 'PUT'
@@ -106,7 +105,6 @@
         }
 
         function agregarProducto(id) {
-            console.log(id)
             let flag = false;
             if (lista.length > 0) {
                 for (let b = 0; b < lista.length; b++) {
@@ -130,7 +128,7 @@
                     .then(response => {
                             console.log(response);
                             for (let c = 0; c < response.length; c++) {
-                                bandeja.innerHTML = '<div class="row" id="' + c + '"><div class="col-md-3"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><h5>' + response[c]["nombre"] + '</h5></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" class="form-control" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div>';
+                                bandeja.innerHTML += '<div class="row" id="' + c + '"><div class="col-md-3"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><h5>' + response[c]["nombre"] + '</h5></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" class="form-control" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div>';
 
                             }
                         }
