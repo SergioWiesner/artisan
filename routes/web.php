@@ -12,7 +12,8 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
     Route::get('/ventas/', 'AppController@ventas')->name('ventas');
     Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
-
+    Route::post('/buscar/productos', 'AppController@buscarProductos');
+    Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
     /** RUTAS DE LA PAGINA **/
 
 

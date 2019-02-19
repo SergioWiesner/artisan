@@ -88,17 +88,27 @@ class productos
         try {
             $datos = Basics::determinarRutaimg($datos, self::ubicacion);
             Modelo::actualizarProductos($datos);
-            for ($a = 0; $a < count($datos['propiedadanterior']); $a++) {
-                Modelo::actualizarRelacionPropiedadProducto($datos['propiedadanterior'][$a], $datos['id']);
+            Modelo::eliminarPropiedadesProductos($datos['id']);
+            if (isset($datos['propiedadanterior'])) {
+                for ($a = 0; $a < count($datos['propiedadanterior']); $a++) {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedadanterior'][$a], $datos['id']);
+                }
+            }
+            if (isset($datos['propiedades'])) {
+                for ($a = 0; $a < count($datos['propiedades']); $a++) {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades'][$a], $datos['id']);
+                }
             }
             Session::put('success', ["Producto acturalizado correctamente"]);
         } catch (\Exception $e) {
             Session::put('error', ["Error, no se puedo eliminar el producto " . $e->getMessage()]);
         }
+
         return redirect()->back();
     }
 
-    public function eliminarproducto($id)
+    public
+    function eliminarproducto($id)
     {
         if (Modelo::eliminarProdcuto($id)) {
             Session::put('success', ["Producto eliminado correctamente"]);
@@ -108,13 +118,27 @@ class productos
         return redirect()->back();
     }
 
-    public function verProducto($id)
+    public
+    function verProducto($id)
     {
         return Modelo::traerDetallesProducto($id);
     }
 
-    public function productosPorCategoria($datos)
+    public
+    function productosPorCategoria($datos)
     {
         return Modelo::traerProductosPorCategoria($datos);
+    }
+
+    public
+    function buscarProducto($nombre)
+    {
+        return Modelo::buscarProducto($nombre);
+    }
+
+    public
+    function buscarProductoId($id)
+    {
+        return Modelo::buscarProductoId($id);
     }
 }

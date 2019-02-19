@@ -103,6 +103,11 @@ class Modelo
         ]);
     }
 
+    public static function eliminarPropiedadesProductos($id)
+    {
+        DB::table('productos_propiedades')->where('productos_id', $id)->delete();
+    }
+
     public static function eliminarProdcuto($id)
     {
         return DB::table('productos')->where('id', $id)->delete();
@@ -116,6 +121,16 @@ class Modelo
     public static function traerProductosPorCategoria($datos)
     {
         return Basics::collectionToArray(Productos::where([['idcategoria', $datos[0]['idcategoria']], ['id', '<>', $datos[0]['id']]])->with('propiedades')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->inRandomOrder()->limit(10)->get());
+    }
+
+    public static function buscarProducto($nombre)
+    {
+        return Basics::collectionToArray(Productos::where([['nombre', 'like', '%' . $nombre . '%'], ['estado', 1]])->orWhere([['referencia', 'like', '%' . $nombre . '%'], ['estado', 1]])->get(['nombre', 'id']));
+    }
+
+    public static function buscarProductoId($id)
+    {
+        return Basics::collectionToArray(Productos::where([['id', $id], ['estado', 1]])->with('catgorias')->with('propiedades')->with('propiedadesvalor')->get());
     }
 
 }

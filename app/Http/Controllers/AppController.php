@@ -9,6 +9,7 @@ use App\Source\Productos\productos;
 use App\Source\Tools\Basics;
 use App\Source\Tools\Permisos;
 use App\Source\Usuarios\Usuarios;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -133,5 +134,17 @@ class AppController extends Controller
         $usuarios = new Usuarios();
         return view('system.ventas.agregar')
             ->with('documentos', $usuarios->listarTipoDocumentos());
+    }
+
+    public function buscarProductos(Request $request)
+    {
+        $prod = new \App\Source\Productos\productos();
+        return $prod->buscarProducto($request->valor);
+    }
+
+    public function buscarProductosId(Request $request)
+    {
+        $prod = new \App\Source\Productos\productos();
+        return $prod->buscarProductoId($request->valor);
     }
 }
