@@ -18,14 +18,15 @@ function agregarNuevaPropiedad() {
                     complemt += "<option value='" + json[a]['id'] + "'>" + json[a]['nombre'] + "</option>";
                 }
                 let espacio = document.getElementById("anexopropiedades");
-                espacio.innerHTML += '<div id="id' + contadorpropiedades + '"><div class="form-group col"><a href="#!" onClick="elimnarestad(id' + contadorpropiedades + ')" class="closepropiedad" style="position: absolute; right: 10px;"><span aria-hidden="true">×</span></a><label for="inputState">Propiedades</label><select id="inputState" class="form-control" name="propiedades[' + contadoragregarcategoria + '][propiedad]"><option selected> selecciona cualquier propiedad</option>' + complemt + '</select></div><div class="form-group col-md-12"><label for="inputAddress">Valor</label><input type="text" name="propiedades[' + contadoragregarcategoria + '][valorpropiedad]" class="form-control" placeholder="valor propiedad"></div></div>';
+                espacio.innerHTML += '<div class="row" id="id' + contadorpropiedades + '"><a href="#!" onClick="elimnarestad(\'id' + contadorpropiedades + '\')" class="closepropiedad" style="position: absolute; right: 15px; z-index: 100;"><span aria-hidden="true">×</span></a><div class="col-md-6"><label for="inputState">Propiedades</label><select id="inputState" class="form-control" name="propiedades[propiedad][]"><option selected> selecciona cualquier propiedad</option>' + complemt + '</select></div><div class="form-group col-md-6"><label for="inputAddress">Valor</label><input type="text" name="propiedades[valorpropiedad][]" class="form-control" placeholder="valor propiedad"></div></div>';
                 contadoragregarcategoria++;
             }
         )
 }
 
 function elimnarestad(ident) {
-    document.getElementById(ident).remove();
+    let ele = document.getElementById(ident);
+    ele.remove();
 }
 
 function agregarUsuarioEmpleado() {

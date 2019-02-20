@@ -76,15 +76,19 @@
                                                 <p>{{$detalles[$a]['descripcion']}}</p>
                                             </div>
                                         </div>
-                                        @if(count($detalles[$a]['propiedadesvalor']) > 0)
+                                        @if(count($detalles[$a]['propiedades']) > 0)
                                             <hr>
                                             <h4><strong>Propiedades</strong></h4>
                                             <div class="row">
-                                                @for($c = 0; $c < count($detalles[$a]['propiedadesvalor']); $c++)
+                                                @for($c = 0; $c < count($detalles[$a]['propiedades']); $c++)
                                                     <div class="col-sm">
                                                         <div class="card-body">
-                                                            <h5 class="card-title">{{$detalles[$a]['propiedadesvalor'][$c]['propiedades_padre']['nombre']}}</h5>
-                                                            <p class="card-text">{{$detalles[$a]['propiedadesvalor'][$c]['valor']}}</p>
+                                                            <h5 class="card-title">{{$detalles[$a]['propiedades'][$c]['nombre']}}</h5>
+                                                            <p class="card-text">
+                                                                @for($x = 0; $x < count($detalles[$a]['propiedades'][$c]['valores']); $x++)
+                                                                    - {{$detalles[$a]['propiedades'][$c]['valores'][$x]['valor']}}
+                                                                @endfor
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 @endfor
@@ -146,7 +150,8 @@
                                                         <label for="inputState">Categoria</label>
                                                         <select id="inputState" class="form-control" name="categoria"
                                                                 required>
-                                                            <option selected></option>
+                                                            <option value="{{$detalles[$a]['catgorias']['id']}}"
+                                                                    selected>{{$detalles[$a]['catgorias']['nombre']}}</option>
                                                             @for($x = 0; $x < count($categorias); $x++)
                                                                 <option
                                                                     value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
@@ -157,7 +162,6 @@
                                                         <label for="inputState">producto padre</label>
                                                         <select id="inputState" class="form-control"
                                                                 name="productopadre">
-                                                            <option selected></option>
                                                             @for($z = 0; $z < count($productos); $z++)
                                                                 <option
                                                                     value="{{$productos[$z]['id']}}">{{$productos[$z]['nombre']}}</option>
@@ -170,28 +174,37 @@
                                                 <a href="#!" onclick="agregarNuevaPropiedad()"><i
                                                         class="fas fa-plus"></i> Agregar nueva
                                                     propiedad</a> <br><br>
-                                                @for($y = 0; $y < count($detalles[$a]['propiedadesvalor']); $y++)
-                                                    <div class="form-group">
-                                                        <label for="inputState">Propiedades</label>
-                                                        <select id="inputState" class="form-control"
-                                                                name="propiedadanterior[{{$y}}][propiedad]">
-                                                            <option selected></option>
-                                                            @for($h = 0; $h < count($propiedades); $h++)
+
+                                                @for($y = 0; $y < count($detalles[$a]['propiedades']); $y++)
+                                                    <div class="row" id="old{{$y}}">
+                                                        <a href="#!" onClick="elimnarestad('old{{$y}}')"
+                                                           class="closepropiedad"
+                                                           style="position: absolute; right: 15px; z-index: 100;"><span
+                                                                aria-hidden="true">×</span></a>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputState">Propiedades</label>
+                                                            <select id="inputState" class="form-control"
+                                                                    name="propiedadanterior[propiedad][]">
                                                                 <option
-                                                                    value="{{$propiedades[$h]['id']}}">{{$propiedades[$h]['nombre']}}</option>
-                                                            @endfor
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputAddress">Valor</label>
-                                                        <input type="text" class="form-control" id="inputAddress"
-                                                               placeholder="Stock"
-                                                               name="propiedadanterior[{{$y}}][valorpropiedad]"
-                                                               value="{{$detalles[$a]['propiedadesvalor'][$y]['valor']}}"
-                                                               required>
+                                                                    value="{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['id']}}">{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['nombre']}}</option>
+                                                                <hr>
+                                                                @for($h = 0; $h < count($propiedades); $h++)
+                                                                    <option
+                                                                        value="{{$propiedades[$h]['id']}}">{{$propiedades[$h]['nombre']}}</option>
+                                                                @endfor
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputAddress">Valor</label>
+                                                            <input type="text" class="form-control" id="inputAddress"
+                                                                   placeholder="valor propiedad"
+                                                                   name="propiedadanterior[valorpropiedad][]"
+                                                                   value="{{$detalles[$a]['propiedadesvalor'][$y]['valor']}}"
+                                                                   required>
+                                                        </div>
                                                     </div>
                                                 @endfor
-                                                <div id="anexopropiedades" class="form-row">
+                                                <div id="anexopropiedades">
 
                                                 </div>
                                                 <hr>

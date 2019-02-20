@@ -53,7 +53,8 @@ class AppController extends Controller
         $propiedades = new propiedades();
         $datos = $productos->verProducto($id);
         if (count($datos) > 0) {
-            return view('system.productos.observar')->with('detalles', $datos)
+            return view('system.productos.observar')
+                ->with('detalles', $datos)
                 ->with('relacionados', $productos->productosPorCategoria($datos))
                 ->with('productos', $productos->listarProductos())
                 ->with('propiedades', $propiedades->listarPropiedadesSinPaginar())

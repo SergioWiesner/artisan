@@ -2,12 +2,11 @@
 
 namespace App\Source\Productos;
 
-use App\Source\Usuarios\Model;
+
 use Illuminate\Support\Facades\Session;
-use App\Source\Productos\Modelo;
 use App\Source\Tools\Basics;
-use Zend\Diactoros\Request;
-use Carbon\Carbon;
+use App\Source\Tools\formateo;
+
 
 class productos
 {
@@ -73,7 +72,7 @@ class productos
         $request['referencia'] = Basics::obtenerReferencia($request);
         $producto = Modelo::agregarProducto($request);
         for ($a = 0; $a < count($request['propiedades']); $a++) {
-            Modelo::agregarRelacionPropiedadProducto($request['propiedades'][$a], $producto->id);
+            Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $producto->id);
         }
         Session::put('success', ["Producto creado correctamente"]);
         //} catch (\Exception $e) {
@@ -90,13 +89,13 @@ class productos
             Modelo::actualizarProductos($datos);
             Modelo::eliminarPropiedadesProductos($datos['id']);
             if (isset($datos['propiedadanterior'])) {
-                for ($a = 0; $a < count($datos['propiedadanterior']); $a++) {
-                    Modelo::agregarRelacionPropiedadProducto($datos['propiedadanterior'][$a], $datos['id']);
+                for ($a = 0; $a < count($datos['propiedadanterior']['propiedad']); $a++) {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedadanterior']['propiedad'][$a], $datos['propiedadanterior']['valorpropiedad'][$a], $datos['id']);
                 }
             }
             if (isset($datos['propiedades'])) {
-                for ($a = 0; $a < count($datos['propiedades']); $a++) {
-                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades'][$a], $datos['id']);
+                for ($a = 0; $a < count($datos['propiedades']['propiedad']); $a++) {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['id']);
                 }
             }
             Session::put('success', ["Producto acturalizado correctamente"]);
@@ -107,8 +106,7 @@ class productos
         return redirect()->back();
     }
 
-    public
-    function eliminarproducto($id)
+    public function eliminarproducto($id)
     {
         if (Modelo::eliminarProdcuto($id)) {
             Session::put('success', ["Producto eliminado correctamente"]);
@@ -118,26 +116,25 @@ class productos
         return redirect()->back();
     }
 
-    public
-    function verProducto($id)
+    public function verProducto($id)
     {
-        return Modelo::traerDetallesProducto($id);
+        $arr = Modelo::traerDetallesProducto($id);
+
+        $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
+        return $arr;
     }
 
-    public
-    function productosPorCategoria($datos)
+    public function productosPorCategoria($datos)
     {
         return Modelo::traerProductosPorCategoria($datos);
     }
 
-    public
-    function buscarProducto($nombre)
+    public function buscarProducto($nombre)
     {
         return Modelo::buscarProducto($nombre);
     }
 
-    public
-    function buscarProductoId($id)
+    public function buscarProductoId($id)
     {
         return Modelo::buscarProductoId($id);
     }

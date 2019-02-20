@@ -85,13 +85,13 @@ class Modelo
     }
 
 
-    public static function agregarRelacionPropiedadProducto($datos, $id)
+    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $id)
     {
-        if (!is_null($datos['valorpropiedad'])) {
+        if (!is_null($valor)) {
             return DB::table('productos_propiedades')->insert([
                 'productos_id' => $id,
-                'propiedades_id' => $datos['propiedad'],
-                'valor' => $datos['valorpropiedad'],
+                'propiedades_id' => $propiedad,
+                'valor' => $valor,
             ]);
         }
     }
@@ -115,7 +115,7 @@ class Modelo
 
     public static function traerDetallesProducto($id)
     {
-        return Basics::collectionToArray(Productos::where('id', $id)->with('propiedades')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
+        return Basics::collectionToArray(Productos::where('id', $id)->with('propiedades.valorPropiedad')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
     }
 
     public static function traerProductosPorCategoria($datos)

@@ -17,7 +17,7 @@ class Productos extends Model
         return $this->belongsTo('App\CategoriaProductos', 'idcategoria', 'id');
     }
 
-    public function propiedades()
+        public function propiedades()
     {
         return $this->belongsToMany('App\Propiedades', 'productos_propiedades', 'productos_id', 'propiedades_id');
     }
