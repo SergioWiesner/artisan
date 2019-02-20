@@ -174,8 +174,7 @@
                                                 <a href="#!" onclick="agregarNuevaPropiedad()"><i
                                                         class="fas fa-plus"></i> Agregar nueva
                                                     propiedad</a> <br><br>
-
-                                                @for($y = 0; $y < count($detalles[$a]['propiedades']); $y++)
+                                                @for($y = 0; $y < count($detalles[$a]['propiedadesvalor']); $y++)
                                                     <div class="row" id="old{{$y}}">
                                                         <a href="#!" onClick="elimnarestad('old{{$y}}')"
                                                            class="closepropiedad"
