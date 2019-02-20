@@ -125,9 +125,18 @@
                 }).then(res => res.json())
                     .catch(error => console.error('Error:', error))
                     .then(response => {
+                            let propiedades = "";
+                            let options = "";
                             console.log(response);
                             for (let c = 0; c < response.length; c++) {
-                                bandeja.innerHTML += '<div class="row" id="' + c + '"><div class="col-md-3"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><h5>' + response[c]["nombre"] + '</h5></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" class="form-control" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div>';
+                                for (let d = 0; d < response[c]['propiedades'].length; d++) {
+                                    for (let e = 0; e < response[c]['propiedades'][d]['valor_propiedad'].length; e++) {
+                                        options += "<option value=''>" + response[c]['propiedades'][d]['valor_propiedad'][e]['valor'] + "</option>";
+                                    }
+                                    propiedades += '<div class="col-md-3"><div class="form-group"><label for="' + response[c]['propiedades'][d]['nombre'] + '">' + response[c]['propiedades'][d]['nombre'] + '</label><select class="form-control" id="' + response[c]['propiedades'][d]['nombre'] + '" name="tipodocumento" required>' + options + '</select></div></div>'
+                                }
+                                console.log(propiedades);
+                                bandeja.innerHTML += '<div class="row" id="' + c + '"><div class="col-md-3"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><h5>' + response[c]["nombre"] + '</h5></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" class="form-control" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div>' + propiedades + '</div>';
 
                             }
                         }

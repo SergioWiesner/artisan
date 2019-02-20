@@ -130,7 +130,7 @@ class Modelo
 
     public static function buscarProductoId($id)
     {
-        return Basics::collectionToArray(Productos::where([['id', $id], ['estado', 1]])->with('catgorias')->with('propiedades')->with('propiedadesvalor')->get());
+        return Basics::collectionToArray(Productos::where([['id', $id], ['estado', 1]])->with('catgorias')->with('propiedades.valorPropiedad')->get());
     }
 
 }
