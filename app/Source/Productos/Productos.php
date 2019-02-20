@@ -119,7 +119,6 @@ class productos
     public function verProducto($id)
     {
         $arr = Modelo::traerDetallesProducto($id);
-
         $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
         return $arr;
     }
@@ -136,6 +135,8 @@ class productos
 
     public function buscarProductoId($id)
     {
-        return Modelo::buscarProductoId($id);
+        $arr = Modelo::buscarProductoId($id);
+        $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
+        return $arr;
     }
 }
