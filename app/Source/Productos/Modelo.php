@@ -115,7 +115,9 @@ class Modelo
 
     public static function traerDetallesProducto($id)
     {
-        return Basics::collectionToArray(Productos::where('id', $id)->with('propiedades.valorPropiedad')->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
+        return Basics::collectionToArray(Productos::where('id', $id)->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
+            $query->where('productos_id', $id);
+        }])->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
     }
 
     public static function traerProductosPorCategoria($datos)
@@ -130,7 +132,9 @@ class Modelo
 
     public static function buscarProductoId($id)
     {
-        return Basics::collectionToArray(Productos::where([['id', $id], ['estado', 1]])->with('catgorias')->with('propiedades.valorPropiedad')->get());
+        return Basics::collectionToArray(Productos::where([['id', $id], ['estado', 1]])->with('catgorias')->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
+            $query->where('productos_id', $id);
+        }])->get());
     }
 
 }

@@ -79,6 +79,7 @@
         const log = document.getElementById('log');
         const bandeja = document.getElementById('curponuevoproducto');
         let lista = [];
+
         buscador.addEventListener('keyup', logKey);
 
         function logKey(e) {
@@ -103,9 +104,24 @@
             }
         }
 
+        let calc = function calculo() {
+            let lugar = this.getAttribute('item');
+            let precio = this.getAttribute('precio');
+            let total = this.value * precio;
+            //document.getElementById("text2").value=document.getElementById("text1").value;
+            console.log("valor multiplicar " + this.value + " por precio " + precio);
+            if (!isNaN(total)) {
+                document.getElementById('totalprice' + lugar).innerText = "$" + new Intl.NumberFormat("COP-CO").format(total);
+            } else {
+                document.getElementById('totalprice' + lugar).innerText = "$0";
+            }
+        }
+
+        let contpro = 0;
+
         function agregarProducto(id) {
             let flag = false;
-            let intem;
+
             if (lista.length > 0) {
                 for (let b = 0; b < lista.length; b++) {
                     if (lista[b] == id) {
@@ -126,35 +142,29 @@
                 }).then(res => res.json())
                     .catch(error => console.error('Error:', error))
                     .then(response => {
-                            let propiedades = "";
-                            let options = "";
-                            console.log(response);
-                            for (let c = 0; c < response.length; c++) {
-                                for (let d = 0; d < response[c]['propiedades'].length; d++) {
-                                    for (let e = 0; e < response[c]['propiedades'][d]['valores'].length; e++) {
-                                        options += "<option value='" + response[c]['propiedades'][d]['valores'][e]['valor'] + "'>" + response[c]['propiedades'][d]['valores'][e]['valor'] + "</option>";
-                                    }
-                                    propiedades += '<div class="col-md-3"><div class="form-group"><label for="' + response[c]['propiedades'][d]['nombre'] + '">' + response[c]['propiedades'][d]['nombre'] + '</label><select class="form-control" id="' + response[c]['propiedades'][d]['nombre'] + '" name="tipodocumento" required>' + options + '</select></div></div>'
+                        let propiedades = "";
+                        let options = "";
+                        console.log(response);
+                        for (let c = 0; c < response.length; c++) {
+                            for (let d = 0; d < response[c]['propiedades'].length; d++) {
+                                options = "";
+                                for (let e = 0; e < response[c]['propiedades'][d]['valores'].length; e++) {
+                                    options += "<option value='" + response[c]['propiedades'][d]['valores'][e]['valor'] + "'>" + response[c]['propiedades'][d]['valores'][e]['valor'] + "</option>";
                                 }
-                                bandeja.innerHTML += '<div class="row" id="pro' + c + '"><a href="#!" onClick="elimnarestad(\'pro' + c + '\')" style="position: absolute; right: 15px; z-index: 100;"><span aria-hidden="true">×</span></a><div class="col-md"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><a href="/productos/ver/' + response[c]["id"] + '" target="_blank"><h5>' + response[c]["nombre"] + '</h5></a></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="number" id="cantidadfact' + c + '" class="form-control " precio="' + response[c]["valor"] + '" item="' + c + '" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div>' + propiedades + '<div class="col-md"><div class="form-group"><label for="Unidad">Precio U.</label><p>$' + response[c]["valor"] + '</p></div></div><div class="col-md"><div class="form-group"><p id="totalprice' + c + '"></p></div></div></div>';
-                                intem = document.getElementById('cantidadfact' + c).addEventListener('keyup', cant);
+                                propiedades += '<div class="col-md-3"><div class="form-group"><label for="' + response[c]['propiedades'][d]['nombre'] + '">' + response[c]['propiedades'][d]['nombre'] + '</label><select class="form-control" id="' + response[c]['propiedades'][d]['nombre'] + d + '" name="tipodocumento" required>' + options + '</select></div></div>'
                             }
-
-                            function cant(e) {
-                                console.log();
-                                let lugar = this.getAttribute('item');
-                                let precio = this.getAttribute('precio');
-                                let total = intem.value * precio;
-                                console.log("valor multiplicar " + e.value + " por precio " + precio);
-                                document.getElementById('totalprice' + lugar).innerText = total;
-                                console.log(e);
-//                               cantidad.value
-
-                            }
+                            elChild = document.createElement('div');
+                            elChild.innerHTML = '<div class="row productostiend" id="pro' + c + '"><div class="col-md-12"><div class="row"><a href="#!" onClick="elimnarestad(\'pro' + c + '\')" style="position: absolute; right: 15px; z-index: 100;"><span aria-hidden="true">×</span></a><div class="col-md"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><br><a href="/productos/ver/' + response[c]["id"] + '" target="_blank"><h5>' + response[c]["nombre"] + '</h5></a></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" id="cantidadfact' + contpro + '" class="form-control" precio="' + response[c]["valor"] + '" item="' + contpro + '" name="[' + c + '][stock]" placeholder="' + response[c]["stock"] + '" required></div></div><div class="col-md"><div class="form-group"><label for="Unidad">Precio U.</label><p>$' + new Intl.NumberFormat("COP-CO").format(response[c]["valor"]) + '</p></div></div><div class="col-md"><div class="form-group"><label>Subtotal</label><p id="totalprice' + contpro + '"></p></div></div></div><div class="col-md-12"><div class="row">' + propiedades + '</div></div></div></div>';
+                            bandeja.appendChild(elChild);
                         }
-                    );
+                        document.getElementById('cantidadfact' + contpro).addEventListener('keyup', calc);
+                    });
 
+                //
             }
+            contpro++;
         }
+
+
     </script>
 @endsection

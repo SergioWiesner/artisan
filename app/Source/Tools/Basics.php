@@ -41,10 +41,11 @@ class Basics
 
     public static function obtenerReferencia($dato)
     {
+
         $rf = substr($dato['nombre'], 0, 3);
-        if (isset($dato['propiedades'])) {
-            for ($a = 0; $a < count($dato['propiedades']); $a++) {
-                $rf .= substr($dato['propiedades'][$a]['valorpropiedad'], 0, 2);
+        if (isset($dato['propiedades']['valorpropiedad'])) {
+            for ($a = 0; $a < count($dato['propiedades']['valorpropiedad']); $a++) {
+                $rf .= substr($dato['propiedades']['valorpropiedad'][$a], 0, 2);
             }
         }
 
