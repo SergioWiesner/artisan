@@ -47,8 +47,10 @@ function agregarUsuarioEmpleado() {
                 }
 
                 elChild = document.createElement('div');
-                elChild.innerHTML = '<div class="form-group col"><select id="inputState" class="form-control" name="ayudante[' + contadoragregarayudante + ']"><option selected> selecciona cualquier ayudante</option>' + complemt + '</select></div>';
-                document.getElementById("anexoayudanteusuario");
+                elChild.setAttribute('class', "form-group col-md-12");
+                elChild.setAttribute('id', "ayudante" + contadoragregarayudante);
+                elChild.innerHTML = '<a href="#!" onClick="elimnarestad(\'ayudante' + contadoragregarayudante + '\')" style="position: absolute; right: 15px; z-index: 100;"><span aria-hidden="true">×</span></a></br><select id="inputState" class="form-control" name="ayudante[' + contadoragregarayudante + ']"><option selected> selecciona cualquier ayudante</option>' + complemt + '</select>';
+                document.getElementById("anexoayudanteusuario").appendChild(elChild);
                 contadoragregarayudante++;
             }
         );
