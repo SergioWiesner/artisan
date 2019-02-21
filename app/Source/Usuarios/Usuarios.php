@@ -60,11 +60,15 @@ class Usuarios
 
     public function crearUsuario($data)
     {
-
         $data = Basics::determinarRutaimg($data, self::ubicacion);
         $insercion = Model::crearUsuario($data);
         Model::relacionBodegas($data['bodegasId'], $insercion->id);
         Model::relacionUsuarioPerfil($data['perfiles'], $insercion->id);
         return redirect()->back();
+    }
+
+    public function buscarUsuarioDocumento($documento, $tipodocumento)
+    {
+        return Basics::collectionToArray(Model::usuarioBusquedaDocumento($tipodocumento, $documento));
     }
 }

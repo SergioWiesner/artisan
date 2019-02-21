@@ -128,6 +128,11 @@ class Model
         ]);
     }
 
+    public static function usuarioBusquedaDocumento($tipodocumento, $documento)
+    {
+        return User::where([['documento', 'like', '%' . $documento . '%'], ['tipodocumento', $tipodocumento]])->orderBy('documento', 'desc')->get();
+    }
+
     public static function relacionUsuarioPerfil($perfil, $idusuario)
     {
         try {

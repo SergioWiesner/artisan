@@ -13,7 +13,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Tipo documento</label>
-                        <select class="form-control" id="exampleFormControlSelect1"
+                        <select class="form-control" id="tipodocumento"
                                 name="tipodocumento"
                                 required>
 
@@ -26,38 +26,27 @@
                     </div>
                     <div class="form-group">
                         <label for="Documento">Documento</label>
-                        <input type="text" class="form-control"
-                               value="" name="documento"
-                               required>
+                        <input type="text" class="form-control" name="documento" id="documentoBuscar" required>
+                        <p id="logdocumento"></p>
                     </div>
                     <div class="form-group">
                         <label for="Nombres">Nombres</label>
-                        <input type="text" class="form-control" name="nombre"
-                               value=""
-                               required>
+                        <input type="text" class="form-control" name="nombre" id="nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="Correos">Correos</label>
-                        <input type="email" class="form-control" name="email"
-                               value=""
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <label for="Contraseña">Contraseña</label>
-                        <input type="password" class="form-control" name="password"
-                               value=""
-                               required>
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
                     <div class="form-group">
                         <label for="Teléfono">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono"
-                               value="" required>
+                        <input type="text" class="form-control" name="telefono" id="telefono" required>
                     </div>
                     <div class="form-group">
                         <label for="Dirección">Dirección</label>
-                        <input type="text" class="form-control"
-                               value="" name="direccion"
-                               required>
+                        <input type="text" class="form-control" name="direccion" id="direccion" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-primary" value="Generar factura">
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -87,12 +76,68 @@
     <script>
         const buscador = document.getElementById('busquedaproducto');
         const log = document.getElementById('log');
+        const logdocumento = document.getElementById('logdocumento');
         const bandeja = document.getElementById('curponuevoproducto');
+        const documento = document.getElementById('documentoBuscar');
         let lista = [];
 
         buscador.addEventListener('keyup', logKey);
+        documento.addEventListener('keyup', documente);
 
-        function logKey(e) {
+        function documente() {
+            if (documento.value !== "") {
+                var data = {
+                    tipodocumento: document.getElementById('tipodocumento').value,
+                    documento: documento.value
+                };
+                fetch('/buscar/usuario/documento', {
+                    method: 'POST', // or 'PUT'
+                    body: JSON.stringify(data), // data can be `string` or {object}!
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                    .catch(error => console.error('Error:', error))
+                    .then(response => {
+                        logdocumento.innerHTML = "";
+                        for (let a = 0; a < response.length; a++) {
+                            logdocumento.innerHTML += "<a class='agregarproducto agregarproductoestilo' href='#!' onclick='traerusuario(" + response[a]['documento'] + ", " + response[a]['tipodocumento'] + ")'><i class='fas fa-plus'></i> " + response[a]['documento'] + "</a>";
+                        }
+                    });
+            } else {
+                logdocumento.innerHTML = "";
+            }
+        }
+
+        function traerusuario(documentobus, tipodocumentobus) {
+            while (logdocumento.hasChildNodes()) {
+                logdocumento.removeChild(logdocumento.firstChild);
+            }
+            var data = {
+                tipodocumento: tipodocumentobus,
+                documento: documentobus
+            };
+            fetch('/buscar/usuario/documento', {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(data), // data can be `string` or {object}!
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then(response => {
+                    console.log(response);
+                    logdocumento.innerHTML = "";
+                    for (let a = 0; a < response.length; a++) {
+                        document.getElementById('nombre').value = response[a]['name'];
+                        document.getElementById('email').value = response[a]['email'];
+                        document.getElementById('telefono').value = response[a]['telefono'];
+                        document.getElementById('direccion').value = response[a]['direccion'];
+                    }
+                });
+        }
+
+        function logKey() {
             if (buscador.value !== "") {
                 var data = {valor: buscador.value};
                 fetch('/buscar/productos', {
@@ -136,10 +181,8 @@
         }
 
         function agregarProducto(id) {
-
-            let pr = document.getElementById('log');
-            while (pr.hasChildNodes()) {
-                pr.removeChild(pr.firstChild);
+            while (log.hasChildNodes()) {
+                log.removeChild(log.firstChild);
             }
             buscador.value = "";
             let flag = false;
