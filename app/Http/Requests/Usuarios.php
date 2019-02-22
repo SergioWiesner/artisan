@@ -26,12 +26,12 @@ class Usuarios extends FormRequest
         return [
             'nombre' => 'required',
             'email' => 'required|unique:users,email',
-            'telefono' => 'required',
+            'telefono' => 'numeric|required',
             'rutaimg' => '',
-            'documento' => 'required|unique:users,documento',
-            'tipodocumento' => 'required',
-            'direccion' => 'required',
-            'nivelacceso' => 'required',
+            'documento' => 'required|numeric|unique:users,documento',
+            'tipodocumento' => 'required|numeric',
+            'direccion' => 'required|string|',
+            'nivelacceso' => 'required|numeric',
         ];
     }
 }
