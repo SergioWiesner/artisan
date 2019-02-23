@@ -149,7 +149,6 @@
                                 document.getElementById('totalprice' + lugar).innerText = total;
                                 console.log(e);
 //                               cantidad.value
-
                             }
                         }
                     );
