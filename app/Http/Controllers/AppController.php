@@ -148,4 +148,10 @@ class AppController extends Controller
         $prod = new \App\Source\Productos\productos();
         return $prod->buscarProductoId($request->valor);
     }
+
+    public function buscarUsuarioDocumento(Request $request)
+    {
+        $usuarios = new \App\Source\Usuarios\Usuarios();
+        return $usuarios->buscarUsuarioDocumento($request->documento, $request->tipodocumento);
+    }
 }

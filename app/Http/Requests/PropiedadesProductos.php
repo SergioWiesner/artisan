@@ -24,9 +24,9 @@ class PropiedadesProductos extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'propiedadpadre' => '',
-            'categoria' => 'required'
+            'nombre' => 'required|string',
+            'propiedadpadre' => 'numeric',
+            'categoria' => 'required|numeric'
         ];
     }
 }

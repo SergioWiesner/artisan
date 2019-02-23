@@ -71,8 +71,10 @@ class productos
         $request['rutaimg'] = $ruta;
         $request['referencia'] = Basics::obtenerReferencia($request);
         $producto = Modelo::agregarProducto($request);
-        for ($a = 0; $a < count($request['propiedades']); $a++) {
-            Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $producto->id);
+        if (isset($request['propiedades']['propiedad'])) {
+            for ($a = 0; $a < count($request['propiedades']['propiedad']); $a++) {
+                Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $producto->id);
+            }
         }
         Session::put('success', ["Producto creado correctamente"]);
         //} catch (\Exception $e) {
@@ -135,7 +137,7 @@ class productos
 
     public function buscarProductoId($id)
     {
-        $arr = Modelo::buscarProductoId($id);
+        $arr = Modelo::traerDetallesProducto($id);
         $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
         return $arr;
     }

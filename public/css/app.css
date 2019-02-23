@@ -114,6 +114,7 @@ a {
     text-decoration: none;
 }
 
+/** Agregar productos venta **/
 .agregarproductoestilo {
     margin-top: 1%;
     padding: 1%;
@@ -128,6 +129,16 @@ a {
     text-decoration: none;
 }
 
+.productostiend {
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.vermasproductos:hover {
+    text-decoration: none;
+
+}
+
+/** Agregar productos venta **/
 /** detalle de los productos **/
 .detallesproductos p {
     text-align: justify;

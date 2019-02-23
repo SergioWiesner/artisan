@@ -14,6 +14,7 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
     Route::post('/buscar/productos', 'AppController@buscarProductos');
     Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
+    Route::post('/buscar/usuario/documento', 'AppController@buscarUsuarioDocumento');
     /** RUTAS DE LA PAGINA **/
 
 
