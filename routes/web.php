@@ -15,6 +15,7 @@ Route::middleware(['configinit'])->group(function () {
     Route::post('/buscar/productos', 'AppController@buscarProductos');
     Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
     Route::post('/buscar/usuario/documento', 'AppController@buscarUsuarioDocumento');
+    Route::post('/buscar/propiedad/producto/id', 'AppController@buscarPropiedadId');
     /** RUTAS DE LA PAGINA **/
 
 

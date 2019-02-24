@@ -154,14 +154,27 @@
                                 <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre"
                                        name="nombre">
                             </div>
+                            <div class="form-group col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="variaiones"
+                                           onclick="variacion()">
+                                    <label class="custom-control-label" for="variaiones">¿El producto tiene
+                                        variaciones?</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Valor</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Valor" name="valor">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Stock</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Stock" name="stock">
+
+                        <div id="productosvalibles">
+                            <div class="form-group">
+                                <label for="inputAddress">Valor base</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Valor"
+                                       name="valor">
+                            </div>
+                            <div class="form-group" id="stocks">
+                                <label for="ss">Stock</label>
+                                <input type="text" class="form-control" id="ss" placeholder="Stock" value="0"
+                                       name="stock">
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -262,5 +275,4 @@
             </div>
         </div>
     </div>
-
 @endsection

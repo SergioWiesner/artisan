@@ -73,7 +73,11 @@ class productos
         $producto = Modelo::agregarProducto($request);
         if (isset($request['propiedades']['propiedad'])) {
             for ($a = 0; $a < count($request['propiedades']['propiedad']); $a++) {
-                Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $producto->id);
+                if (isset($request['propiedades']['Precio'][$a])) {
+                    Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $request['propiedades']['stock'][$a], $request['propiedades']['Precio'][$a], $producto->id);
+                } else {
+                    Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], 0, 0, $producto->id);
+                }
             }
         }
         Session::put('success', ["Producto creado correctamente"]);
@@ -97,7 +101,12 @@ class productos
             }
             if (isset($datos['propiedades'])) {
                 for ($a = 0; $a < count($datos['propiedades']['propiedad']); $a++) {
-                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['id']);
+                    if (isset($datos['propiedades']['Precio'][$a])) {
+                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['propiedades']['stock'][$a], $datos['propiedades']['Precio'][$a], $datos['id']);
+                    } else {
+                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], 0, 0, $datos['id']);
+                    }
+
                 }
             }
             Session::put('success', ["Producto acturalizado correctamente"]);

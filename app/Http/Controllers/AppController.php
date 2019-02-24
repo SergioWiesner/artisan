@@ -154,4 +154,10 @@ class AppController extends Controller
         $usuarios = new \App\Source\Usuarios\Usuarios();
         return $usuarios->buscarUsuarioDocumento($request->documento, $request->tipodocumento);
     }
+
+    public function buscarPropiedadId(Request $request)
+    {
+        $propiedad = new \App\Source\Productos\Propiedades\propiedades();
+        return $propiedad->buscarPropiedadValue($request->id);
+    }
 }

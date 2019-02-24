@@ -3,6 +3,7 @@
 namespace App\Source\Productos\Propiedades;
 
 use App\Source\Productos\Propiedades\Modelo;
+use App\Source\Tools\Basics;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
 
@@ -68,5 +69,10 @@ class propiedades
             Session::put('error', ["Error, no se puedo actualizar propiedad"]);
         }
         return redirect()->back();
+    }
+
+    public function buscarPropiedadValue($id)
+    {
+        return Basics::collectionToArray(Modelo::buscarValorPropiedadProducto($id));
     }
 }

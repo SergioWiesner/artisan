@@ -85,13 +85,15 @@ class Modelo
     }
 
 
-    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $id)
+    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $stock, $precio, $id)
     {
         if (!is_null($valor)) {
             return DB::table('productos_propiedades')->insert([
                 'productos_id' => $id,
                 'propiedades_id' => $propiedad,
                 'valor' => $valor,
+                'stock' => $stock,
+                'precio' => $precio
             ]);
         }
     }

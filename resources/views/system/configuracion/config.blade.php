@@ -59,13 +59,13 @@
                                    value="{{$configuracion[0]['nombresistema']}}" id="inputCity">
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="Dirección">Dirección del negocio</label>
+                            <label for="Dirección">Dirección</label>
                             <input type="text" class="form-control" id="Dirección" name="direccionsistema"
                                    value="{{$configuracion[0]['direccionsistema']}}"
                                    placeholder="1234 Main St">
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="Teléfono">Teléfono del negocio</label>
+                            <label for="Teléfono">Teléfono</label>
                             <input type="text" class="form-control" id="Teléfono" name="telefono"
                                    value="{{$configuracion[0]['telefono']}}"
                                    placeholder="3203368199">
@@ -74,7 +74,7 @@
                             <input type="hidden" name="rutaimagenold"
                                    value="{{$configuracion[0]['logosistema']}}">
                             <div class="form-group">
-                                <label for="Teléfono">Logo sistema</label>
+                                <label for="Teléfono">Logo</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="rutaimg" id="customFile">
                                     <label class="custom-file-label" for="customFile">Bucar logo</label>

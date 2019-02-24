@@ -3,6 +3,7 @@
 namespace App\Source\Productos\Propiedades;
 
 use Illuminate\Support\Facades\DB;
+use App\ProductosPropiedades;
 use App\CategoriaPropiedades;
 use App\Source\Tools\Basics;
 use App\CategoriaProductos;
@@ -60,5 +61,8 @@ class Modelo
             ]);
     }
 
-
+    public static function buscarValorPropiedadProducto($id)
+    {
+        return ProductosPropiedades::where('id', $id)->get();
+    }
 }

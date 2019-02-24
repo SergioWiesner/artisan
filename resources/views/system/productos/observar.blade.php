@@ -60,8 +60,20 @@
                                                 <p>{{$detalles[$a]['referencia']}}</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <h4><strong>Stock</strong></h4>
-                                                <p>{{$detalles[$a]['stock']}}</p>
+                                                <h4><strong>Stock total</strong></h4>
+                                                @php
+                                                    $cont = $detalles[$a]['stock'];
+                                                @endphp
+                                                @if(isset($detalles[$a]['propiedades']))
+                                                    @for($c = 0; $c < count($detalles[$a]['propiedades']); $c++)
+                                                        @for($d = 0; $d < count($detalles[$a]['propiedades'][$c]['valores']); $d++)
+                                                            @php
+                                                                $cont = $cont+$detalles[$a]['propiedades'][$c]['valores'][$d]['stock'];
+                                                            @endphp
+                                                        @endfor
+                                                    @endfor
+                                                @endif
+                                                <p>{{$cont}}</p>
                                             </div>
                                             <div class="col-md-3">
                                                 <h4><strong>Valor</strong></h4>
@@ -76,24 +88,40 @@
                                                 <p>{{$detalles[$a]['descripcion']}}</p>
                                             </div>
                                         </div>
-                                        @if(count($detalles[$a]['propiedades']) > 0)
-                                            <hr>
-                                            <h4><strong>Propiedades</strong></h4>
-                                            <div class="row">
-                                                @for($c = 0; $c < count($detalles[$a]['propiedades']); $c++)
-                                                    <div class="col-sm">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">{{$detalles[$a]['propiedades'][$c]['nombre']}}</h5>
-                                                            <p class="card-text">
-                                                                @for($x = 0; $x < count($detalles[$a]['propiedades'][$c]['valores']); $x++)
-                                                                    - {{$detalles[$a]['propiedades'][$c]['valores'][$x]['valor']}}
-                                                                @endfor
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                @endfor
-                                            </div>
-                                        @endif
+                                        <div class="col-md-12">
+
+                                            @if(count($detalles[$a]['propiedades']) > 0)
+                                                <hr>
+                                                <h4><strong>Propiedades</strong></h4>
+                                                <div class="row">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Propiedad</th>
+                                                            <th scope="col">Variaciones</th>
+                                                            <th scope="col">Stock</th>
+                                                            <th scope="col">Precio</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        @for($c = 0; $c < count($detalles[$a]['propiedades']); $c++)
+                                                            @for($x = 0; $x < count($detalles[$a]['propiedades'][$c]['valores']); $x++)
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td>{{$detalles[$a]['propiedades'][$c]['nombre']}}</td>
+                                                                    <td>{{$detalles[$a]['propiedades'][$c]['valores'][$x]['valor']}}</td>
+                                                                    <td>{{$detalles[$a]['propiedades'][$c]['valores'][$x]['stock']}}</td>
+                                                                    <td>{{$detalles[$a]['propiedades'][$c]['valores'][$x]['precio']}}</td>
+                                                                </tr>
+                                                            @endfor
+                                                        @endfor
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
                             </div>
                             <hr>
@@ -131,6 +159,16 @@
                                                                placeholder="Nombre"
                                                                name="nombre" value="{{$detalles[$a]['nombre']}}"
                                                                required>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                   id="variaiones"
+                                                                   onclick="variacion()">
+                                                            <label class="custom-control-label" for="variaiones">¿El
+                                                                producto tiene
+                                                                variaciones?</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -174,36 +212,41 @@
                                                 <a href="#!" onclick="agregarNuevaPropiedad()"><i
                                                         class="fas fa-plus"></i> Agregar nueva
                                                     propiedad</a> <br><br>
-                                                @for($y = 0; $y < count($detalles[$a]['propiedadesvalor']); $y++)
-                                                    <div class="row" id="old{{$y}}">
-                                                        <a href="#!" onClick="elimnarestad('old{{$y}}')"
-                                                           class="closepropiedad"
-                                                           style="position: absolute; right: 15px; z-index: 100;"><span
-                                                                aria-hidden="true">×</span></a>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="inputState">Propiedades</label>
-                                                            <select id="inputState" class="form-control"
-                                                                    name="propiedadanterior[propiedad][]">
-                                                                <option
-                                                                    value="{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['id']}}">{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['nombre']}}</option>
-                                                                <hr>
-                                                                @for($h = 0; $h < count($propiedades); $h++)
-                                                                    <option
-                                                                        value="{{$propiedades[$h]['id']}}">{{$propiedades[$h]['nombre']}}</option>
-                                                                @endfor
-                                                            </select>
+                                                <div class="form-row" id="anexopropiedadesold">
+                                                    @for($y = 0; $y < count($detalles[$a]['propiedadesvalor']); $y++)
+                                                        <div class="col-md-12">
+                                                            <div class="row" id="old{{$y}}">
+                                                                <a href="#!" onClick="elimnarestad('old{{$y}}')"
+                                                                   class="closepropiedad"
+                                                                   style="position: absolute; right: 15px; z-index: 100;"><span
+                                                                        aria-hidden="true">×</span></a>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputState">Propiedades</label>
+                                                                    <select id="inputState" class="form-control"
+                                                                            name="propiedadanterior[propiedad][]">
+                                                                        <option
+                                                                            value="{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['id']}}">{{$detalles[$a]['propiedadesvalor'][$y]['propiedades_padre']['nombre']}}</option>
+                                                                        <hr>
+                                                                        @for($h = 0; $h < count($propiedades); $h++)
+                                                                            <option
+                                                                                value="{{$propiedades[$h]['id']}}">{{$propiedades[$h]['nombre']}}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputAddress">Valor</label>
+                                                                    <input type="text" class="form-control"
+                                                                           id="inputAddress"
+                                                                           placeholder="valor propiedad"
+                                                                           name="propiedadanterior[valorpropiedad][]"
+                                                                           value="{{$detalles[$a]['propiedadesvalor'][$y]['valor']}}"
+                                                                           required>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label for="inputAddress">Valor</label>
-                                                            <input type="text" class="form-control" id="inputAddress"
-                                                                   placeholder="valor propiedad"
-                                                                   name="propiedadanterior[valorpropiedad][]"
-                                                                   value="{{$detalles[$a]['propiedadesvalor'][$y]['valor']}}"
-                                                                   required>
-                                                        </div>
-                                                    </div>
-                                                @endfor
-                                                <div id="anexopropiedades">
+                                                    @endfor
+                                                </div>
+                                                <div id="anexopropiedades" class="row">
 
                                                 </div>
                                                 <hr>
