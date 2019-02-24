@@ -180,7 +180,8 @@
             ele.remove();
         }
 
-        function cambiodeprecios(idselect) {
+        function cambiodeprecios(idselect, produ) {
+            console.log(idselect);
             var data = {id: document.getElementById(idselect).value};
             fetch('/buscar/propiedad/producto/id', {
                 method: 'POST', // or 'PUT'
@@ -192,8 +193,7 @@
                 .catch(error => console.error('Error:', error))
                 .then(response => {
                     console.log(response);
-
-
+                    document.getElementById('preciounitario' + produ).value = "2";
                 });
         }
 
@@ -236,10 +236,10 @@
                                     options += "<option value='" + response[c]['propiedades'][d]['valores'][e]['id'] + "'>" + response[c]['propiedades'][d]['valores'][e]['valor'] + "</option>";
                                     acumuladostock += response[c]['propiedades'][d]['valores'][e]['stock'];
                                 }
-                                propiedades += '<div class="col-md-3"><div class="form-group"><label for="' + response[c]['propiedades'][d]['nombre'] + '">' + response[c]['propiedades'][d]['nombre'] + '</label><select class="form-control" onchange="cambiodeprecios(\'' + response[c]['propiedades'][d]['nombre'] + d + '\')" id="' + response[c]['propiedades'][d]['nombre'] + d + '" name="tipodocumento" required><option></option>' + options + '</select></div></div>';
+                                propiedades += '<div class="col-md-3"><div class="form-group"><label for="' + response[c]['propiedades'][d]['nombre'] + '">' + response[c]['propiedades'][d]['nombre'] + '</label><select class="form-control" onchange="cambiodeprecios(\'' + response[c]['propiedades'][d]['nombre'] + d + '\', ' + contpro + ')" id="' + response[c]['propiedades'][d]['nombre'] + d + '" name="tipodocumento" required><option></option>' + options + '</select></div></div>';
                             }
                             elChild = document.createElement('div');
-                            elChild.innerHTML = '<div class="row productostiend" id="pro' + contpro + '"><div class="col-md-12"><div class="row"><a href="#!" onClick="elimnaproducto(\'pro' + contpro + '\', ' + id + ')" style="position: absolute; right: 15px; z-index: 100;" class="vermasproductos"><span aria-hidden="true">×</span></a><div class="col-md"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><label for="Cantidad">Nombre</label><a href="/productos/ver/' + response[c]["id"] + '" class="vermasproductos" target="_blank"><h5>' + response[c]["nombre"] + '</h5></a></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" id="cantidadfact' + contpro + '" class="form-control" precio="' + response[c]["valor"] + '" item="' + contpro + '" name="[' + c + '][stock]" placeholder="' + acumuladostock + '" required></div></div><div class="col-md"><div class="form-group"><label for="Unidad">Precio U.</label><p>$' + new Intl.NumberFormat("COP-CO").format(response[c]["valor"]) + '</p></div></div><div class="col-md"><div class="form-group"><label>Subtotal</label><p id="totalprice' + contpro + '"></p></div></div></div><div class="col-md-12"><div class="row">' + propiedades + '</div></div></div></div>';
+                            elChild.innerHTML = '<div class="row productostiend" id="pro' + contpro + '"><div class="col-md-12"><div class="row"><a href="#!" onClick="elimnaproducto(\'pro' + contpro + '\', ' + id + ')" style="position: absolute; right: 15px; z-index: 100;" class="vermasproductos"><span aria-hidden="true">×</span></a><div class="col-md"><div class="form-group"> <input type="hidden" value="' + response[c]["id"] + '" name="[' + c + '][id]"><label for="Cantidad">Nombre</label><a href="/productos/ver/' + response[c]["id"] + '" class="vermasproductos" target="_blank"><h5>' + response[c]["nombre"] + '</h5></a></div></div> <div class="col-md-2"><div class="form-group"><label for="Cantidad">Cantidad</label><input type="text" id="cantidadfact' + contpro + '" class="form-control" precio="' + response[c]["valor"] + '" item="' + contpro + '" name="[' + c + '][stock]" placeholder="' + acumuladostock + '" required></div></div><div class="col-md"><div class="form-group"><label for="Unidad">Precio U.</label><input class="form-control" type="text" id="preciounitario' + contpro + '"  value="$' + new Intl.NumberFormat("COP-CO").format(response[c]["valor"]) + '" readonly></div></div><div class="col-md"><div class="form-group"><label>Subtotal</label><p id="totalprice' + contpro + '"></p></div></div></div><div class="col-md-12"><div class="row">' + propiedades + '</div></div></div></div>';
                             bandeja.appendChild(elChild);
                         }
                         document.getElementById('cantidadfact' + contpro).addEventListener('keyup', calc);

@@ -8,10 +8,11 @@ Route::middleware(['configinit'])->group(function () {
     Route::get('/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
     Route::get('/clientes/', 'AppController@clientes')->name('clientes');
-    Route::get('/informes/', 'AppController@informes')->name('informes');
+    Route::get('/informes.blade.php/', 'AppController@informes.blade.php')->name('informes.blade.php');
     Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
     Route::get('/ventas/', 'AppController@ventas')->name('ventas');
     Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
+    Route::get('/informes/', 'AppController@Informes')->name('Informes');
     Route::post('/buscar/productos', 'AppController@buscarProductos');
     Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
     Route::post('/buscar/usuario/documento', 'AppController@buscarUsuarioDocumento');
@@ -87,10 +88,19 @@ Route::post('/relacionar/permios/perfiles/', 'ConfiguracionController@permisoRel
 
 /** RUTAS DE CONFIGURACIÓN **/
 
+
 /** RUTA DE CLIENTES **/
 
 /** RUTA DE CLIENTES **/
+
 
 /** RUTA DE VENTAS **/
 
 /** RUTA DE VENTAS **/
+
+
+/** RUTA DE INFORMES **/
+Route::middleware(['auth'])->group(function () {
+    Route::get('/decargar/informe/usuarios/acivos', 'InformesController@descargarInfomesUsuariosActivos')->name('Descargarusuarios');
+});
+/** RUTA DE INFORMES **/

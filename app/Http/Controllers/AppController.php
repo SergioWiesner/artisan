@@ -126,8 +126,12 @@ class AppController extends Controller
 
     public function ventas()
     {
-
         return view('system.ventas.lista');
+    }
+
+    public function informes()
+    {
+        return view('system.informes.informes');
     }
 
     public function ventaAgregada()

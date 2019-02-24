@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Session;
 class Model
 {
 
+    public static function usuariosActivos()
+    {
+        return User::where('estado', 1)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
+    }
+
     public static function listarUsuariospaginados()
     {
         return User::with('bodegas')->with(['ventas' => function ($query) {

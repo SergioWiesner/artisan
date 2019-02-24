@@ -12,6 +12,11 @@ class Usuarios
 
     const ubicacion = "/public/users/";
 
+    public function listarUsuariosActivos()
+    {
+        return Basics::collectionToArray(Model::usuariosActivos());
+    }
+
     public function listarUsuariosPaginados()
     {
         return Model::listarUsuariospaginados();
