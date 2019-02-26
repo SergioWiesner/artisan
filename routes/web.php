@@ -12,7 +12,7 @@ Route::middleware(['configinit'])->group(function () {
 });
 
 Route::middleware(['configinit', 'verificadorurl'])->group(function () {
-    Route::get('/informes/', 'AppController@Informes')->name('Informes');
+    Route::get('/informes/', 'AppController@informes')->name('informes');
     Route::get('/ventas/', 'AppController@ventas')->name('ventas');
     Route::get('/clientes/', 'AppController@clientes')->name('clientes');
     Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');

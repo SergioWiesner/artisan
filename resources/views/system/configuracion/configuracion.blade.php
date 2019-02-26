@@ -134,7 +134,7 @@
                                 <option value="{{route('configuracion')}}">Pestaña de configuracion</option>
                                 <option value="{{route('clientes')}}">Pestaña de clientes</option>
                                 <option value="{{route('productos')}}">Pestaña de Productos</option>
-                                <option value="{{route('Informes')}}">Pestaña de informes</option>
+                                <option value="{{route('informes')}}">Pestaña de informes</option>
                                 <option value="{{route('ventas')}}">Pestaña de ventas</option>
                             </select>
                         </div>
