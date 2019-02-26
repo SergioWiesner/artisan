@@ -30,7 +30,7 @@
             <ul class="navbar-nav mr-auto">
                 @if(Session::has('menu'))
                     @for($a = 0; $a < count(Session::get('menu')); $a++)
-                        {!!  Session::get('menu')[$a] !!}
+                        {!!  Session::get('menu')[$a]['item'] !!}
                     @endfor
                 @endif
                 {{--<li class="nav-item">--}}

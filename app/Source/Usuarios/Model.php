@@ -141,11 +141,10 @@ class Model
     public static function relacionUsuarioPerfil($perfil, $idusuario)
     {
         try {
-            for ($a = 1; $a < count($perfil) + 1; $a++) {
-
-                if ($perfil[$a] == "on") {
+            if (count($perfil) > 0) {
+                for ($a = 0; $a < count($perfil); $a++) {
                     DB::table('perfiles_users')->insert([
-                        'perfiles_id' => $a,
+                        'perfiles_id' => $perfil[$a],
                         'users_id' => $idusuario
                     ]);
                 }

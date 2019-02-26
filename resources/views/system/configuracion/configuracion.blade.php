@@ -168,33 +168,19 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar permiso</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar perfil</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('permisocrear')}}" method="post">
+                    <form action="{{route('agregarperfiles')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nombre</label>
                             <input type="text" class="form-control" name="nombre"
                                    value=""
                                    required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Rutas disponibles para permisos</label>
-                            <select class="form-control" id="exampleFormControlSelect1"
-                                    name="url"
-                                    required>
-                                <option value=""></option>
-                                <option value="{{route('listarusuarios')}}">Pestaña de usuarios</option>
-                                <option value="{{route('configuracion')}}">Pestaña de configuracion</option>
-                                <option value="{{route('clientes')}}">Pestaña de clientes</option>
-                                <option value="{{route('productos')}}">Pestaña de Productos</option>
-                                <option value="{{route('informes.blade.php')}}">Pestaña de informes</option>
-                                <option value="{{route('ventas')}}">Pestaña de ventas</option>
-                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Nivel de acceso</label>

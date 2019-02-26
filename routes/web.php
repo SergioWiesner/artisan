@@ -2,30 +2,34 @@
 /** RUTAS DE LA PAGINA **/
 Route::middleware(['configinit'])->group(function () {
     Route::get('/', 'AppController@home');
-    Route::get('/productos/', 'AppController@productos')->name('productos');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
-    Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
-    Route::get('/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
-    Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
-    Route::get('/clientes/', 'AppController@clientes')->name('clientes');
+    Route::get('/buscar/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/informes.blade.php/', 'AppController@informes.blade.php')->name('informes.blade.php');
     Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
-    Route::get('/ventas/', 'AppController@ventas')->name('ventas');
     Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
-    Route::get('/informes/', 'AppController@Informes')->name('Informes');
-    Route::post('/buscar/productos', 'AppController@buscarProductos');
-    Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
-    Route::post('/buscar/usuario/documento', 'AppController@buscarUsuarioDocumento');
-    Route::post('/buscar/propiedad/producto/id', 'AppController@buscarPropiedadId');
+
     /** RUTAS DE LA PAGINA **/
-
-
-    /** RUTAS DE CONFIGURACIÓN DE CLIENTES API **/
-    Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creaciondeclientesviews')->middleware('auth');
-    /** RUTAS DE CONFIGURACIÓN DE CLIENTES API**/
-
-    Route::get('/propiedades/lista/', 'PropiedadesController@index')->name('clientespropiedades')->middleware('auth');
 });
+
+Route::middleware(['configinit', 'verificadorurl'])->group(function () {
+    Route::get('/informes/', 'AppController@Informes')->name('Informes');
+    Route::get('/ventas/', 'AppController@ventas')->name('ventas');
+    Route::get('/clientes/', 'AppController@clientes')->name('clientes');
+    Route::get('/configuracion/', 'AppController@configuracion')->name('configuracion');
+    Route::get('/productos/', 'AppController@productos')->name('productos');
+    Route::get('/usuarios/', 'AppController@usuarios')->name('listarusuarios');
+});
+
+Route::post('/buscar/productos', 'AppController@buscarProductos');
+Route::post('/buscar/productos/id', 'AppController@buscarProductosId');
+Route::post('/buscar/usuario/documento', 'AppController@buscarUsuarioDocumento');
+Route::post('/buscar/propiedad/producto/id', 'AppController@buscarPropiedadId');
+/** RUTAS DE CONFIGURACIÓN DE CLIENTES API **/
+Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creaciondeclientesviews')->middleware('auth');
+/** RUTAS DE CONFIGURACIÓN DE CLIENTES API**/
+
+Route::get('/propiedades/lista/', 'PropiedadesController@index')->name('clientespropiedades')->middleware('auth');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
@@ -56,7 +60,6 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/productos/editar/{id}', 'ProductosController@update')->name('editarproducto');
     Route::get('/productos/eliminar/{id}', 'ProductosController@delete')->name('eliminarproducto');
     Route::get('/productos/ver/{id}', 'AppController@verproductodetalles')->name('verproducto');
-
 });
 /** RUTA DE PRODUCTOS **/
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
@@ -104,3 +107,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/decargar/informe/usuarios/acivos', 'InformesController@descargarInfomesUsuariosActivos')->name('Descargarusuarios');
 });
 /** RUTA DE INFORMES **/
+
+
+/** RUTA DE PERFILES **/
+Route::middleware(['auth'])->group(function () {
+    Route::post('/perfiles/agregar', 'PerfilesController@store')->name('agregarperfiles');
+});
+/** RUTA DE PERFILES **/

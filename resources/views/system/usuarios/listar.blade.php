@@ -146,7 +146,7 @@
                                 @for($a = 0; $a < count($perfiles); $a++)
                                     <div class="col-md">
                                         <input type="checkbox" id="{{$perfiles[$a]['nombre']}}"
-                                               name="perfiles[{{$perfiles[$a]['id']}}]">
+                                               name="perfiles[]" value="{{$perfiles[$a]['id']}}">
                                         <label for="{{$perfiles[$a]['nombre']}}">{{$perfiles[$a]['nombre']}}</label>
                                     </div>
                                 @endfor
