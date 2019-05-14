@@ -1,6 +1,5 @@
 @extends('system.configuracion.configuracion')
 @section('configuracionpagina')
-
     <form action="{{route('perfilespermisos')}}" method="post">
         @csrf
         <div class="row perfilperfiles">

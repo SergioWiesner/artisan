@@ -64,7 +64,6 @@ class Configuracion
 
     public function relacionPerfilesPermisos($request)
     {
-
         Modelo::eliminarRelacionPerfil($request['perfil']);
         if (isset($request['permiso'])) {
             Modelo::relacionPerfilesPermisos($request['perfil'], $request['permiso']);

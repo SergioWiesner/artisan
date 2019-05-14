@@ -28,7 +28,11 @@ class ConfiguracionInit
                 }
             }
         }
-        Session::put('menu', $dat);
+        if (isset($dat)) {
+            Session::put('menu', $dat);
+        } else {
+            return redirect()->back()->withErrors("Existe un problema con este usuario, comuniquese con el administrador");
+        }
     }
 
     public static function sistemaConfig()

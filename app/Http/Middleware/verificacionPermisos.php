@@ -18,6 +18,6 @@ class verificacionPermisos
                 }
             }
         }
-        return redirect()->back();
+        return redirect()->back()->withErrors("Usted no tiene el permiso suficiente para esta acción su nivel de accesos es " . Auth::user()->nivelaccesso . " y se necesita ");
     }
 }
