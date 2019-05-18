@@ -18,7 +18,7 @@ class AppController extends Controller
     public function home()
     {
         if (Auth::guest()) {
-            return view('page.itsy.home');
+            return view('page.essence.home');
 
         } else {
             $usuarios = new Usuarios();
