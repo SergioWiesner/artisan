@@ -13,7 +13,7 @@ class AddTableTipoUsuario extends Migration
      */
     public function up()
     {
-        Schema::table('Tipo_Usuario', function (Blueprint $table) {
+        Schema::table('tipo_usuario', function (Blueprint $table) {
             //
         });
     }
@@ -25,7 +25,7 @@ class AddTableTipoUsuario extends Migration
      */
     public function down()
     {
-        Schema::table('Tipo_Usuario', function (Blueprint $table) {
+        Schema::table('tipo_usuario', function (Blueprint $table) {
             //
         });
     }

@@ -130,12 +130,12 @@
                                     name="url"
                                     required>
                                 <option value=""></option>
-                                <option value="{{route('listarusuarios')}}">Pestaña de usuarios</option>
-                                <option value="{{route('configuracion')}}">Pestaña de configuracion</option>
-                                <option value="{{route('clientes')}}">Pestaña de clientes</option>
-                                <option value="{{route('productos')}}">Pestaña de Productos</option>
-                                <option value="{{route('informes')}}">Pestaña de informes</option>
-                                <option value="{{route('ventas')}}">Pestaña de ventas</option>
+                                <option value="/usuarios/">Pestaña de usuarios</option>
+                                <option value="/configuracion/">Pestaña de configuracion</option>
+                                <option value="/clientes/">Pestaña de clientes</option>
+                                <option value="/productos/">Pestaña de Productos</option>
+                                <option value="/informes/">Pestaña de informes</option>
+                                <option value="/ventas/">Pestaña de ventas</option>
                             </select>
                         </div>
                         <div class="form-group">
