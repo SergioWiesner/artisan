@@ -17,10 +17,10 @@
 <div class="loading" id="loadingdiv">
     <img src="{{asset('img/loading.gif')}}" alt="loading" class="loadimg ">
 </div>
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style="width: 50px;"><img
-            src="{{asset(Session::get('configinit')['logosistema'])}}"
-            alt="{{Session::get('configinit')['nombresistema']}}" class="logo"></a>
+                src="{{asset(Session::get('configinit')['logosistema'])}}"
+                alt="{{Session::get('configinit')['nombresistema']}}" class="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,6 +78,7 @@
         @endauth
     </div>
 </nav>
+<br>
 <div class="containe-fluid maincontainer">
     <div class="container">
         @if(isset($errors))

@@ -25,7 +25,7 @@ class PropiedadesProductos extends FormRequest
     {
         return [
             'nombre' => 'required|string',
-            'propiedadpadre' => 'numeric',
+            'propiedadpadre' => '',
             'categoria' => 'required|numeric'
         ];
     }

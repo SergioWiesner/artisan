@@ -26,7 +26,7 @@ body {
 }
 
 .logo {
-    width: 100%;
+    width: 80%;
 }
 
 .logofootercredit {
@@ -96,12 +96,16 @@ a {
 }
 
 .footer {
-    with: 100%;
+    padding: 1%;
+    background-color: #343a40;
+    width: 100%;
 }
 
 .footer p {
     text-align: center;
-    color: rgba(0, 0, 0, .5);
+    color: rgba(255, 255, 255, .5);
+    margin-bottom: 0px;
+
 }
 
 .linkslaterales {
