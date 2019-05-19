@@ -11,15 +11,13 @@ use App\Source\Tools\Permisos;
 use App\Source\Usuarios\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class AppController extends Controller
 {
     public function home()
     {
         if (Auth::guest()) {
-            return view('page.essence.home');
-
+            return redirect('/');
         } else {
             $usuarios = new Usuarios();
             $productos = new productos();

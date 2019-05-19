@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Essence - Fashion Ecommerce Template</title>
+    <title>{{Session::get('configinit')['nombresistema']}}</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -17,6 +17,7 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{asset('page/essence/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('page/essence/style.css')}}">
+    <link rel="stylesheet" href="{{asset('page/essence/css/custom.css')}}">
 
 </head>
 <body>

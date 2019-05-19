@@ -1,7 +1,8 @@
 <?php
 /** RUTAS DE LA PAGINA **/
 Route::middleware(['configinit'])->group(function () {
-    Route::get('/', 'AppController@home');
+    Route::get('/home', 'AppController@home');
+    Route::get('/', 'HomeController@inicio');
     Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
     Route::get('/buscar/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
     Route::get('/informes.blade.php/', 'AppController@informes.blade.php')->name('informes.blade.php');
