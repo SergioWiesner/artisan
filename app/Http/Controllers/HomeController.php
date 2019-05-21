@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +12,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //     $this->middleware('auth');
+        $this->middleware('configinit');
     }
 
     /**
@@ -23,7 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('system.home');
     }
 
     public function inicio()

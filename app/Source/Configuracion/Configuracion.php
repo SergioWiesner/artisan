@@ -2,6 +2,7 @@
 
 namespace App\Source\Configuracion;
 
+use App\ConfiguracionSystem;
 use App\Source\Configuracion\Modelo;
 use App\Source\Tools\Basics;
 use App\Source\Tools\formateo;
@@ -14,6 +15,11 @@ class Configuracion
     public function configuracion()
     {
         return Modelo::traerConfiguracion();
+    }
+
+    public function configuracionpublica()
+    {
+        return Modelo::configuracionpublica();
     }
 
     public function editarConfiguracion($data)

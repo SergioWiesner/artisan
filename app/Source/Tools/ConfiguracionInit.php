@@ -41,4 +41,11 @@ class ConfiguracionInit
         $dat = $config->configuracion()[0];
         Session::put('configinit', $dat);
     }
+
+    public static function configuracionPublica()
+    {
+        $config = new Configuracion\Configuracion();
+        $dat = $config->configuracionpublica();
+        Session::put('configuracionpublica', $dat[0]);
+    }
 }

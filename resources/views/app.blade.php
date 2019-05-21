@@ -19,8 +19,8 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style="width: 50px;"><img
-                src="{{asset(Session::get('configinit')['logosistema'])}}"
-                alt="{{Session::get('configinit')['nombresistema']}}" class="logo"></a>
+            src="{{asset(Session::get('configinit')['logosistema'])}}"
+            alt="{{Session::get('configinit')['nombresistema']}}" class="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,6 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         @auth
             <ul class="navbar-nav mr-auto">
+
                 @if(Session::has('menu'))
                     @for($a = 0; $a < count(Session::get('menu')); $a++)
                         {!!  Session::get('menu')[$a]['item'] !!}
