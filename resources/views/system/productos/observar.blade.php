@@ -192,7 +192,8 @@
                                                             @for($x = 0; $x < count($categorias); $x++)
                                                                 @if($detalles[$a]['catgorias']['id'] == $categorias[$x]['id'])
                                                                     <option
-                                                                        value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
+                                                                        value="{{$categorias[$x]['id']}}"
+                                                                        selected>{{$categorias[$x]['nombre']}}</option>
                                                                 @else
                                                                     <option
                                                                         value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
