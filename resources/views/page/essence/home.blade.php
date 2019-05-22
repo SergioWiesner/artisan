@@ -8,7 +8,8 @@
                 <div class="col-12">
                     <div class="hero-content">
                         <h6>Mantente bien, mantente abrigado</h6>
-                        <h2>{{Session::get('configinit')['nombresistema']}}</h2>
+                        <hr>
+                        <h2>{{Session::get('configuracionpublica')['nombresistema']}}</h2>
                     </div>
                 </div>
             </div>
