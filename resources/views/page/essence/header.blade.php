@@ -27,8 +27,8 @@
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
             <a class="nav-brand" href="/"><img src="{{asset(Session::get('configinit')['logosistema'])}}"
-                                                        alt="{{Session::get('configinit')['nombresistema']}}"
-                                                        class="logo"></a>
+                                               alt="{{Session::get('configinit')['nombresistema']}}"
+                                               class="logo"></a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -120,4 +120,3 @@
     </div>
 </header>
 <!-- ##### Header Area End ##### -->
-<br>

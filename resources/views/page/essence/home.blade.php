@@ -2,7 +2,7 @@
 @section('pagina')
     <!-- ##### Welcome Area Start ##### -->
     <section class="welcome_area bg-img background-overlay"
-             style="background-image: url({{asset('img/fondo.png')}});">
+             style="background-image: url({{asset('img/fondo.jpg')}}); background-attachment: fixed; background-size: cover;">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
