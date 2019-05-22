@@ -200,7 +200,7 @@
                                                                     <hr>
                                                                     <h4>Perfiles</h4>
                                                                 </div>
-                                                                @for($z = 1; $z < count($perfiles); $z++)
+                                                                @for($z = 0; $z < count($perfiles); $z++)
                                                                     <div class="col-md">
                                                                         @if(count($detalles[$a]['perfiles']) > 0)
                                                                             @for($y = 0; $y < count($detalles[$a]['perfiles']); $y++)
@@ -276,7 +276,7 @@
                                                                         id="exampleFormControlSelect1"
                                                                         name="nivelacceso"
                                                                         required>
-                                                                    @for($x = 0; $x < 10; $x++)
+                                                                    @for($x = 1; $x <= 10; $x++)
                                                                         @if($x == $detalles[$a]['nivelaccesso'])
                                                                             <option value="{{$x}}"
                                                                                     selected>{{$x}}</option>
