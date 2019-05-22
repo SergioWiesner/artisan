@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use App\Source\Productos\productos;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,7 @@ class HomeController extends Controller
 
     public function inicio()
     {
-        return view('page.essence.home');
+        $productos = new productos();
+        return view('page.essence.home')->with('productos', $productos->listarCategoriasProductos());
     }
 }

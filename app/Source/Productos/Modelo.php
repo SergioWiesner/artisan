@@ -42,6 +42,13 @@ class Modelo
         return CategoriaProductos::where('id', $id)->delete();
     }
 
+    public static function listarCategoriasProductos()
+    {
+        return CategoriaProductos::with(['productos' => function ($query) {
+            return $query->limit(15);
+        }])->get();
+    }
+
     public static function ActualizarCategoriaProductos($datos, $id)
     {
         return DB::table('categoria_productos')
@@ -117,9 +124,9 @@ class Modelo
 
     public static function traerDetallesProducto($id)
     {
-        return Basics::collectionToArray(Productos::where('id', $id)->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
+        return Productos::where('id', $id)->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
             $query->where('productos_id', $id);
-        }])->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get());
+        }])->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get();
     }
 
     public static function traerProductosPorCategoria($datos)

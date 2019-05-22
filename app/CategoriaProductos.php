@@ -15,7 +15,7 @@ class CategoriaProductos extends Model
 
     public function productos()
     {
-        return $this->hasMany('App\Comment', 'idcategoria', 'id');
+        return $this->hasMany('App\Productos', 'idcategoria', 'id');
     }
 
 }

@@ -15,6 +15,72 @@
         </div>
     </section>
     <!-- ##### Welcome Area End ##### -->
+    @for($a = 0; $a < count($productos); $a++)
+        @if(count($productos[$a]['productos']) > 0)
+            <section class="new_arrivals_area section-padding-80 clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading text-center">
+                                <h2>{{$productos[$a]['nombre']}}</h2>
+                                <p>{{$productos[$a]['descripcion']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="popular-products-slides owl-carousel">
+                            @for($b = 0; $b < count($productos[$a]['productos']); $b++)
+                                <!-- Single Product -->
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <img src="{{asset($productos[$a]['productos'][$b]['rutaimagen'])}}"
+                                                 alt="{{$productos[$a]['productos'][$b]['nombre']}}">
+
+                                            <!-- Hover Thumb -->
+                                            <img class="hover-img"
+                                                 src="{{asset('page/essence/img/product-img/product-2.jpg')}}"
+                                                 alt="">
+                                            <!-- Favourite -->
+                                            <div class="product-favourite">
+                                                <a href="#" class="favme fa fa-heart"></a>
+                                            </div>
+                                        </div>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span>{{$productos[$a]['productos'][$b]['descripcion']}}</span>
+                                            <a href="single-product-details.html">
+                                                <h6>{{$productos[$a]['productos'][$b]['nombre']}}</h6>
+                                            </a>
+                                            <p class="product-price">
+                                                ${{number_format($productos[$a]['productos'][$b]['valor'])}}</p>
+
+                                            <!-- Hover Content -->
+                                            <div class="hover-content">
+                                                <!-- Add to Cart -->
+                                                <div class="add-to-cart-btn">
+                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+    @endfor
+
+
+
+
+
+
 
     <!-- ##### Top Catagory Area Start ##### -->
     <div class="top_catagory_area section-padding-80 clearfix">

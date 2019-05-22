@@ -28,6 +28,10 @@ class productos
         return Basics::collectionToArray(Modelo::listarProductos());
     }
 
+    public function listarCategoriasProductos()
+    {
+        return Basics::collectionToArray(Modelo::listarCategoriasProductos());
+    }
 
     public function agregarCategoriaProductos($datos)
     {
@@ -132,7 +136,7 @@ class productos
 
     public function verProducto($id)
     {
-        $arr = Modelo::traerDetallesProducto($id);
+        $arr = Basics::collectionToArray(Modelo::traerDetallesProducto($id));
         $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
         return $arr;
     }
@@ -149,7 +153,7 @@ class productos
 
     public function buscarProductoId($id)
     {
-        $arr = Modelo::traerDetallesProducto($id);
+        $arr = Basics::collectionToArray(Modelo::traerDetallesProducto($id));
         $arr[0]['propiedades'] = formateo::ordenarPropiedadesValores($arr[0]['propiedades']);
         return $arr;
     }
