@@ -11,6 +11,7 @@ use App\Source\Tools\formateo;
 class productos
 {
     const ubicacion = "/public/productos/";
+    const ubicacionlogs = "productos";
 
     public function listarProductosPaginados()
     {
@@ -66,24 +67,25 @@ class productos
 
     public function agregarProducto($request)
     {
-        //try {
-        $ruta = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos');
-        $request['rutaimg'] = $ruta;
-        $request['referencia'] = Basics::obtenerReferencia($request);
-        $producto = Modelo::agregarProducto($request);
-        if (isset($request['propiedades']['propiedad'])) {
-            for ($a = 0; $a < count($request['propiedades']['propiedad']); $a++) {
-                if (isset($request['propiedades']['Precio'][$a])) {
-                    Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $request['propiedades']['stock'][$a], $request['propiedades']['Precio'][$a], $producto->id);
-                } else {
-                    Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], 0, 0, $producto->id);
+        try {
+            $ruta = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos');
+            $request['rutaimg'] = $ruta;
+            $request['referencia'] = Basics::obtenerReferencia($request);
+            $producto = Modelo::agregarProducto($request);
+            if (isset($request['propiedades']['propiedad'])) {
+                for ($a = 0; $a < count($request['propiedades']['propiedad']); $a++) {
+                    if (isset($request['propiedades']['Precio'][$a])) {
+                        Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], $request['propiedades']['stock'][$a], $request['propiedades']['Precio'][$a], $producto->id);
+                    } else {
+                        Modelo::agregarRelacionPropiedadProducto($request['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], 0, 0, $producto->id);
+                    }
                 }
             }
+            Session::put('success', ["Producto creado correctamente"]);
+        } catch (\Exception $e) {
+            Basics::agregarLog('Error al agregar el producto', $e->getMessage(), self::ubicacionlogs);
+            Session::put('error', ["Error, no se puedo agregar el producto"]);
         }
-        Session::put('success', ["Producto creado correctamente"]);
-        //} catch (\Exception $e) {
-        //  Session::put('error', ["Error, no se puedo agregar el producto"]);
-        //}
 
         return redirect()->back();
     }
@@ -104,13 +106,14 @@ class productos
                     if (isset($datos['propiedades']['Precio'][$a])) {
                         Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['propiedades']['stock'][$a], $datos['propiedades']['Precio'][$a], $datos['id']);
                     } else {
-                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $request['propiedades']['valorpropiedad'][$a], 0, 0, $datos['id']);
+                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], 0, 0, $datos['id']);
                     }
 
                 }
             }
             Session::put('success', ["Producto acturalizado correctamente"]);
         } catch (\Exception $e) {
+            Basics::agregarLog('Error al eliminar el producto', $e->getMessage(), self::ubicacionlogs);
             Session::put('error', ["Error, no se puedo eliminar el producto " . $e->getMessage()]);
         }
 

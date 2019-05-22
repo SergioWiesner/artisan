@@ -2,6 +2,8 @@
 
 namespace App\Source\Tools;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class Basics
@@ -16,6 +18,17 @@ class Basics
         return [];
     }
 
+    public static function agregarLog($nombre = null, $descripcion = null, $ubicacion = null)
+    {
+        $fecha = Carbon::now();
+        DB::table('logs')->insert([
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'ubicacion' => $ubicacion,
+            'created_at' => $fecha->toDateTimeString(),
+            'updated_at' => $fecha->toDateTimeString()
+        ]);
+    }
 
     public static function Subirimagenes($contenido, $nombre)
     {

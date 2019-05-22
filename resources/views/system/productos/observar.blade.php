@@ -188,11 +188,15 @@
                                                         <label for="inputState">Categoria</label>
                                                         <select id="inputState" class="form-control" name="categoria"
                                                                 required>
-                                                            <option value="{{$detalles[$a]['catgorias']['id']}}"
-                                                                    selected>{{$detalles[$a]['catgorias']['nombre']}}</option>
+                                                            <option></option>
                                                             @for($x = 0; $x < count($categorias); $x++)
-                                                                <option
-                                                                    value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
+                                                                @if($detalles[$a]['catgorias']['id'] == $categorias[$x]['id'])
+                                                                    <option
+                                                                        value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
+                                                                @else
+                                                                    <option
+                                                                        value="{{$categorias[$x]['id']}}">{{$categorias[$x]['nombre']}}</option>
+                                                                @endif
                                                             @endfor
                                                         </select>
                                                     </div>
@@ -200,9 +204,18 @@
                                                         <label for="inputState">producto padre</label>
                                                         <select id="inputState" class="form-control"
                                                                 name="productopadre">
+                                                            <option></option>
                                                             @for($z = 0; $z < count($productos); $z++)
-                                                                <option
-                                                                    value="{{$productos[$z]['id']}}">{{$productos[$z]['nombre']}}</option>
+                                                                @if($detalles[$a]['id'] != $productos[$z]['id'])
+                                                                    @if($detalles[$a]['idproductopadre'] == $productos[$z]['id'])
+                                                                        <option
+                                                                            value="{{$productos[$z]['id']}}"
+                                                                            selected>{{$productos[$z]['nombre']}}</option>
+                                                                    @else
+                                                                        <option
+                                                                            value="{{$productos[$z]['id']}}">{{$productos[$z]['nombre']}}</option>
+                                                                    @endif
+                                                                @endif
                                                             @endfor
                                                         </select>
                                                     </div>
