@@ -11,10 +11,9 @@ class verificacionPermisos
 {
     public function handle($request, Closure $next)
     {
-         == route('home')
 //        if (count(Session::get('menu')) > 0) {
 //            for ($a = 0; $a < count(Session::get('menu')); $a++) {
-//                if (Request::url() == Session::get('menu')[$a]['url'] && Auth::user()->nivelaccesso >= Session::get('menu')[$a]['nivel']) {
+//                if (Request::url() == route('home') && Auth::user()->nivelaccesso >= Session::get('menu')[$a]['nivel']) {
         return $next($request);
 //                }
 //            }
