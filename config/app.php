@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -227,6 +228,7 @@ return [
         'Date' => Jenssegers\Date\Date::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
