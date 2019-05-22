@@ -33,23 +33,6 @@
                         {!!  Session::get('menu')[$a]['item'] !!}
                     @endfor
                 @endif
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="{{route('productos')}}"></a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="#">Clientes</a>--}}
-                {{--</li>--}}
-
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="#">Ventas</a>--}}
-                {{--</li>--}}
-
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="{{route('listarusuarios')}}"></a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="{{route('configuracion')}}"></a>--}}
-                {{--</li>--}}
             </ul>
             <div class="my-2  my-lg-0">
                 <ul class="navbar-nav mr-auto">

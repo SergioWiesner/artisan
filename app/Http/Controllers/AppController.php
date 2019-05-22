@@ -16,15 +16,11 @@ class AppController extends Controller
 {
     public function home()
     {
-        if (Auth::guest()) {
-            return redirect('/');
-        } else {
-            $usuarios = new Usuarios();
-            $productos = new productos();
-            return view('system.home')
-                ->with('productos', $productos->listarProductosPaginadosRandom())
-                ->with('usuarios', $usuarios->listarUsuariosPaginados());
-        }
+        $usuarios = new Usuarios();
+        $productos = new productos();
+        return view('home')
+            ->with('productos', $productos->listarProductosPaginadosRandom())
+            ->with('usuarios', $usuarios->listarUsuariosPaginados());
     }
 
     public function propiedades()
