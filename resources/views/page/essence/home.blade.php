@@ -63,27 +63,6 @@
             </div>
         </section>
     @endif
-    <!-- ##### Top Catagory Area Start ##### -->
-    <div class="top_catagory_area section-padding-80 clearfix">
-        <div class="container">
-            <div class="row justify-content-center">
-            @for($b = 0; $b < count($categoria); $b++)
-                @if($categoria[$b]['id'] != 1)
-                    <!-- Single Catagory -->
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
-                                 style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
-                                <div class="catagory-content">
-                                    <a href="#">{{$categoria[$b]['nombre']}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                @endfor
-            </div>
-        </div>
-    </div>
-    <!-- ##### Top Catagory Area End ##### -->
 
     <!-- ##### CTA Area Start ##### -->
     <div class="cta-area">
@@ -309,6 +288,27 @@
         </div>
     </section>
     <!-- ##### New Arrivals Area End ##### -->
+    <!-- ##### Top Catagory Area Start ##### -->
+    <div class="top_catagory_area section-padding-80 clearfix">
+        <div class="container">
+            <div class="row justify-content-center">
+            @for($b = 0; $b < count($categoria); $b++)
+                @if($categoria[$b]['id'] != 1)
+                    <!-- Single Catagory -->
+                        <div class="col-12 col-sm-6 col-md-4" style="padding: 1%;">
+                            <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
+                                 style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
+                                <div class="catagory-content">
+                                    <a href="#">{{$categoria[$b]['nombre']}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endfor
+            </div>
+        </div>
+    </div>
+    <!-- ##### Top Catagory Area End ##### -->
     <!-- ##### Brands Area Start ##### -->
     <div class="brands-area d-flex align-items-center justify-content-between">
         <!-- Brand Logo -->
