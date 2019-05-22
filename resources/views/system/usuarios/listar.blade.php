@@ -52,6 +52,7 @@
             @endsection
         </div>
     </div>
+
     <div class="modal fade bd-example-modal-xxl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-xxl">

@@ -40,7 +40,7 @@ class Model
 
     public static function observarDetalles($id)
     {
-        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
+        return User::where('id', $id)->with('perfiles')->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
     }
 
     public static function eliminarUsuario($id)
@@ -74,6 +74,7 @@ class Model
                 ]);
         }
     }
+
 
     public static function crearUsuario($data)
     {
@@ -136,6 +137,12 @@ class Model
     public static function usuarioBusquedaDocumento($tipodocumento, $documento)
     {
         return User::where([['documento', 'like', '%' . $documento . '%'], ['tipodocumento', $tipodocumento]])->orderBy('documento', 'desc')->get();
+    }
+
+
+    public static function borrarRelacionUsuarioPerfil($id)
+    {
+        return DB::table('perfiles_users')->where('users_id', $id)->delete();
     }
 
     public static function relacionUsuarioPerfil($perfil, $idusuario)

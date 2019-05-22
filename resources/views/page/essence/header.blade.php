@@ -21,8 +21,8 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="/"><img src="{{asset(Session::get('configinit')['logosistema'])}}"
-                                               alt="{{Session::get('configinit')['nombresistema']}}" class="logo"></a>
+            <a class="nav-brand" href="/"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}" alt="{{Session::get('configuracionpublica')['nombresistema']}}" class="logo"></a>
+
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -102,7 +102,7 @@
             </div>
             <!-- User Login Info -->
             <div class="user-login-info">
-                <a href="#"><img src="{{asset('page/essence/img/core-img/user.svg')}}" alt=""></a>
+                <a href="/login"><img src="{{asset('page/essence/img/core-img/user.svg')}}" alt=""></a>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
@@ -113,4 +113,3 @@
 
     </div>
 </header>
-<!-- ##### Header Area End ##### -->

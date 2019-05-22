@@ -27,7 +27,7 @@
                                 <td>0</td>
                             @endif
                             <th><a href="{{route('detallesusuarios', ['id' => $us->id])}}"><i
-                                        class="fas fa-eye"></i></a></th>
+                                            class="fas fa-eye"></i></a></th>
                         </tr>
                     @endforeach
                     </tbody>

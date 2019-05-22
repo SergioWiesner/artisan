@@ -1,5 +1,6 @@
 @extends('page.essence.index')
 @section('pagina')
+    <br>
     <section class="banner " id="home" style="min-height: 80vh;">
         <div class="container">
             <div class="row justify-content-center">

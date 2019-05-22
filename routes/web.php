@@ -24,7 +24,6 @@ Route::get('/crear/cliente/api', 'AppController@crearClienteVista')->name('creac
 
 Route::get('/propiedades/lista/', 'PropiedadesController@index')->name('clientespropiedades')->middleware('auth');
 
-
 Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
