@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use App\Source\Tools\ConfiguracionInit;
+use Illuminate\Support\Facades\Session;
 use Closure;
 
-class configuracionInicial
+
+class configuracionpublica
 {
     /**
      * Handle an incoming request.
@@ -18,13 +18,8 @@ class configuracionInicial
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::guest()) {
-            if (!Session::has('menu')) {
-                ConfiguracionInit::generarMenu();
-            }
-            if (!Session::has('configinit')) {
-                ConfiguracionInit::sistemaConfig();
-            }
+        if (!Session::has('configuracionpublica')) {
+            ConfiguracionInit::configuracionPublica();
         }
         return $next($request);
     }

@@ -40,7 +40,7 @@ class Model
 
     public static function observarDetalles($id)
     {
-        return User::where('id', $id)->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
+        return User::where('id', $id)->with('perfiles')->with('perfiles')->with('tipodocumento')->with('bodegas')->with('ayudantes')->with('compras.productos')->with(['ventas.carrito.productos', 'ventas.metododepago', 'ventas.metododeenvio'])->get();
     }
 
     public static function eliminarUsuario($id)

@@ -1,14 +1,7 @@
 <?php
 /** RUTAS DE LA PAGINA **/
-Route::middleware(['configinit'])->group(function () {
-    Route::get('/home', 'AppController@home');
+Route::middleware('configuracionpublica')->group(function () {
     Route::get('/', 'HomeController@inicio');
-    Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
-    Route::get('/buscar/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
-    Route::get('/informes.blade.php/', 'AppController@informes.blade.php')->name('informes.blade.php');
-    Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
-    Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
-
     /** RUTAS DE LA PAGINA **/
 });
 
@@ -33,9 +26,15 @@ Route::get('/propiedades/lista/', 'PropiedadesController@index')->name('clientes
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
-
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'AppController@home');
+    Route::get('/productos/propiedades/', 'AppController@propiedades')->name('propiedades');
+    Route::get('/buscar/usuarios/{id?}/', 'AppController@verUsuarios')->name('detallesusuarios');
+    Route::get('/informes.blade.php/', 'AppController@informes.blade.php')->name('informes.blade.php');
+    Route::get('/perfiles/permisos/{id?}', 'AppController@perfilespermisos')->name('permisosperfiles');
+    Route::get('/ventas/agregar/', 'AppController@ventaAgregada')->name('nuevaventa');
+});
 /** RUTAS DE PRODUCTOS Y PROPIEDADES **/
 /** RUTAS DE PROPIEDADES PARA LOS PRODUCTOS **/
 Route::middleware(['auth'])->group(function () {

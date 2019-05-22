@@ -151,7 +151,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Single Product -->
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
@@ -188,7 +187,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- Single Product -->
                         <div class="single-product-wrapper">
                             <!-- Product Image -->
@@ -231,7 +229,6 @@
         </div>
     </section>
     <!-- ##### New Arrivals Area End ##### -->
-
     <!-- ##### Brands Area Start ##### -->
     <div class="brands-area d-flex align-items-center justify-content-between">
         <!-- Brand Logo -->

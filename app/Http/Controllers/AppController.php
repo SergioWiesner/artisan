@@ -72,8 +72,10 @@ class AppController extends Controller
     public function verUsuarios($id)
     {
         $usuarios = new Usuarios();
+        $configuracion = new Configuracion();
         return view('system.usuarios.observar')
             ->with('detalles', $usuarios->buscarUsuario($id))
+            ->with('perfiles', $configuracion->traerPerfiles())
             ->with('documentos', $usuarios->listarTipoDocumentos());
     }
 

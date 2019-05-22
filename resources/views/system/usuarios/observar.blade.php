@@ -10,7 +10,7 @@
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{$detalles[$a]['ayudantes'][$b]['name']}}
                                 <span class="badge badge-pill"><a
-                                        href="{{route('detallesusuarios', ['id' => $detalles[$a]['ayudantes'][$b]['id']])}}">
+                                            href="{{route('detallesusuarios', ['id' => $detalles[$a]['ayudantes'][$b]['id']])}}">
                                             <i class="fas fa-eye"></i></a></span>
                             </li>
                         @endfor
@@ -35,13 +35,13 @@
                                                     <li class="nav-item">
                                                         <a href="#!" class="nav-link active" data-toggle="modal"
                                                            data-target=".bd-example-modal-xl"><i
-                                                                class="fas fa-user"></i> Editar </a>
+                                                                    class="fas fa-user"></i> Editar </a>
                                                     </li>
                                                     @if(\Illuminate\Support\Facades\Auth::user()->nivelaccesso  == 10)
                                                         <li class="nav-item">
                                                             <a href="{{route('usuarioeliminar', ['id' => $detalles[$a]['id']])}}"
                                                                class="nav-link active"><i
-                                                                    class="fas fa-trash"></i> Desactivar</a>
+                                                                        class="fas fa-trash"></i> Desactivar</a>
                                                         </li>
                                                     @endif
                                                 </ul>
@@ -98,7 +98,7 @@
                                                                 <td>{{number_format($detalles[$a]['compras'][$d]['productos']['valor'])}}</td>
                                                                 <td>
                                                                     <a href="{{route('verproducto', ['id' => $detalles[$a]['compras'][$d]['id']])}}"><i
-                                                                            class="fas fa-eye"></i></a>
+                                                                                class="fas fa-eye"></i></a>
                                                                 </td>
                                                                 <td>{{$detalles[$a]['compras'][$d]['created_at']}}</td>
                                                             </tr>
@@ -131,7 +131,7 @@
                                                                 <td>{{$detalles[$a]['ventas'][$e]['created_at']}}</td>
                                                                 <td>
                                                                     <a href=""><i
-                                                                            class="fas fa-eye"></i></a>
+                                                                                class="fas fa-eye"></i></a>
                                                                 </td>
                                                             </tr>
                                                         @endfor
@@ -141,6 +141,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                                          aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-xl">
@@ -156,8 +157,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="{{route('usuarioeditar', ['id' => $detalles[$a]['id']])}}"
-                                                        method="post" enctype="multipart/form-data">
+                                                            action="{{route('usuarioeditar', ['id' => $detalles[$a]['id']])}}"
+                                                            method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('patch')
                                                         <input type="hidden" id="usuarioid"
@@ -193,6 +194,23 @@
                                                                     Archivo</label>
                                                             </div>
                                                         </div>
+                                                        @if(count($perfiles) > 0)
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <hr>
+                                                                    <h4>Perfiles</h4>
+                                                                </div>
+                                                                @for($z = 0; $z < count($perfiles); $a++)
+                                                                    <div class="col-md">
+                                                                        <input type="checkbox"
+                                                                               id="{{$perfiles[$z]['nombre']}}"
+                                                                               name="perfiles[]"
+                                                                               value="{{$perfiles[$z]['id']}}">
+                                                                        <label for="{{$perfiles[$z]['nombre']}}">{{$perfiles[$z]['nombre']}}</label>
+                                                                    </div>
+                                                                @endfor
+                                                            </div>
+                                                        @endif
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Tipo
                                                                 documento</label>
@@ -202,7 +220,7 @@
                                                                 <option selected></option>
                                                                 @for($b = 0; $b < count($documentos); $b++)
                                                                     <option
-                                                                        value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
+                                                                            value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
                                                                 @endfor
                                                             </select>
                                                         </div>
@@ -223,7 +241,7 @@
                                                         <h4>Ayudantes</h4>
                                                         <hr>
                                                         <a href="#!" onclick="agregarUsuarioEmpleado()"><i
-                                                                class="fas fa-plus"></i> Relacionar ayudante</a>
+                                                                    class="fas fa-plus"></i> Relacionar ayudante</a>
                                                         <br><br>
                                                         <div id="anexoayudanteusuario" class="form-row">
 
@@ -240,7 +258,7 @@
                                                                         name="nivelacceso"
                                                                         required>
                                                                     <option
-                                                                        value="{{$detalles[$a]['nivelaccesso']}}"></option>
+                                                                            value="{{$detalles[$a]['nivelaccesso']}}"></option>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>

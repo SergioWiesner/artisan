@@ -15,6 +15,11 @@ class Modelo
         return Basics::collectionToArray(ConfiguracionSystem::first()->get());
     }
 
+    public static function configuracionpublica()
+    {
+        return Basics::collectionToArray(ConfiguracionSystem::first()->get(['nombresistema', 'logosistema', 'direccionsistema', 'telefono']));
+    }
+
     public static function agregarPermiso($data)
     {
         return DB::table('permisos')->insert([
