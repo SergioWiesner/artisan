@@ -60,6 +60,11 @@ class Usuarios
         if (isset($data['ayudante'])) {
             Model::relacionaUsuarioJefe($id, $data['ayudante']);
         }
+
+        Model::borrarRelacionUsuarioPerfil($id);
+        if (isset($data['perfiles']) && count($data['perfiles']) > 0) {
+            Model::relacionUsuarioPerfil($data['perfiles'], $id);
+        }
         return redirect()->back();
     }
 

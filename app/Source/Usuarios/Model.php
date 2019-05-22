@@ -75,6 +75,7 @@ class Model
         }
     }
 
+
     public static function crearUsuario($data)
     {
         return User::create([
@@ -136,6 +137,12 @@ class Model
     public static function usuarioBusquedaDocumento($tipodocumento, $documento)
     {
         return User::where([['documento', 'like', '%' . $documento . '%'], ['tipodocumento', $tipodocumento]])->orderBy('documento', 'desc')->get();
+    }
+
+
+    public static function borrarRelacionUsuarioPerfil($id)
+    {
+        return DB::table('perfiles_users')->where('users_id', $id)->delete();
     }
 
     public static function relacionUsuarioPerfil($perfil, $idusuario)

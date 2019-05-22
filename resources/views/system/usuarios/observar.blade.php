@@ -64,7 +64,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <h4>Bodegas:</h4>
-                                                @for($c = 0; $c < count($detalles[$a]['perfiles']); $c++)
+                                                @for($c = 0; $c < count($detalles[$a]['bodegas']); $c++)
                                                     {{$detalles[$a]['bodegas'][$c]['referencia']}}
                                                     - {{$detalles[$a]['bodegas'][$c]['nombre']}},
                                                 @endfor
@@ -200,12 +200,30 @@
                                                                     <hr>
                                                                     <h4>Perfiles</h4>
                                                                 </div>
-                                                                @for($z = 0; $z < count($perfiles); $a++)
+                                                                @for($z = 0; $z < count($perfiles); $z++)
                                                                     <div class="col-md">
-                                                                        <input type="checkbox"
-                                                                               id="{{$perfiles[$z]['nombre']}}"
-                                                                               name="perfiles[]"
-                                                                               value="{{$perfiles[$z]['id']}}">
+                                                                        @if(count($detalles[$a]['perfiles']) > 0)
+                                                                            @for($y = 0; $y < count($detalles[$a]['perfiles']); $y++)
+                                                                                @if($detalles[$a]['perfiles'][$y]['id'] == $perfiles[$z]['id'])
+                                                                                    <input type="checkbox"
+                                                                                           id="{{$perfiles[$z]['nombre']}}"
+                                                                                           name="perfiles[]"
+                                                                                           value="{{$perfiles[$z]['id']}}"
+                                                                                           checked>
+                                                                                @else
+                                                                                    <input type="checkbox"
+                                                                                           id="{{$perfiles[$z]['nombre']}}"
+                                                                                           name="perfiles[]"
+                                                                                           value="{{$perfiles[$z]['id']}}">
+                                                                                @endif
+
+                                                                            @endfor
+                                                                        @else
+                                                                            <input type="checkbox"
+                                                                                   id="{{$perfiles[$z]['nombre']}}"
+                                                                                   name="perfiles[]"
+                                                                                   value="{{$perfiles[$z]['id']}}">
+                                                                        @endif
                                                                         <label for="{{$perfiles[$z]['nombre']}}">{{$perfiles[$z]['nombre']}}</label>
                                                                     </div>
                                                                 @endfor
@@ -219,8 +237,12 @@
                                                                     required>
                                                                 <option selected></option>
                                                                 @for($b = 0; $b < count($documentos); $b++)
-                                                                    <option
-                                                                            value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
+                                                                    @if($documentos[$b]['id'] == $detalles[$a]['tipodocumento']['id'])
+                                                                        <option value="{{$documentos[$b]['id']}}"
+                                                                                selected>{{$documentos[$b]['nombre']}}</option>
+                                                                    @else
+                                                                        <option value="{{$documentos[$b]['id']}}">{{$documentos[$b]['nombre']}}</option>
+                                                                    @endif
                                                                 @endfor
                                                             </select>
                                                         </div>
@@ -244,11 +266,8 @@
                                                                     class="fas fa-plus"></i> Relacionar ayudante</a>
                                                         <br><br>
                                                         <div id="anexoayudanteusuario" class="form-row">
-
                                                         </div>
                                                         <hr>
-
-
                                                         @if(Auth::user()->nivelaccesso  == 10)
                                                             <div class="form-group">
                                                                 <label for="exampleFormControlSelect1">Nivel de
@@ -257,18 +276,14 @@
                                                                         id="exampleFormControlSelect1"
                                                                         name="nivelacceso"
                                                                         required>
-                                                                    <option
-                                                                            value="{{$detalles[$a]['nivelaccesso']}}"></option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                    <option value="6">6</option>
-                                                                    <option value="7">7</option>
-                                                                    <option value="8">8</option>
-                                                                    <option value="9">9</option>
-                                                                    <option value="10">10</option>
+                                                                    @for($x = 0; $x < 10; $x++)
+                                                                        @if($x == $detalles[$a]['nivelaccesso'])
+                                                                            <option value="{{$x}}"
+                                                                                    selected>{{$x}}</option>
+                                                                        @else
+                                                                            <option value="{{$x}}">{{$x}}</option>
+                                                                        @endif
+                                                                    @endfor
                                                                 </select>
                                                             </div>
                                                         @else
