@@ -5,12 +5,8 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Title  -->
     <title>{{Session::get('configuracionpublica')['nombresistema']}}</title>
-    <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-    <!-- Core Style CSS -->
+    <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="stylesheet" href="{{asset('page/essence/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('page/essence/style.css')}}">
     <link rel="stylesheet" href="{{asset('page/essence/css/custom.css')}}">
@@ -21,7 +17,9 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="/"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}" alt="{{Session::get('configuracionpublica')['nombresistema']}}" class="logo"></a>
+            <a class="nav-brand" href="/"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
+                                               alt="{{Session::get('configuracionpublica')['nombresistema']}}"
+                                               class="logo"></a>
 
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
@@ -86,7 +84,6 @@
                 <!-- Nav End -->
             </div>
         </nav>
-
         <!-- Header Meta Data -->
         <div class="header-meta d-flex clearfix justify-content-end">
             <!-- Search Area -->
@@ -110,6 +107,6 @@
                     <span>3</span></a>
             </div>
         </div>
-
     </div>
 </header>
+@include('page.essence.sidecar')
