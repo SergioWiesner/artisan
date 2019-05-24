@@ -8,7 +8,8 @@
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
                         <a href="#"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
-                                         alt="{{Session::get('configuracionpublica')['nombresistema']}}"></a>
+                                         alt="{{Session::get('configuracionpublica')['nombresistema']}}"
+                                         width="50px"></a>
                     </div>
                     <!-- Footer Menu -->
                     <div class="footer_menu">
