@@ -72,8 +72,7 @@ class productos
     public function agregarProducto($request)
     {
         try {
-            $ruta = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos');
-            $request['rutaimg'] = $ruta;
+            $request['rutaimg'] = Basics::Subirimagenes($request['imagenproducto'], self::ubicacion . 'productos');
             $request['referencia'] = Basics::obtenerReferencia($request);
             $producto = Modelo::agregarProducto($request);
             if (isset($request['propiedades']['propiedad'])) {

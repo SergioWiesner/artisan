@@ -5,6 +5,7 @@ namespace App\Source\Tools;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class Basics
 {
@@ -32,8 +33,9 @@ class Basics
 
     public static function Subirimagenes($contenido, $nombre)
     {
-        $ruta = Storage::disk('local')->put($nombre, $contenido);
-        return str_replace("public", "/storage", $ruta);
+        $imagen = Image::make($contenido)->widen(500);
+        Storage::disk('local')->put($nombre, $imagen->stream('png'));
+        return str_replace("public", "/storage", Storage::disk('s3')->url($nombre));
     }
 
     public static function determinarRutaimg($datos, $ubicacion)
