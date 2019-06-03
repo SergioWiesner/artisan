@@ -36,6 +36,10 @@ class Modelo
     {
         return Productos::with('propiedades')->with('catgorias')->get();
     }
+    public static function listarProductosCategorias($nombre)
+    {
+        return CategoriaProductos::where('nombre', $nombre)->with('productos')->get();
+    }
 
     public static function eliminarCategoriaProducto($id)
     {

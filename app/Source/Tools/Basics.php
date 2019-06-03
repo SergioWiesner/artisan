@@ -34,8 +34,9 @@ class Basics
     public static function Subirimagenes($contenido, $nombre)
     {
         $imagen = Image::make($contenido)->widen(500);
-        Storage::disk('local')->put($nombre, $imagen->stream('png'));
-        return str_replace("public", "/storage", Storage::disk('s3')->url($nombre));
+        $nombreruta = $nombre . sha1($nombre) . ".png";
+        Storage::disk('local')->put($nombreruta, $imagen->stream('png'));
+        return str_replace("public", "/storage", Storage::disk('local')->url($nombreruta));
     }
 
     public static function determinarRutaimg($datos, $ubicacion)

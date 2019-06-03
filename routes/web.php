@@ -1,7 +1,8 @@
 <?php
 /** RUTAS DE LA PAGINA **/
 Route::middleware('configuracionpublica')->group(function () {
-    Route::get('/', 'HomeController@inicio');
+    Route::get('/', 'HomeController@inicio')->name('inicio');
+    Route::get('/categoria/{nombre}', 'HomeController@categoria')->name('categorias');
     /** RUTAS DE LA PAGINA **/
 });
 

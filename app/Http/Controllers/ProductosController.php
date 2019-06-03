@@ -39,7 +39,7 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Productosrequest $request)
@@ -50,7 +50,7 @@ class ProductosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Productos $productos
+     * @param \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function show(Productos $productos)
@@ -61,7 +61,7 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Productos $productos
+     * @param \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function edit(Productos $productos)
@@ -72,19 +72,20 @@ class ProductosController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Productos $productos
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, $id)
     {
+
         return $this->producto->actualizarProducto($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Productos $productos
+     * @param \App\Productos $productos
      * @return \Illuminate\Http\Response
      */
     public function destroy(Productos $productos)

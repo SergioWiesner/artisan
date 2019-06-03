@@ -10,7 +10,7 @@ use App\Source\Tools\formateo;
 
 class productos
 {
-    const ubicacion = "/public/productos/";
+    const ubicacion = "public/productos/";
     const ubicacionlogs = "productos";
 
     public function listarProductosPaginados()
@@ -26,6 +26,11 @@ class productos
     public function listarProductos()
     {
         return Basics::collectionToArray(Modelo::listarProductos());
+    }
+
+    public function listarProductosPorCategorias($nombre)
+    {
+        return Basics::collectionToArray(Modelo::listarProductosCategorias($nombre));
     }
 
     public function listarCategoriasProductos()

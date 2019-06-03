@@ -300,7 +300,7 @@
                             <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
                                  style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
                                 <div class="catagory-content">
-                                    <a href="#">{{$categoria[$b]['nombre']}}</a>
+                                    <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}">{{$categoria[$b]['nombre']}}</a>
                                 </div>
                             </div>
                         </div>
