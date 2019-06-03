@@ -28,9 +28,14 @@ class productos
         return Basics::collectionToArray(Modelo::listarProductos());
     }
 
+    public function buscarproductofrontend($id)
+    {
+        return Basics::collectionToArray(Modelo::traerDetallesProducto($id));
+    }
+
     public function listarProductosPorCategorias($nombre)
     {
-        return Basics::collectionToArray(Modelo::listarProductosCategorias($nombre));
+        return Modelo::listarProductosCategorias($nombre);
     }
 
     public function listarCategoriasProductos()

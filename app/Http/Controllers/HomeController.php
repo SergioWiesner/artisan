@@ -42,8 +42,15 @@ class HomeController extends Controller
         $productos = new productos();
         $propiedades = new propiedades();
         return view('page.essence.category')
-            ->with('productos', $productos->listarProductosPorCategorias())
+            ->with('productos', $productos->listarProductosPorCategorias($nombre))
             ->with('categoria', $propiedades->listarCategoriaProductos());
+    }
+
+    public function productos($id)
+    {
+        $productos = new productos();
+        return view('page.essence.product')
+            ->with('producto', $productos->buscarproductofrontend($id));
     }
 
 }
