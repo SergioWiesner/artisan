@@ -2,6 +2,7 @@
 
 namespace App\Source\Tools;
 
+use SEO;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,17 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Basics
 {
 
+    public static function gernerarMetasSeo($datos)
+    {
+        if (count($datos) > 0) {
+            SEO::setTitle($datos[0]['nombre']);
+            SEO::setDescription($datos[0]['descripcion']);
+            //SEO::opengraph()->setUrl('http://current.url.com');
+            //SEO::setCanonical('https://codecasts.com.br/lesson');
+            SEO::opengraph()->addProperty('type', 'articles');
+            //SEO::twitter()->setSite('@LuizVinicius73');
+        }
+    }
 
     public static function collectionToArray($data)
     {
@@ -31,7 +43,24 @@ class Basics
         ]);
     }
 
-    public static function Subirimagenes($contenido, $nombre)
+    public static function subirImagenPrincipalCabeceras($contenido, $nombre, $oldimg = null, $nombreimg)
+    {
+        if (!is_null($oldimg)) {
+            Storage::disk('local')->delete($oldimg);
+        }
+        $img255 = Image::make($contenido)->widen(255)->heighten(255)->resizeCanvas(255, 255, 'center', false, 'fff');
+        $img800 = Image::make($contenido)->widen(800)->heighten(800)->resizeCanvas(800, 800, 'center', false, 'fff');
+        $nombre255 = $nombre . sha1($nombreimg) . "x255.webp";
+        $nombre800 = $nombre . sha1($nombreimg) . "x800.webp";
+        Storage::disk('local')->put($nombre255, $img255->stream('webp'));
+        Storage::disk('local')->put($nombre800, $img800->stream('webp'));
+        return [
+            'min' => Storage::disk('local')->url($nombre255),
+            'big' => Storage::disk('local')->url($nombre800)
+        ];
+    }
+
+    public static function Subirimagenes($contenido, $nombre, $medidas = [])
     {
         $imagen = Image::make($contenido)->widen(500);
         $nombreruta = $nombre . sha1($nombre) . ".png";
@@ -43,7 +72,7 @@ class Basics
     {
         if (isset($datos['rutaimg']) || isset($datos['rutaimagenold'])) {
             if (isset($datos['rutaimg'])) {
-                $ruta = Basics::Subirimagenes($datos['rutaimg'], $ubicacion);
+                $ruta = Basics::subirImagenPrincipalCabeceras($datos['rutaimg'], $ubicacion);
                 $datos['rutaimg'] = $ruta;
             } else {
                 $datos['rutaimg'] = $datos['rutaimagenold'];

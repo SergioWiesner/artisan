@@ -6,15 +6,15 @@
             <!-- Single Product Thumb -->
             <div class="single_product_thumb clearfix">
                 <div class="product_thumbnail_slides owl-carousel">
-                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}">
-                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}">
-                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}">
+                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}" style="max-height: 100vh;">
+                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}" style="max-height: 100vh;">
+                    <img src="{{$producto[$a]['rutaimagen']}}" alt="{{$producto[$a]['nombre']}}" style="max-height: 100vh;">
                 </div>
             </div>
 
             <!-- Single Product Description -->
             <div class="single_product_desc clearfix">
-                <span>mango</span>
+                <span>{{Session::get('configuracionpublica')['nombresistema']}}</span>
                 <a href="cart.html">
                     <h2>{{$producto[$a]['nombre']}}</h2>
                 </a>

@@ -1,16 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\ClienteApi;
-use App\Source\Configuracion\Configuracion;
 use App\Source\Productos\Propiedades\Propiedades;
-use App\Source\Productos\productos;
-use App\Source\Tools\Basics;
-use App\Source\Tools\Permisos;
-use App\Source\Usuarios\Usuarios;
-use Illuminate\Http\Request;
+use App\Source\Configuracion\Configuracion;
 use Illuminate\Support\Facades\Auth;
+use App\Source\Productos\productos;
+use App\Source\Usuarios\Usuarios;
+use App\Source\Tools\Permisos;
+use Illuminate\Http\Request;
+use App\Source\Tools\Basics;
 
 class AppController extends Controller
 {
@@ -33,6 +31,7 @@ class AppController extends Controller
 
     public function productos()
     {
+
         $propiedades = new propiedades();
         $productos = new productos();
         return view('system.productos.listar')
@@ -46,6 +45,13 @@ class AppController extends Controller
         $productos = new productos();
         $propiedades = new propiedades();
         $datos = $productos->verProducto($id);
+
+        SEO::setTitle('Home');
+        SEO::setDescription('This is my page description');
+        SEO::opengraph()->setUrl('http://current.url.com');
+        SEO::setCanonical('https://codecasts.com.br/lesson');
+        SEO::opengraph()->addProperty('type', 'articles');
+        SEO::twitter()->setSite('@LuizVinicius73');
         if (count($datos) > 0) {
             return view('system.productos.observar')
                 ->with('detalles', $datos)

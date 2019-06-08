@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Source\Productos\Propiedades\propiedades;
 use App\Source\Productos\productos;
 use Illuminate\Http\Request;
+use  App\Source\Tools\Basics;
 
 class HomeController extends Controller
 {
@@ -49,8 +50,10 @@ class HomeController extends Controller
     public function productos($id)
     {
         $productos = new productos();
+        $datos = $productos->buscarproductofrontend($id);
+        Basics::gernerarMetasSeo($datos);
         return view('page.essence.product')
-            ->with('producto', $productos->buscarproductofrontend($id));
+            ->with('producto', $datos);
     }
 
 }

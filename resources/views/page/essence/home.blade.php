@@ -2,14 +2,12 @@
 @section('pagina')
     <!-- ##### Welcome Area Start ##### -->
     <section class="welcome_area bg-img background-overlay"
-             style="background-image: url({{asset('img/fondo.jpg')}}); background-attachment: fixed; background-size: cover;">
+             style="background-image: url({{asset('img/fondo.png')}}); background-attachment: fixed; background-size: cover;">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="hero-content">
-                        <h6>Mantente bien, mantente abrigado</h6>
-                        <hr>
-                        <h2>{{Session::get('configuracionpublica')['nombresistema']}}</h2>
+
                     </div>
                 </div>
             </div>
@@ -27,12 +25,12 @@
                                 <div class="single-product-wrapper">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="{{asset($productos[$a]['rutaimagen'])}}"
+                                        <img src="{{asset($productos[$a]['img_url_min'])}}"
                                              alt="{{$productos[$a]['nombre']}}">
 
                                         <!-- Hover Thumb -->
                                         <img class="hover-img"
-                                             src="{{asset($productos[$a]['rutaimagen'])}}"
+                                             src="{{asset($productos[$a]['img_url_min'])}}"
                                              alt="">
                                         <!-- Favourite -->
                                         <div class="product-favourite">
@@ -96,12 +94,12 @@
                                 <div class="single-product-wrapper">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="{{asset($productos[$a]['rutaimagen'])}}"
+                                        <img src="{{asset($productos[$a]['img_url_min'])}}"
                                              alt="{{$productos[$a]['nombre']}}">
 
                                         <!-- Hover Thumb -->
                                         <img class="hover-img"
-                                             src="{{asset($productos[$a]['rutaimagen'])}}"
+                                             src="{{asset($productos[$a]['img_url_min'])}}"
                                              alt="">
                                         <!-- Favourite -->
                                         <div class="product-favourite">

@@ -76,7 +76,8 @@ class Modelo
                 'stock' => $datos['stock'],
                 'valor' => $datos['valor'],
                 'idcategoria' => $datos['categoria'],
-                'rutaimagen' => $datos['rutaimg'],
+                'rutaimagen' => $datos['rutaimg']['big'],
+                'img_url_min' => $datos['rutaimg']['min'],
                 'idproductopadre' => $datos['productopadre']
             ]);
     }
@@ -90,14 +91,15 @@ class Modelo
             'stock' => $datos['stock'],
             'valor' => $datos['valor'],
             'idcategoria' => $datos['categoria'],
-            'rutaimagen' => $datos['rutaimg'],
+            'rutaimagen' => $datos['rutaimg']['big'],
+            'img_url_min' => $datos['rutaimg']['min'],
             'idproductopadre' => $datos['productopadre']
         ]);
         return $dat;
     }
 
 
-    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $stock, $precio, $id)
+    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $stock = 0, $precio = 0, $id)
     {
         if (!is_null($valor)) {
             return DB::table('productos_propiedades')->insert([

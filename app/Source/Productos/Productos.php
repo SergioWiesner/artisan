@@ -105,30 +105,32 @@ class productos
 
     public function actualizarProducto($datos)
     {
-        try {
-            $datos = Basics::determinarRutaimg($datos, self::ubicacion);
-            Modelo::actualizarProductos($datos);
-            Modelo::eliminarPropiedadesProductos($datos['id']);
-            if (isset($datos['propiedadanterior'])) {
-                for ($a = 0; $a < count($datos['propiedadanterior']['propiedad']); $a++) {
-                    Modelo::agregarRelacionPropiedadProducto($datos['propiedadanterior']['propiedad'][$a], $datos['propiedadanterior']['valorpropiedad'][$a], $datos['id']);
-                }
-            }
-            if (isset($datos['propiedades'])) {
-                for ($a = 0; $a < count($datos['propiedades']['propiedad']); $a++) {
-                    if (isset($datos['propiedades']['Precio'][$a])) {
-                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['propiedades']['stock'][$a], $datos['propiedades']['Precio'][$a], $datos['id']);
-                    } else {
-                        Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], 0, 0, $datos['id']);
-                    }
 
-                }
+//        try {
+        $datos['rutaimg'] = Basics::subirImagenPrincipalCabeceras($datos['rutaimg'], self::ubicacion, $datos['rutaimagenold'], $datos['nombre']);
+//            $datos = Basics::determinarRutaimg($datos, self::ubicacion);
+        Modelo::actualizarProductos($datos);
+        Modelo::eliminarPropiedadesProductos($datos['id']);
+        if (isset($datos['propiedadanterior'])) {
+            for ($a = 0; $a < count($datos['propiedadanterior']['propiedad']); $a++) {
+                Modelo::agregarRelacionPropiedadProducto($datos['propiedadanterior']['propiedad'][$a], $datos['propiedadanterior']['valorpropiedad'][$a], null, null, $datos['id']);
             }
-            Session::put('success', ["Producto acturalizado correctamente"]);
-        } catch (\Exception $e) {
-            Basics::agregarLog('Error al eliminar el producto', $e->getMessage(), self::ubicacionlogs);
-            Session::put('error', ["Error, no se puedo eliminar el producto " . $e->getMessage()]);
         }
+        if (isset($datos['propiedades'])) {
+            for ($a = 0; $a < count($datos['propiedades']['propiedad']); $a++) {
+                if (isset($datos['propiedades']['Precio'][$a])) {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], $datos['propiedades']['stock'][$a], $datos['propiedades']['Precio'][$a], $datos['id']);
+                } else {
+                    Modelo::agregarRelacionPropiedadProducto($datos['propiedades']['propiedad'][$a], $datos['propiedades']['valorpropiedad'][$a], 0, 0, $datos['id']);
+                }
+
+            }
+        }
+        Session::put('success', ["Producto acturalizado correctamente"]);
+//        } catch (\Exception $e) {
+//            Basics::agregarLog('Error al eliminar el producto', $e->getMessage(), self::ubicacionlogs);
+//            Session::put('error', ["Error, no se puedo eliminar el producto " . $e->getMessage()]);
+//        }
 
         return redirect()->back();
     }
