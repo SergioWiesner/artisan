@@ -30,7 +30,7 @@
 
                                         <!-- Hover Thumb -->
                                         <img class="hover-img"
-                                             src="{{asset($productos[$a]['img_url_min'])}}"
+                                             src="{{asset($productos[$a]['img_hover'])}}"
                                              alt="">
                                         <!-- Favourite -->
                                         <div class="product-favourite">

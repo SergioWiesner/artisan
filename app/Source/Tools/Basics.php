@@ -11,6 +11,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Basics
 {
 
+
     public static function gernerarMetasSeo($datos)
     {
         if (count($datos) > 0) {
@@ -51,11 +52,15 @@ class Basics
         $img255 = Image::make($contenido)->widen(255)->heighten(255)->resizeCanvas(255, 255, 'center', false, 'fff');
         $img800 = Image::make($contenido)->widen(800)->heighten(800)->resizeCanvas(800, 800, 'center', false, 'fff');
         $nombre255 = $nombre . sha1($nombreimg) . "x255.webp";
+        $nombrehover = $nombre . sha1($nombreimg) . "x255hover.webp";
         $nombre800 = $nombre . sha1($nombreimg) . "x800.webp";
         Storage::disk('local')->put($nombre255, $img255->stream('webp'));
+        $img255->mask(public_path('/img/marca.png'));
+        Storage::disk('local')->put($nombrehover, $img255->stream('webp'));
         Storage::disk('local')->put($nombre800, $img800->stream('webp'));
         return [
             'min' => Storage::disk('local')->url($nombre255),
+            'hover' => Storage::disk('local')->url($nombrehover),
             'big' => Storage::disk('local')->url($nombre800)
         ];
     }

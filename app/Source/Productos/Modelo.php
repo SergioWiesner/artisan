@@ -77,6 +77,7 @@ class Modelo
                 'valor' => $datos['valor'],
                 'idcategoria' => $datos['categoria'],
                 'rutaimagen' => $datos['rutaimg']['big'],
+                'img_hover' => $datos['rutaimg']['hover'],
                 'img_url_min' => $datos['rutaimg']['min'],
                 'idproductopadre' => $datos['productopadre']
             ]);
@@ -92,6 +93,7 @@ class Modelo
             'valor' => $datos['valor'],
             'idcategoria' => $datos['categoria'],
             'rutaimagen' => $datos['rutaimg']['big'],
+            'img_hover' => $datos['rutaimg']['hover'],
             'img_url_min' => $datos['rutaimg']['min'],
             'idproductopadre' => $datos['productopadre']
         ]);
