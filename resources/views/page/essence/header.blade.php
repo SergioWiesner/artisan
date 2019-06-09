@@ -8,11 +8,21 @@
     <meta name="google-site-verification" content="ks0XB5OXs2mWJwcte3U0i_SppHcJPKaLNGe7GIY2vw4"/>
     {!! SEO::generate(true) !!}
     <title>{{Session::get('configuracionpublica')['nombresistema']}}</title>
-    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="stylesheet" href="{{asset('/page/essence/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('/page/essence/css/custom.css')}}">
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="{{asset('page/essence/js/jquery/jquery-2.2.4.min.js')}}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141667193-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-141667193-1');
+    </script>
+
 </head>
 <body>
 <header class="header_area">
