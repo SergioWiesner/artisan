@@ -55,9 +55,9 @@
             <div class="col-12 col-md-6">
                 <div class="single_widget_area">
                     <div class="footer_social_area">
-                        <a href="cap" data-toggle="tooltip" data-placement="top" title="Facebook"><i
+                        <a href="https://www.facebook.com/capitalana.store/?modal=admin_todo_tour" data-toggle="tooltip" data-placement="top" title="Facebook"><i
                                 class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i
+                        <a href="https://www.instagram.com/capitalana.store/" data-toggle="tooltip" data-placement="top" title="Instagram"><i
                                 class="fa fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>

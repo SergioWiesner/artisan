@@ -20,10 +20,34 @@
     color: #fff;
 }
 
+.pagenofound {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+}
+
+.pagenofound h1 {
+    font-size: 500%;
+    color: #fff;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.pagenofound a {
+    font-size: 200%;
+    text-shadow: 1px 2px 3px #333;
+    color: #fff;
+}
+
 @media (max-width: 700px) {
     .logo {
         width: 30px;
     }
+
     .hero-content h1 {
         font-size: 400%;
         color: #fff;

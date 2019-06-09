@@ -43,7 +43,7 @@
                                         <!-- Product Description -->
                                         <div class="product-description">
                                             <span>{{$productos[$a]['descripcion']}}</span>
-                                            <a href="{{route('producto', ['id' => $productos[$a]['id']])}}">
+                                            <a href="{{route('producto', ['nombre' => $productos[$a]['nombre'],'id' => $productos[$a]['id']])}}">
                                                 <h6>{{$productos[$a]['nombre']}}</h6>
                                             </a>
                                             <p class="product-price">
