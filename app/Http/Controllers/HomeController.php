@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Source\Productos\Propiedades\propiedades;
 use App\Source\Productos\productos;
-use Illuminate\Http\Request;
 use  App\Source\Tools\Basics;
+use Illuminate\Http\Request;
+use SEO;
 
 class HomeController extends Controller
 {
@@ -42,16 +43,23 @@ class HomeController extends Controller
     {
         $productos = new productos();
         $propiedades = new propiedades();
+        $datos = $productos->listarProductosPorCategorias($nombre);
+        $seo = $datos->all();
+        SEO::setTitle($seo[0]['nombre']);
+        SEO::setDescription($seo[0]['descripcion']);
+        SEO::opengraph()->addProperty('type', 'category');
         return view('page.essence.category')
-            ->with('productos', $productos->listarProductosPorCategorias($nombre))
+            ->with('productos', $datos)
             ->with('categoria', $propiedades->listarCategoriaProductos());
     }
 
     public function productos($id)
     {
         $productos = new productos();
-        $datos = $productos->buscarproductofrontend($id);
-        Basics::gernerarMetasSeo($datos);
+        $datos = $productos->buscarProductoId($id);
+        SEO::setTitle($datos[0]['nombre']);
+        SEO::setDescription($datos[0]['descripcion']);
+        SEO::opengraph()->addProperty('type', 'articles');
         return view('page.essence.product')
             ->with('producto', $datos);
     }

@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Source\Tools;
-
-use SEO;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -10,20 +8,6 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class Basics
 {
-
-
-    public static function gernerarMetasSeo($datos)
-    {
-        if (count($datos) > 0) {
-            SEO::setTitle($datos[0]['nombre']);
-            SEO::setDescription($datos[0]['descripcion']);
-            //SEO::opengraph()->setUrl('http://current.url.com');
-            //SEO::setCanonical('https://codecasts.com.br/lesson');
-            SEO::opengraph()->addProperty('type', 'articles');
-            //SEO::twitter()->setSite('@LuizVinicius73');
-        }
-    }
-
     public static function collectionToArray($data)
     {
         if (count($data) > 0) {

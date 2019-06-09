@@ -6,9 +6,31 @@
     background-color: #42301d;
 }
 
+.hero-content {
+    color: #fff;
+}
 
-@media(max-width: 700px) {
+.hero-content h1 {
+    font-size: 700%;
+    color: #fff;
+}
+
+.hero-content h3 {
+    font-size: 300%;
+    color: #fff;
+}
+
+@media (max-width: 700px) {
     .logo {
         width: 30px;
+    }
+    .hero-content h1 {
+        font-size: 400%;
+        color: #fff;
+    }
+
+    .hero-content h3 {
+        font-size: 100%;
+        color: #fff;
     }
 }

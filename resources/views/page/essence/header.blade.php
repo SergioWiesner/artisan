@@ -11,6 +11,8 @@
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="stylesheet" href="{{asset('/page/essence/css/core-style.css')}}">
     <link rel="stylesheet" href="{{asset('/page/essence/css/custom.css')}}">
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="{{asset('page/essence/js/jquery/jquery-2.2.4.min.js')}}"></script>
 </head>
 <body>
 <header class="header_area">

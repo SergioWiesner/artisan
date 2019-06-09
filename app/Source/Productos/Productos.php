@@ -6,6 +6,7 @@ namespace App\Source\Productos;
 use Illuminate\Support\Facades\Session;
 use App\Source\Tools\Basics;
 use App\Source\Tools\formateo;
+use Illuminate\Support\Facades\Storage;
 
 
 class productos
@@ -28,11 +29,6 @@ class productos
         return Basics::collectionToArray(Modelo::listarProductos());
     }
 
-    public function buscarproductofrontend($id)
-    {
-        return Basics::collectionToArray(Modelo::traerDetallesProducto($id));
-    }
-
     public function listarProductosPorCategorias($nombre)
     {
         return Modelo::listarProductosCategorias($nombre);
@@ -45,6 +41,7 @@ class productos
 
     public function agregarCategoriaProductos($datos)
     {
+
         $ruta = Basics::Subirimagenes($datos['rutaimg'], self::ubicacion . 'categoria');
         $datos['rutaimg'] = $ruta;
         if (Modelo::agregarCategoriaProducto($datos)) {
@@ -107,7 +104,10 @@ class productos
     {
 
 //        try {
-        $datos['rutaimg'] = Basics::subirImagenPrincipalCabeceras($datos['rutaimg'], self::ubicacion, $datos['rutaimagenold'], $datos['nombre']);
+        if (isset($datos['rutaimg'])) {
+            $datos['rutaimg'] = Basics::subirImagenPrincipalCabeceras($datos['rutaimg'], self::ubicacion, $datos['rutaimagenold'], $datos['nombre']);
+            Modelo::actualizarimgProductos($datos);
+        }
 //            $datos = Basics::determinarRutaimg($datos, self::ubicacion);
         Modelo::actualizarProductos($datos);
         Modelo::eliminarPropiedadesProductos($datos['id']);

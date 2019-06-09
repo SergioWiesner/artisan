@@ -76,10 +76,18 @@ class Modelo
                 'stock' => $datos['stock'],
                 'valor' => $datos['valor'],
                 'idcategoria' => $datos['categoria'],
+                'idproductopadre' => $datos['productopadre']
+            ]);
+    }
+
+    public static function actualizarimgProductos($datos)
+    {
+        return DB::table('productos')
+            ->where('id', $datos['id'])
+            ->update([
                 'rutaimagen' => $datos['rutaimg']['big'],
                 'img_hover' => $datos['rutaimg']['hover'],
                 'img_url_min' => $datos['rutaimg']['min'],
-                'idproductopadre' => $datos['productopadre']
             ]);
     }
 
@@ -135,7 +143,9 @@ class Modelo
     {
         return Productos::where('id', $id)->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
             $query->where('productos_id', $id);
-        }])->with('catgorias')->with('propiedadesvalor.propiedadesPadre')->get();
+        }])->with(['catgorias.productos' => function ($query) use ($id){
+            return $query->whereNotIn('id', [$id])->inRandomOrder()->limit(5);
+        }])->with('propiedadesvalor.propiedadesPadre')->get();
     }
 
     public static function traerProductosPorCategoria($datos)

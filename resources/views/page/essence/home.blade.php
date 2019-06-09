@@ -1,137 +1,91 @@
 @extends('page.essence.index')
 @section('pagina')
+    <script src="{{asset('js/jquery.vide.min.js')}}"></script>
     <!-- ##### Welcome Area Start ##### -->
-    <section class="welcome_area bg-img background-overlay"
-             style="background-image: url({{asset('img/fondo.png')}}); background-attachment: fixed; background-size: cover;">
+    <section class="welcome_area bg-img background-overlay" id="block" data-vide-bg="{{asset('videos/fondo3.mp4')}}"
+             data-vide-options="loop: true, muted: true">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="hero-content">
-
+                        <h1>{{Session::get('configuracionpublica')['nombresistema']}}</h1>
+                        <h3>Una tienda virtual de artesanos para el mundo.</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ##### Welcome Area End ##### -->
-    @if(count($productos) > 8)
-        <section class="new_arrivals_area section-padding-80 clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="popular-products-slides owl-carousel">
-                        @for($a = 0; $a < 8; $a++)
-                            <!-- Single Product -->
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="{{asset($productos[$a]['img_url_min'])}}"
-                                             alt="{{$productos[$a]['nombre']}}">
+    @if(count($productos) > 0)
+        @for($c = 0; $c < (count($productos)%2); $c++)
+            <section class="new_arrivals_area section-padding-80 clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="popular-products-slides owl-carousel">
+                            @for($a = 0; $a < 8; $a++)
+                                <!-- Single Product -->
+                                    <div class="single-product-wrapper">
+                                        <!-- Product Image -->
+                                        <div class="product-img">
+                                            <img src="{{asset($productos[$a]['img_url_min'])}}"
+                                                 alt="{{$productos[$a]['nombre']}}">
 
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img"
-                                             src="{{asset($productos[$a]['img_hover'])}}"
-                                             alt="">
-                                        <!-- Favourite -->
-                                        <div class="product-favourite">
-                                            <a href="#" class="favme fa fa-heart"></a>
+                                            <!-- Hover Thumb -->
+                                            <img class="hover-img"
+                                                 src="{{asset($productos[$a]['img_hover'])}}"
+                                                 alt="">
+                                            <!-- Favourite -->
+                                            <div class="product-favourite">
+                                                <a href="#" class="favme fa fa-heart"></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>{{$productos[$a]['descripcion']}}</span>
-                                        <a href="{{route('producto', ['id' => $productos[$a]['id']])}}">
-                                            <h6>{{$productos[$a]['nombre']}}</h6>
-                                        </a>
-                                        <p class="product-price">
-                                            ${{number_format($productos[$a]['valor'])}}</p>
+                                        <!-- Product Description -->
+                                        <div class="product-description">
+                                            <span>{{$productos[$a]['descripcion']}}</span>
+                                            <a href="{{route('producto', ['id' => $productos[$a]['id']])}}">
+                                                <h6>{{$productos[$a]['nombre']}}</h6>
+                                            </a>
+                                            <p class="product-price">
+                                                ${{number_format($productos[$a]['valor'])}}</p>
 
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn">Add to Cart</a>
+                                            <!-- Hover Content -->
+                                            <div class="hover-content">
+                                                <!-- Add to Cart -->
+                                                <div class="add-to-cart-btn">
+                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    <!-- ##### CTA Area Start ##### -->
-    <div class="cta-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cta-content bg-img background-overlay"
-                         style="background-image: url({{asset('page/essence/img/bg-img/bg-5.jpg')}});">
-                        <div class="h-100 d-flex align-items-center justify-content-end">
-                            <div class="cta--text">
-                                <h6>-60%</h6>
-                                <h2>Global Sale</h2>
-                                <a href="#" class="btn essence-btn">Buy Now</a>
+                                @endfor
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### CTA Area End ##### -->
-    @if(count($productos) > 16)
-        <section class="new_arrivals_area section-padding-80 clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="popular-products-slides owl-carousel">
-                        @for($a = $a; $a < 16; $a++)
-                            <!-- Single Product -->
-                                <div class="single-product-wrapper">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img src="{{asset($productos[$a]['img_url_min'])}}"
-                                             alt="{{$productos[$a]['nombre']}}">
-
-                                        <!-- Hover Thumb -->
-                                        <img class="hover-img"
-                                             src="{{asset($productos[$a]['img_url_min'])}}"
-                                             alt="">
-                                        <!-- Favourite -->
-                                        <div class="product-favourite">
-                                            <a href="#" class="favme fa fa-heart"></a>
-                                        </div>
-                                    </div>
-                                    <!-- Product Description -->
-                                    <div class="product-description">
-                                        <span>{{$productos[$a]['descripcion']}}</span>
-                                        <a href="{{route('producto', ['id' => $productos[$a]['id']])}}">
-                                            <h6>{{$productos[$a]['nombre']}}</h6>
-                                        </a>
-                                        <p class="product-price">
-                                            ${{number_format($productos[$a]['valor'])}}</p>
-
-                                        <!-- Hover Content -->
-                                        <div class="hover-content">
-                                            <!-- Add to Cart -->
-                                            <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        @endfor
     @endif
-
+    <!-- ##### CTA Area Start ##### -->
+    {{--    <div class="cta-area">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-12">--}}
+    {{--                    <div class="cta-content bg-img background-overlay"--}}
+    {{--                         style="background-image: url({{asset('page/essence/img/bg-img/bg-5.jpg')}});">--}}
+    {{--                        <div class="h-100 d-flex align-items-center justify-content-end">--}}
+    {{--                            <div class="cta--text">--}}
+    {{--                                <h6>-60%</h6>--}}
+    {{--                                <h2>Global Sale</h2>--}}
+    {{--                                <a href="#" class="btn essence-btn">Buy Now</a>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    <!-- ##### CTA Area End ##### -->
     <!-- ##### New Arrivals Area End ##### -->
     <!-- ##### Top Catagory Area Start ##### -->
     <div class="top_catagory_area section-padding-80 clearfix">
