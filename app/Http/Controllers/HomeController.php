@@ -39,16 +39,16 @@ class HomeController extends Controller
             ->with('categoria', $propiedades->listarCategoriaProductos());
     }
 
-    public function categoria($nombre)
+    public function categoria($nombre = null)
     {
         try {
             $productos = new productos();
             $propiedades = new propiedades();
-            $datos = $productos->listarProductosPorCategorias($nombre);
-            $seo = $datos->all();
-            SEO::setTitle($seo[0]['nombre']);
-            SEO::setDescription($seo[0]['descripcion']);
-            SEO::opengraph()->addProperty('type', 'category');
+                $datos = $productos->listarProductosPorCategorias($nombre);
+                $seo = $datos->all();
+                SEO::setTitle($seo[0]['nombre']);
+                SEO::setDescription($seo[0]['descripcion']);
+                SEO::opengraph()->addProperty('type', 'category');
             return view('page.essence.category')
                 ->with('productos', $datos)
                 ->with('categoria', $propiedades->listarCategoriaProductos());

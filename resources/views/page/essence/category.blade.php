@@ -18,11 +18,9 @@
                                     <li data-toggle="collapse" data-target="#clothing">
                                         <ul class="sub-menu collapse show" id="clothing">
                                             @for($b = 0; $b < count($categoria); $b++)
-                                                @if($categoria[$b]['id'] != 1)
-                                                    <li>
-                                                        <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}">{{$categoria[$b]['nombre']}}</a>
-                                                    </li>
-                                                @endif
+                                                <li>
+                                                    <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}">{{$categoria[$b]['nombre']}}</a>
+                                                </li>
                                             @endfor
                                         </ul>
                                     </li>
