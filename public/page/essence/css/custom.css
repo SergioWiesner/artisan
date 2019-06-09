@@ -57,4 +57,17 @@
         font-size: 100%;
         color: #fff;
     }
+
+    .pagenofound h1 {
+        font-size: 300%;
+        color: #fff;
+        text-align: center;
+        text-shadow: 1px 2px 3px #333;
+    }
+
+    .pagenofound a {
+        font-size: 200%;
+        text-shadow: 1px 2px 3px #333;
+        color: #fff;
+    }
 }
