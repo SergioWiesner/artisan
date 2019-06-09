@@ -1,14 +1,14 @@
 @extends('system.productos.productos')
 @section('contentproductos')
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h3 class="titulos">Listar Categorias</h3>
             <hr>
             <ul class="nav justify-content-left">
                 <li class="nav-item">
                     <a class="nav-link active" href="#!" data-toggle="modal"
                        data-target=".bd-example-modal-lgcategoria"><i
-                            class="fas fa-plus"></i> Agregar categoria</a>
+                                class="fas fa-plus"></i> Agregar categoria</a>
                 </li>
             </ul>
             @for($b = 0; $b < count($categoria); $b++)
@@ -20,9 +20,9 @@
                         {{$categoria[$b]['descripcion']}}<br>
                         <a href="#!" data-toggle="modal"
                            data-target=".bd-example-modal-lgcategoria{{$categoria[$b]['id']}}"><i
-                                class="fas fa-edit"></i></a>
+                                    class="fas fa-edit"></i></a>
                         <a href="{{route('eliminarcategoria', ['id' => $categoria[$b]['id']])}}"><i
-                                class="fas fa-trash"></i></a>
+                                    class="fas fa-trash"></i></a>
                         <hr>
                     </div>
                     <div class="modal fade bd-example-modal-lgcategoria{{$categoria[$b]['id']}}" tabindex="-1"
@@ -72,7 +72,7 @@
 
                                                     @for($c = 0; $c < count($categoria); $c++)
                                                         <option
-                                                            value="{{$categoria[$c]['id']}}">{{$categoria[$c]['nombre']}}</option>
+                                                                value="{{$categoria[$c]['id']}}">{{$categoria[$c]['nombre']}}</option>
                                                     @endfor
                                                 </select>
                                             </div>
@@ -86,13 +86,13 @@
                 </div>
             @endfor
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <h3 class="titulos">Listar productos</h3>
             <hr>
             <ul class="nav justify-content-left">
                 <li class="nav-item">
                     <a class="nav-link active" href="#!" data-toggle="modal" data-target=".bd-example-modal-lg"><i
-                            class="fas fa-plus"></i> Agregar producto</a>
+                                class="fas fa-plus"></i> Agregar producto</a>
                 </li>
             </ul>
             <form>
@@ -104,12 +104,14 @@
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Buscar</button>
                     </div>
+                </div>
             </form>
             @if(isset($productos))
                 <table class="table table-borderless">
                     <thead>
                     <tr>
-                        <th scope="col">Referencia</th>
+                        <th scope="col" width="100">Referencia</th>
+                        <th scope="col" width="100"></th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Valor</th>
@@ -121,12 +123,13 @@
                     @foreach($productos as $produc)
                         <tr>
                             <td>{{$produc->referencia}}</td>
+                            <td><img src="{{$produc->img_url_min}}" alt="{{$produc->nombre}}" style="width: 100px;"></td>
                             <td>{{$produc->nombre}}</td>
                             <td>{{$produc->stock}}</td>
                             <td>${{number_format($produc->valor)}}</td>
                             <td><a href="{{route('verproducto', ['id' => $produc->id])}}"><i class="fas fa-eye"></i></a>
                                 <a href="{{route('eliminarproducto', ['id' => $produc->id])}}"><i
-                                        class="fas fa-trash"></i></a></td>
+                                            class="fas fa-trash"></i></a></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -183,7 +186,7 @@
                                     <option selected></option>
                                     @for($a = 0; $a < count($categoria); $a++)
                                         <option
-                                            value="{{$categoria[$a]['id']}}">{{$categoria[$a]['nombre']}}</option>
+                                                value="{{$categoria[$a]['id']}}">{{$categoria[$a]['nombre']}}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -264,7 +267,7 @@
                                     <option selected value="0"> selecione una categoria</option>
                                     @for($a = 0; $a < count($categoria); $a++)
                                         <option
-                                            value="{{$categoria[$a]['id']}}">{{$categoria[$a]['nombre']}}</option>
+                                                value="{{$categoria[$a]['id']}}">{{$categoria[$a]['nombre']}}</option>
                                     @endfor
                                 </select>
                             </div>
