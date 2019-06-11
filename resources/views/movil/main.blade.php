@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('movil/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('movil/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('movil/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('movil/css/owl.theme.green.min.css')}}">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141667193-1"></script>
     <script>
@@ -31,6 +34,7 @@
             enable_page_level_ads: true
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <div class="contenedor">
@@ -55,7 +59,37 @@
     </nav>
     @yield('contenido')
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
+                         alt="{{Session::get('configuracionpublica')['nombresistema']}}"
+                         align="left"> {{Session::get('configuracionpublica')['nombresistema']}}
+                </h5>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{{asset('movil/js/owl.carousel.min.js')}}"></script>
+<script !src="">
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

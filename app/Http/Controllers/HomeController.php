@@ -58,7 +58,9 @@ class HomeController extends Controller
             SEO::opengraph()->addProperty('type', 'category');
             OpenGraph::addImage($seo[0]['rutaimg']);
             if (Basics::isMobil()) {
-
+                return view('movil.category')
+                    ->with('productos', $datos)
+                    ->with('categoria', $propiedades->listarCategoriaProductos());
             } else {
                 return view('page.essence.category')
                     ->with('productos', $datos)
@@ -79,7 +81,8 @@ class HomeController extends Controller
             SEO::opengraph()->addProperty('type', 'articles');
             OpenGraph::addImage($datos[0]['rutaimagen']);
             if (Basics::isMobil()) {
-
+                return view('movil.product')
+                    ->with('producto', $datos);
             } else {
                 return view('page.essence.product')
                     ->with('producto', $datos);

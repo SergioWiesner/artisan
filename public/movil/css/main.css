@@ -2,6 +2,11 @@
     width: 30px;
 }
 
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
 .contenedor {
     min-height: 100vh;
 }
@@ -9,10 +14,24 @@
 .inicial {
     min-height: 60vh;
     background-size: cover;
-
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    flex-direction: column;
+    padding: 1%;
+    color: #fff;
 }
 
-.itemproduct {
+.inicial h1 {
+    font-size: 400%;
+}
+
+a.itemproduct {
+    text-decoration: none;
+    color: #000;
+}
+
+a.itemproduct p, a.itemproduct h5 {
     text-decoration: none;
     color: #000;
 }
@@ -22,8 +41,23 @@
     padding: 1%;
 }
 
+
+/*productos */
+.productos {
+    padding: 1%;
+}
+
 .cardproductos {
     width: 100%;
     padding: 1%;
     margin-top: 2%;
+}
+
+footer {
+    padding: 2%;
+    background-color: #f3f3f3;
+}
+
+footer img {
+    width: 8%;
 }
