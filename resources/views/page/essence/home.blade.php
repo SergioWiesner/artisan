@@ -15,41 +15,28 @@
             </div>
         </div>
     </section>
-    <section class="welcome_area bg-img background-overlay" id="blockresponsive"
-             style="background-image: url({{asset('videos/fondo3.png')}})">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="hero-content">
-                        <h1>{{Session::get('configuracionpublica')['nombresistema']}}</h1>
-                        <h3>Una tienda virtual de artesanos para el mundo.</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Welcome Area End ##### -->
     @if(count($productos) > 0)
-        @for($c = 0; $c < (count($productos)%2); $c++)
+        @php
+            $a = 0;
+        @endphp
+        @for($c = 0; $c < round(count($productos)/8); $c++)
             <section class="new_arrivals_area section-padding-80 clearfix">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="popular-products-slides owl-carousel">
-                            @for($a = 0; $a < 8; $a++)
+                            @for($a = $a; $a < count($productos); $a++)
                                 <!-- Single Product -->
                                     <div class="single-product-wrapper">
                                         <!-- Product Image -->
                                         <div class="product-img">
                                             <img src="{{asset($productos[$a]['img_url_min'])}}"
-                                                 alt="{{$productos[$a]['nombre']}}" class="lazy"
-                                                 data-original="{{asset($productos[$a]['img_url_min'])}}">
+                                                 alt="{{$productos[$a]['nombre']}}">
 
                                             <!-- Hover Thumb -->
                                             <img class="hover-img"
                                                  src="{{asset($productos[$a]['img_hover'])}}"
-                                                 alt="{{$productos[$a]['nombre']}}" class="lazy"
-                                                 data-original="{{asset($productos[$a]['img_url_min'])}}">
+                                                 alt="{{$productos[$a]['nombre']}}">
                                             <!-- Favourite -->
                                             <div class="product-favourite">
                                                 <a href="#" class="favme fa fa-heart"></a>

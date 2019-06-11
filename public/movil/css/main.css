@@ -1,0 +1,29 @@
+.logo {
+    width: 30px;
+}
+
+.contenedor {
+    min-height: 100vh;
+}
+
+.inicial {
+    min-height: 60vh;
+    background-size: cover;
+
+}
+
+.itemproduct {
+    text-decoration: none;
+    color: #000;
+}
+
+.titulos {
+    text-align: center;
+    padding: 1%;
+}
+
+.cardproductos {
+    width: 100%;
+    padding: 1%;
+    margin-top: 2%;
+}

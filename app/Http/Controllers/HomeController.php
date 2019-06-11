@@ -35,9 +35,15 @@ class HomeController extends Controller
     {
         $productos = new productos();
         $propiedades = new propiedades();
-        return view('page.essence.home')
-            ->with('productos', $productos->listarProductos())
-            ->with('categoria', $propiedades->listarCategoriaProductos());
+        if (Basics::isMobil()) {
+            return view('movil.index')
+                ->with('productos', $productos->listarProductos())
+                ->with('categoria', $propiedades->listarCategoriaProductos());
+        } else {
+            return view('page.essence.home')
+                ->with('productos', $productos->listarProductos())
+                ->with('categoria', $propiedades->listarCategoriaProductos());
+        }
     }
 
     public function categoria($nombre = null)
@@ -51,9 +57,13 @@ class HomeController extends Controller
             SEO::setDescription($seo[0]['descripcion']);
             SEO::opengraph()->addProperty('type', 'category');
             OpenGraph::addImage($seo[0]['rutaimg']);
-            return view('page.essence.category')
-                ->with('productos', $datos)
-                ->with('categoria', $propiedades->listarCategoriaProductos());
+            if (Basics::isMobil()) {
+
+            } else {
+                return view('page.essence.category')
+                    ->with('productos', $datos)
+                    ->with('categoria', $propiedades->listarCategoriaProductos());
+            }
         } catch (\Exception $e) {
             return view('page.essence.404');
         }
@@ -68,8 +78,12 @@ class HomeController extends Controller
             SEO::setDescription($datos[0]['descripcion']);
             SEO::opengraph()->addProperty('type', 'articles');
             OpenGraph::addImage($datos[0]['rutaimagen']);
-            return view('page.essence.product')
-                ->with('producto', $datos);
+            if (Basics::isMobil()) {
+
+            } else {
+                return view('page.essence.product')
+                    ->with('producto', $datos);
+            }
         } catch (\Exception $e) {
             return view('page.essence.404');
         }

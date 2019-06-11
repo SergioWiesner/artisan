@@ -230,10 +230,9 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
-        'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
-        // or
+        'Twitter' => Artesaos\SEOTools\Facades\TwitterCard::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
     ],
 

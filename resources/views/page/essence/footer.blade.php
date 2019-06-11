@@ -82,11 +82,7 @@
 </footer>
 <!-- ##### Footer Area End ##### -->
 <!-- Popper js -->
-<script>
-    $(function () {
-        $("img.lazy").lazyload();
-    });
-</script>
+
 <script src="{{asset('page/essence/js/popper.min.js')}}"></script>
 <!-- Bootstrap js -->
 <script src="{{asset('page/essence/js/bootstrap.min.js')}}"></script>
