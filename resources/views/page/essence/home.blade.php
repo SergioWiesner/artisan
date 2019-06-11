@@ -15,7 +15,7 @@
             </div>
         </div>
     </section>
-    <section class="welcome_area bg-img background-overlay"
+    <section class="welcome_area bg-img background-overlay" id="blockresponsive"
              style="background-image: url({{asset('videos/fondo3.png')}})">
         <div class="container h-100">
             <div class="row h-100 align-items-center">

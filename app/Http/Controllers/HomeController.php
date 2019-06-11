@@ -6,6 +6,7 @@ use App\Source\Productos\Propiedades\propiedades;
 use App\Source\Productos\productos;
 use  App\Source\Tools\Basics;
 use Illuminate\Http\Request;
+use OpenGraph;
 use SEO;
 
 class HomeController extends Controller
@@ -44,11 +45,12 @@ class HomeController extends Controller
         try {
             $productos = new productos();
             $propiedades = new propiedades();
-                $datos = $productos->listarProductosPorCategorias($nombre);
-                $seo = $datos->all();
-                SEO::setTitle($seo[0]['nombre']);
-                SEO::setDescription($seo[0]['descripcion']);
-                SEO::opengraph()->addProperty('type', 'category');
+            $datos = $productos->listarProductosPorCategorias($nombre);
+            $seo = $datos->all();
+            SEO::setTitle($seo[0]['nombre']);
+            SEO::setDescription($seo[0]['descripcion']);
+            SEO::opengraph()->addProperty('type', 'category');
+            OpenGraph::addImage($seo[0]['rutaimg']);
             return view('page.essence.category')
                 ->with('productos', $datos)
                 ->with('categoria', $propiedades->listarCategoriaProductos());
@@ -65,6 +67,7 @@ class HomeController extends Controller
             SEO::setTitle($datos[0]['nombre']);
             SEO::setDescription($datos[0]['descripcion']);
             SEO::opengraph()->addProperty('type', 'articles');
+            OpenGraph::addImage($datos[0]['rutaimagen']);
             return view('page.essence.product')
                 ->with('producto', $datos);
         } catch (\Exception $e) {

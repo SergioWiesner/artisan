@@ -6,6 +6,10 @@
     background-color: #42301d;
 }
 
+#blockresponsive {
+    display: none;
+}
+
 .hero-content {
     color: #fff;
 }
@@ -108,5 +112,9 @@
 
     #block {
         display: none;
+    }
+
+    #blockresponsive {
+        display: block;
     }
 }
