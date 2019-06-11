@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="{{asset('movil/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('movil/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('movil/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('movil/css/owl.theme.green.min.css')}}">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141667193-1"></script>
     <script>
@@ -74,18 +73,23 @@
 <script src="{{asset('movil/js/owl.carousel.min.js')}}"></script>
 <script !src="">
     $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        responsive: {
-            0: {
-                items: 1
+        loop:true,
+        margin:10,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
+                loop:true,
+                nav:false
             },
-            600: {
-                items: 3
+            600:{
+                items:3,
+                nav:false
             },
-            1000: {
-                items: 5
+            1000:{
+                items:5,
+                nav:true,
+                loop:false
             }
         }
     })

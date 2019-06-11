@@ -55,7 +55,7 @@
                                             <div class="hover-content">
                                                 <!-- Add to Cart -->
                                                 <div class="add-to-cart-btn">
-                                                    <a href="#" class="btn essence-btn">Add to Cart</a>
+                                                    <a href="#" class="btn essence-btn">Agregar al carrito</a>
                                                 </div>
                                             </div>
                                         </div>
