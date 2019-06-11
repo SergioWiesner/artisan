@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>http://localhost/</loc>
+<<<<<<< HEAD
         <lastmod>2019-06-10T15:15:17-05:00</lastmod>
+=======
+        <lastmod>2019-06-10T22:47:11-05:00</lastmod>
+>>>>>>> 8735cc5bc70d6ebf1502af192594f36f37d7071f
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
