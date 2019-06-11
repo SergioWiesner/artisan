@@ -58,6 +58,7 @@
             <section class="new_arrivals_area section-padding-80 clearfix">
                 <div class="container">
                     <h2>Productos relacionados</h2>
+                    <br>
                     <div class="row">
                         <div class="col-12">
                             <div class="popular-products-slides owl-carousel">

@@ -95,7 +95,7 @@
                 @if($categoria[$b]['id'] != 1)
                     <!-- Single Catagory -->
                         <div class="col-12 col-sm-6 col-md-4" style="padding: 1%;">
-                            <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
+                            <div class="single_catagory_area2 d-flex align-items-center justify-content-center bg-img"
                                  style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
                                 <div class="catagory-content">
                                     <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}">{{$categoria[$b]['nombre']}}</a>
