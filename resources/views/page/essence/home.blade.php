@@ -15,6 +15,19 @@
             </div>
         </div>
     </section>
+    <section class="welcome_area bg-img background-overlay"
+             style="background-image: url({{asset('videos/fondo3.png')}})">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <h1>{{Session::get('configuracionpublica')['nombresistema']}}</h1>
+                        <h3>Una tienda virtual de artesanos para el mundo.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ##### Welcome Area End ##### -->
     @if(count($productos) > 0)
         @for($c = 0; $c < (count($productos)%2); $c++)
@@ -29,12 +42,14 @@
                                         <!-- Product Image -->
                                         <div class="product-img">
                                             <img src="{{asset($productos[$a]['img_url_min'])}}"
-                                                 alt="{{$productos[$a]['nombre']}}">
+                                                 alt="{{$productos[$a]['nombre']}}" class="lazy"
+                                                 data-original="{{asset($productos[$a]['img_url_min'])}}">
 
                                             <!-- Hover Thumb -->
                                             <img class="hover-img"
                                                  src="{{asset($productos[$a]['img_hover'])}}"
-                                                 alt="">
+                                                 alt="{{$productos[$a]['nombre']}}" class="lazy"
+                                                 data-original="{{asset($productos[$a]['img_url_min'])}}">
                                             <!-- Favourite -->
                                             <div class="product-favourite">
                                                 <a href="#" class="favme fa fa-heart"></a>

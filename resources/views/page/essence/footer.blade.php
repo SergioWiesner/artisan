@@ -7,16 +7,18 @@
                 <div class="single_widget_area d-flex mb-30">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="#"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
+                        <a href="/"><img src="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
+                                         class="lazy"
+                                         data-original="{{asset(Session::get('configuracionpublica')['logosistema'])}}"
                                          alt="{{Session::get('configuracionpublica')['nombresistema']}}"
                                          width="50px"></a>
                     </div>
                     <!-- Footer Menu -->
                     <div class="footer_menu">
                         <ul>
-                            <li><a href="shop.html">Tienda</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contactenos</a></li>
+                            <li><a href="{{route('categorias')}}">Tienda</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contactenos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,9 +57,11 @@
             <div class="col-12 col-md-6">
                 <div class="single_widget_area">
                     <div class="footer_social_area">
-                        <a href="https://www.facebook.com/capitalana.store/?modal=admin_todo_tour" data-toggle="tooltip" data-placement="top" title="Facebook"><i
+                        <a href="https://www.facebook.com/capitalana.store/?modal=admin_todo_tour" data-toggle="tooltip"
+                           data-placement="top" title="Facebook"><i
                                 class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/capitalana.store/" data-toggle="tooltip" data-placement="top" title="Instagram"><i
+                        <a href="https://www.instagram.com/capitalana.store/" data-toggle="tooltip" data-placement="top"
+                           title="Instagram"><i
                                 class="fa fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -78,6 +82,11 @@
 </footer>
 <!-- ##### Footer Area End ##### -->
 <!-- Popper js -->
+<script>
+    $(function () {
+        $("img.lazy").lazyload();
+    });
+</script>
 <script src="{{asset('page/essence/js/popper.min.js')}}"></script>
 <!-- Bootstrap js -->
 <script src="{{asset('page/essence/js/bootstrap.min.js')}}"></script>
