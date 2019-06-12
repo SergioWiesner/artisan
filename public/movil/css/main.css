@@ -55,13 +55,27 @@ a.itemproduct p, a.itemproduct h5 {
     flex-direction: column;
 }
 
-.promociones h2 {
+.promociones h3 {
     font-size: 300%;
 }
 
 /*productos */
 .productos {
     padding: 1%;
+}
+
+
+.productgalery img {
+    width: 100%;
+}
+
+.productgalery p {
+    text-align: justify;
+}
+
+.productgalery h3 {
+    text-align: center;
+    font-size: 90%;
 }
 
 .cardproductos {
@@ -72,6 +86,11 @@ a.itemproduct p, a.itemproduct h5 {
 
 .cardproductos p {
     text-align: justify;
+}
+
+/*cateogira productos*/
+.listaproductoscategorias img {
+    width: 100%;
 }
 
 footer {

@@ -15,8 +15,8 @@
                     <div class="owl-carousel owl-theme">
                         @for($a = 0; $a < count($productos); $a++)
                             <div class="item"><a
-                                    href="{{route('producto', ['nombre' => $productos[$a]['nombre'],'id' => $productos[$a]['id']])}}"
-                                    class="itemproduct">
+                                        href="{{route('producto', ['nombre' => $productos[$a]['nombre'],'id' => $productos[$a]['id']])}}"
+                                        class="itemproduct">
                                     <div class="card cardproductos">
                                         <img src="{{asset($productos[$a]['img_url_min'])}}" class="card-img-top"
                                              alt="{{$productos[$a]['nombre']}}">
@@ -34,12 +34,12 @@
         </section>
     @endif
     <section class="promociones" style="background-image: url({{asset('img/bg-img/bg-2.png')}})">
-        <h2>Productos 100% <strong>Artesanales</strong></h2>
+        <h3>PRODUCTOS 100% <strong>ARTESANALES</strong></h3>
     </section>
     @if(count($categoria) > 0)
         <section class="categorias">
             <div class="container-fluid">
-                <h3 class="titulos">Categorias</h3>
+                <h3 class="titulos">CATEGORIAS</h3>
                 <div class="owl-carousel owl-theme">
                     @for($b = 0; $b < count($categoria); $b++)
                         @if($categoria[$b]['id'] != 1)
