@@ -213,7 +213,7 @@
                                 <label for="inputState">imagen del producto</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFileLang" lang="es"
-                                           name="imagenproducto">
+                                           name="rutaimg">
                                     <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
                                 </div>
                             </div>

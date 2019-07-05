@@ -56,6 +56,10 @@ a {
     color: #8074d3;
 }
 
+.propiedadadd {
+    background-color: rgba(0, 0, 0, .1);
+}
+
 .imagenusuariomain {
     min-height: 40vh;
     /*display: flex;*/

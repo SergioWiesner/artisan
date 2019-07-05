@@ -109,7 +109,7 @@ class Modelo
     }
 
 
-    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $stock = 0, $precio = 0, $id)
+    public static function agregarRelacionPropiedadProducto($propiedad, $valor, $stock = 0, $precio = 0, $rebaja = 0, $id, $descripcion = null, $img, $sumable = 0, $activacion = 1)
     {
         if (!is_null($valor)) {
             return DB::table('productos_propiedades')->insert([
@@ -117,7 +117,13 @@ class Modelo
                 'propiedades_id' => $propiedad,
                 'valor' => $valor,
                 'stock' => $stock,
-                'precio' => $precio
+                'precio' => $precio,
+                'descripcion' => $descripcion,
+                'rebaja' => $rebaja,
+                'img' => $img['big'],
+                'imghover' => $img['hover'],
+                'sumable' => $sumable,
+                'activacion' => $activacion
             ]);
         }
     }
@@ -143,7 +149,7 @@ class Modelo
     {
         return Productos::where('id', $id)->with(['propiedades.valorPropiedad' => function ($query) use ($id) {
             $query->where('productos_id', $id);
-        }])->with(['catgorias.productos' => function ($query) use ($id){
+        }])->with(['catgorias.productos' => function ($query) use ($id) {
             return $query->whereNotIn('id', [$id])->inRandomOrder()->limit(5);
         }])->with('propiedadesvalor.propiedadesPadre')->get();
     }

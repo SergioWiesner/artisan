@@ -260,7 +260,7 @@
                                                         </div>
                                                     @endfor
                                                 </div>
-                                                <div id="anexopropiedades" class="row">
+                                                    <div id="anexopropiedades" class="row">
 
                                                 </div>
                                                 <hr>

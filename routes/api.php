@@ -25,3 +25,4 @@ Route::middleware(['auth:api', 'auth'])->group(function () {
 
 
 Route::get('/inicio', 'ApiController@index');
+Route::post('/agregar/producto/carrito/compras', 'CarritoController@store');

@@ -10,7 +10,7 @@ class Productos extends Model
     use SoftDeletes;
 
     protected $table = "productos";
-    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'rutaimagen', 'img_url_min', 'stock', 'valor', 'idcategoria', 'idproductopadre', 'bodega', 'estado'];
+    protected $fillable = ['id', 'referencia', 'nombre', 'descripcion', 'rutaimagen', 'img_url_min', 'img_hover', 'stock', 'valor', 'idcategoria', 'idproductopadre', 'bodega', 'estado'];
 
     public function catgorias()
     {

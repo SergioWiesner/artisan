@@ -10,7 +10,7 @@ class ProductosPropiedades extends Model
     use SoftDeletes;
 
     protected $table = "productos_propiedades";
-    protected $fillable = ['productos_id', 'propiedades_id', 'valor', 'stock', 'precio', 'id'];
+    protected $fillable = ['productos_id', 'propiedades_id', 'valor', 'descripcion', 'stock', 'precio', 'rebaja', 'img', 'imghover', 'sumable', 'activacion', 'id'];
 
 
     public function productospropiedades()
