@@ -3,6 +3,8 @@
 Route::middleware('configuracionpublica')->group(function () {
     Route::get('/', 'HomeController@inicio')->name('inicio');
     Route::get('/contactenos/', 'HomeController@contactenos')->name('contactenos');
+    Route::get('/checkout/', 'HomeController@checkout')->name('checkout');
+    Route::get('/terminos/y/condiciones/', 'HomeController@terminosycondiciones')->name('terminosycondiciones');
     Route::get('/categoria/{nombre?}', 'HomeController@categoria')->name('categorias');
     Route::get('/producto/{nombre}/{id}', 'HomeController@productos')->name('producto');
     /** RUTAS DE LA PAGINA **/

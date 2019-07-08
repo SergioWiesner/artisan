@@ -96,4 +96,14 @@ class HomeController extends Controller
     {
         return view('page.essence.contact');
     }
+
+    public function checkout()
+    {
+        return view('page.essence.checkout');
+    }
+
+    public function terminosycondiciones()
+    {
+        return view('page.essence.terminosycondiciones');
+    }
 }

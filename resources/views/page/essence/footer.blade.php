@@ -32,7 +32,7 @@
                         <li><a href="#">Shipping and Delivery</a></li>
                         <li><a href="#">Guias</a></li>
                         <li><a href="#">Politicas de privacidad</a></li>
-                        <li><a href="#">Terminos de usos</a></li>
+                        <li><a href="{{route('terminosycondiciones')}}">Terminos de usos</a></li>
                     </ul>
                 </div>
             </div>

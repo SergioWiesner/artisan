@@ -98,7 +98,7 @@
                     <!-- Single Catagory -->
                         <div class="col-12 col-sm-6 col-md-4">
                             <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
-                                 style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
+                                 style="background-image: url({{asset($categoria[$b]['rutaimg'])}});    margin-bottom: 8%;">
                                 <div class="catagory-content">
                                     <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}"
                                        style="color: #0b0b0b;">{{$categoria[$b]['nombre']}}</a>
