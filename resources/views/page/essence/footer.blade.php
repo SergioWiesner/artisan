@@ -18,7 +18,7 @@
                         <ul>
                             <li><a href="{{route('categorias')}}">Tienda</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contactenos</a></li>
+                            <li><a href="{{route('contactenos')}}">Contactenos</a></li>
                         </ul>
                     </div>
                 </div>

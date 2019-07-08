@@ -44,7 +44,7 @@
                                         </div>
                                         <!-- Product Description -->
                                         <div class="product-description">
-                                            <span>{{$productos[$a]['descripcion']}}</span>
+                                            <span>{{substr($productos[$a]['descripcion'],0,100)}}</span>
                                             <a href="{{route('producto', ['nombre' => $productos[$a]['nombre'],'id' => $productos[$a]['id']])}}">
                                                 <h6>{{$productos[$a]['nombre']}}</h6>
                                             </a>
@@ -96,11 +96,12 @@
             @for($b = 0; $b < count($categoria); $b++)
                 @if($categoria[$b]['id'] != 1)
                     <!-- Single Catagory -->
-                        <div class="col-12 col-sm-6 col-md-4" style="padding: 1%;">
-                            <div class="single_catagory_area2 d-flex align-items-center justify-content-center bg-img"
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img"
                                  style="background-image: url({{asset($categoria[$b]['rutaimg'])}});">
                                 <div class="catagory-content">
-                                    <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}">{{$categoria[$b]['nombre']}}</a>
+                                    <a href="{{route('categorias', ['nombre' => $categoria[$b]['nombre']])}}"
+                                       style="color: #0b0b0b;">{{$categoria[$b]['nombre']}}</a>
                                 </div>
                             </div>
                         </div>
@@ -109,5 +110,4 @@
             </div>
         </div>
     </div>
-    <!-- ##### Top Catagory Area End ##### -->
 @endsection

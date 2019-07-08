@@ -92,4 +92,8 @@ class HomeController extends Controller
         }
     }
 
+    public function contactenos()
+    {
+        return view('page.essence.contact');
+    }
 }
